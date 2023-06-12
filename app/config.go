@@ -30,7 +30,7 @@ func DefaultConfig() network.Config {
 		AppConstructor:    NewAppConstructor(encCfg),
 		GenesisState:      ModuleBasics.DefaultGenesis(encCfg.Marshaler),
 		TimeoutCommit:     1 * time.Second / 2,
-		ChainID:           "quicktest-1",
+		ChainID:           "blacktest-1",
 		NumValidators:     1,
 		BondDenom:         sdk.DefaultBondDenom,
 		MinGasPrices:      fmt.Sprintf("0.000006%s", sdk.DefaultBondDenom),

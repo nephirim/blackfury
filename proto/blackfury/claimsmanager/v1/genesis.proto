@@ -1,8 +1,8 @@
 syntax = "proto3";
 package blackfury.claimsmanager.v1;
 
-import "gogoproto/gogo.proto";
 import "blackfury/claimsmanager/v1/claimsmanager.proto";
+import "gogoproto/gogo.proto";
 
 option go_package = "github.com/nephirim/blackfury/x/claimsmanager/types";
 

@@ -7,6 +7,7 @@ import (
 	"time"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+
 	"github.com/nephirim/blackfury/internal/multierror"
 	"github.com/nephirim/blackfury/osmosis-types/gamm"
 	"github.com/nephirim/blackfury/osmosis-types/gamm/pool-models/balancer"

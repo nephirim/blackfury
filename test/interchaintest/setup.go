@@ -5,8 +5,8 @@ import (
 )
 
 var (
-	QuickSilverE2ERepo  = "blackfuryzone/blackfury-e2e"
-	BlackfuryMainRepo = "blackfuryzone/blackfury"
+	BlackfuryE2ERepo = "blackfuryzone/blackfury-e2e"
+	BlackfuryMainRepo  = "blackfuryzone/blackfury"
 
 	repo, version = GetDockerImageInfo()
 
@@ -28,7 +28,7 @@ var (
 		UidGid:     "1027:1027",
 	}
 
-	pathBlackfuryJuno = "blackfury-juno"
+	pathBlackfuryJuno   = "blackfury-juno"
 	genesisWalletAmount = int64(10_000_000)
 )
 

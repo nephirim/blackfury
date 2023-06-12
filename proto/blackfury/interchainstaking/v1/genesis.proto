@@ -1,9 +1,9 @@
 syntax = "proto3";
 package blackfury.interchainstaking.v1;
 
+import "blackfury/interchainstaking/v1/interchainstaking.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
-import "blackfury/interchainstaking/v1/interchainstaking.proto";
 
 option go_package = "github.com/nephirim/blackfury/x/interchainstaking/types";
 

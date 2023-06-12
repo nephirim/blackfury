@@ -1,10 +1,10 @@
 syntax = "proto3";
 package blackfury.participationrewards.v1;
 
+import "blackfury/claimsmanager/v1/claimsmanager.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "blackfury/claimsmanager/v1/claimsmanager.proto";
 
 option go_package = "github.com/nephirim/blackfury/x/participationrewards/types";
 

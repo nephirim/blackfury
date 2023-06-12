@@ -50,7 +50,7 @@ func TestQueryFullDenom(t *testing.T) {
 	require.NotEmpty(t, reflect)
 
 	// query full denom
-	query := bindings.QuickSilverQuery{
+	query := bindings.BlackfuryQuery{
 		FullDenom: &bindings.FullDenom{
 			CreatorAddr: reflect.String(),
 			Subdenom:    "ustart",
@@ -75,7 +75,7 @@ type ChainResponse struct {
 	Data []byte `json:"data"`
 }
 
-func queryCustom(t *testing.T, ctx sdk.Context, blackfury *app.Blackfury, contract sdk.AccAddress, request bindings.QuickSilverQuery, response interface{}) {
+func queryCustom(t *testing.T, ctx sdk.Context, blackfury *app.Blackfury, contract sdk.AccAddress, request bindings.BlackfuryQuery, response interface{}) {
 	t.Helper()
 
 	msgBz, err := json.Marshal(request)

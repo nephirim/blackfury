@@ -1,10 +1,10 @@
 syntax = "proto3";
 package blackfury.epochs.v1;
 
+import "blackfury/epochs/v1/genesis.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "blackfury/epochs/v1/genesis.proto";
 
 option go_package = "github.com/nephirim/blackfury/x/epochs/types";
 

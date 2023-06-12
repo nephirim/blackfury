@@ -1,8 +1,8 @@
 syntax = "proto3";
 package blackfury.interchainquery.v1;
 
-import "gogoproto/gogo.proto";
 import "blackfury/interchainquery/v1/interchainquery.proto";
+import "gogoproto/gogo.proto";
 
 option go_package = "github.com/nephirim/blackfury/x/interchainquery/types";
 

@@ -141,19 +141,19 @@ build-linux:
 	GOOS=linux GOARCH=amd64 LEDGER_ENABLED=false $(MAKE) build
 
 $(BUILD_TARGETS): check_version go.sum $(BUILDDIR)/
-	go $@ -mod=readonly $(BUILD_FLAGS) $(BUILD_ARGS) ./cmd/blackfuryd
+	go $@ $(BUILD_FLAGS) $(BUILD_ARGS) ./cmd/blackfuryd
 
 $(BUILDDIR)/:
 	mkdir -p $(BUILDDIR)/
 
 build-docker:
-	DOCKER_BUILDKIT=1 $(DOCKER) build . -f Dockerfile -t blackfuryzone/blackfury:$(DOCKER_VERSION) -t blackfuryzone/blackfury:latest
+	DOCKER_BUILDKIT=1 $(DOCKER) build . -f Dockerfile -t fanfury/blackfury:$(DOCKER_VERSION) -t fanfury/blackfury:latest
 
 build-docker-local: build
-	DOCKER_BUILDKIT=1 $(DOCKER) build -f Dockerfile.local . -t blackfuryzone/blackfury:$(DOCKER_VERSION)
+	DOCKER_BUILDKIT=1 $(DOCKER) build -f Dockerfile.local . -t fanfury/blackfury:$(DOCKER_VERSION)
 
 build-docker-release: build-docker
-	$(DOCKER)  run -v /tmp:/tmp blackfuryzone/blackfury:$(DOCKER_VERSION) cp /usr/local/bin/blackfuryd /tmp/blackfuryd
+	$(DOCKER)  run -v /tmp:/tmp fanfury/blackfury:$(DOCKER_VERSION) cp /usr/local/bin/blackfuryd /tmp/blackfuryd
 	mv /tmp/blackfuryd build/blackfuryd-$(DOCKER_VERSION)-amd64
 
 push-docker: build-docker

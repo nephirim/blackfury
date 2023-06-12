@@ -9,6 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+
 	"github.com/nephirim/blackfury/utils/addressutils"
 	"github.com/nephirim/blackfury/utils/randomutils"
 	"github.com/nephirim/blackfury/x/interchainstaking/types"

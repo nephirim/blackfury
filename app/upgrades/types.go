@@ -13,7 +13,7 @@ import (
 const (
 	ProductionChainID     = "blackfury-2"
 	RhyeChainID           = "rhye-1"
-	DevnetChainID         = "quicktest-1"
+	DevnetChainID         = "blacktest-1"
 	TestChainID           = "testchain1"
 	OsmosisTestnetChainID = "osmo-test-5"
 

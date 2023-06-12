@@ -1,11 +1,11 @@
 syntax = "proto3";
 package blackfury.interchainstaking.v1;
 
+import "blackfury/interchainstaking/v1/interchainstaking.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "blackfury/interchainstaking/v1/interchainstaking.proto";
 
 option go_package = "github.com/nephirim/blackfury/x/interchainstaking/types";
 
@@ -196,6 +196,6 @@ message QueryMappedAccountsRequest {
 }
 
 message QueryMappedAccountsResponse {
-   map<string, bytes> RemoteAddressMap= 1 [(gogoproto.nullable) = false];
+  map<string, bytes> RemoteAddressMap = 1 [(gogoproto.nullable) = false];
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }

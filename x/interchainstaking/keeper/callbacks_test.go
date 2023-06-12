@@ -1276,7 +1276,7 @@ func TestDelegationsCallbackOneMissing(t *testing.T) {
 		}
 	}
 
-	suite.Require().Equal(1, delegationRequests)                                                     // callback for 'missing' delegation.
+	suite.Require().Equal(1, delegationRequests)                                                   // callback for 'missing' delegation.
 	suite.Require().Equal(3, len(blackfury.InterchainstakingKeeper.GetAllDelegations(ctx, &zone))) // new delegation doesn't get removed until the callback.
 }
 
