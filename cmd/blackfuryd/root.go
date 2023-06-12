@@ -36,9 +36,9 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	quicksilverconfig "github.com/ingenuity-build/quicksilver/cmd/config"
-	servercfg "github.com/ingenuity-build/quicksilver/server/config"
+	"github.com/nephirim/quicksilver/app"
+	quicksilverconfig "github.com/nephirim/quicksilver/cmd/config"
+	servercfg "github.com/nephirim/quicksilver/server/config"
 )
 
 const (
@@ -49,7 +49,7 @@ type appCreator struct {
 	encCfg app.EncodingConfig
 }
 
-// NewRootCmd creates a new root command for quicksilverd. It is called once in the
+// NewRootCmd creates a new root command for blackfuryd. It is called once in the
 // main function.
 func NewRootCmd() (*cobra.Command, app.EncodingConfig) {
 	app.Init()

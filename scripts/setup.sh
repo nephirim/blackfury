@@ -184,9 +184,9 @@ if [ "$IS_MULTI_ZONE_TEST" = true ]; then
 fi
 
 ## Set denoms
-${SED} 's/stake/uqck/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}/config/genesis.json
-${SED} 's/stake/uqck/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}a/config/genesis.json
-${SED} 's/stake/uqck/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}b/config/genesis.json
+${SED} 's/stake/ufury/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}/config/genesis.json
+${SED} 's/stake/ufury/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}a/config/genesis.json
+${SED} 's/stake/ufury/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}b/config/genesis.json
 
 ${SED} 's/stake/uatom/g' $(pwd)/${CHAIN_DIR}/${CHAINID_1}/config/genesis.json
 ${SED} 's/stake/uatom/g' $(pwd)/${CHAIN_DIR}/${CHAINID_1}a/config/genesis.json
@@ -254,17 +254,17 @@ if [ "$IS_MULTI_ZONE_TEST" = true ]; then
     VAL_VALOPER_11=$($TZ2_4_RUN keys show val11 --keyring-backend test --bech=val -a)
 fi
 
-$QS1_RUN add-genesis-account ${VAL_ADDRESS_1} 100000000000uqck
-$QS1_RUN add-genesis-account ${DEMO_ADDRESS_1} 100000000000uqck
-$QS1_RUN add-genesis-account ${RLY_ADDRESS_1} 100000000000uqck
+$QS1_RUN add-genesis-account ${VAL_ADDRESS_1} 100000000000ufury
+$QS1_RUN add-genesis-account ${DEMO_ADDRESS_1} 100000000000ufury
+$QS1_RUN add-genesis-account ${RLY_ADDRESS_1} 100000000000ufury
 
-$QS1_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000uqck
-$QS1_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000uqck
-$QS1_RUN add-genesis-account ${DEMO_ADDRESS_6} 100000000000uqck
-$QS1_RUN add-genesis-account ${DEMO_ADDRESS_7} 100000000000uqck
+$QS1_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000ufury
+$QS1_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000ufury
+$QS1_RUN add-genesis-account ${DEMO_ADDRESS_6} 100000000000ufury
+$QS1_RUN add-genesis-account ${DEMO_ADDRESS_7} 100000000000ufury
 
-$QS2_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000uqck
-$QS3_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000uqck
+$QS2_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000ufury
+$QS3_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000ufury
 
 $TZ1_1_RUN add-genesis-account ${VAL_ADDRESS_2} 100000000000uatom
 $TZ1_1_RUN add-genesis-account ${VAL_ADDRESS_3} 100000000000uatom
@@ -298,9 +298,9 @@ if [ "$IS_MULTI_ZONE_TEST" = true ]; then
 fi
 
 echo "Creating and collecting gentx..."
-$QS1_RUN gentx val1 7000000000uqck --chain-id $CHAINID_0 --keyring-backend test
-$QS2_RUN gentx val6 7000000000uqck --chain-id $CHAINID_0 --keyring-backend test
-$QS3_RUN gentx val7 7000000000uqck --chain-id $CHAINID_0 --keyring-backend test
+$QS1_RUN gentx val1 7000000000ufury --chain-id $CHAINID_0 --keyring-backend test
+$QS2_RUN gentx val6 7000000000ufury --chain-id $CHAINID_0 --keyring-backend test
+$QS3_RUN gentx val7 7000000000ufury --chain-id $CHAINID_0 --keyring-backend test
 
 $TZ1_1_RUN gentx val2 7000000000uatom --commission-rate 0.33 --commission-max-rate 0.5 --commission-max-change-rate 0.1 --chain-id $CHAINID_1 --keyring-backend test
 $TZ1_2_RUN gentx val3 6000000000uatom --commission-rate 0.23 --commission-max-rate 0.5 --commission-max-change-rate 0.1 --chain-id $CHAINID_1 --keyring-backend test
@@ -478,7 +478,7 @@ fi
 jq '.app_state.epochs.epochs = [{"identifier": "epoch","start_time": "0001-01-01T00:00:00Z","duration": "240s","current_epoch": "0","current_epoch_start_time": "0001-01-01T00:00:00Z","epoch_counting_started": false,"current_epoch_start_height": "0"}]' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.interchainstaking.params.deposit_interval = 25' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.mint.params.epoch_identifier = "epoch"' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.app_state.gov.deposit_params.min_deposit = [{"denom": "uqck", "amount": "100"}]' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.gov.deposit_params.min_deposit = [{"denom": "ufury", "amount": "100"}]' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.gov.deposit_params.max_deposit_period = "10s"' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.gov.voting_params.voting_period = "10s"' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 

@@ -6,10 +6,10 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/utils/addressutils"
 
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func (suite *KeeperTestSuite) TestKeeper_DelegationStore() {

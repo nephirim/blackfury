@@ -10,8 +10,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 var _ types.QueryServer = &Keeper{}

@@ -17,13 +17,13 @@ import (
 	tmclienttypes "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
 	ibctesting "github.com/cosmos/ibc-go/v5/testing"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	cmtypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	epochtypes "github.com/ingenuity-build/quicksilver/x/epochs/types"
-	ics "github.com/ingenuity-build/quicksilver/x/interchainstaking"
-	icstypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	epochtypes "github.com/nephirim/quicksilver/x/epochs/types"
+	ics "github.com/nephirim/quicksilver/x/interchainstaking"
+	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 var testAddress = addressutils.GenerateAddressForTestWithPrefix("cosmos")
@@ -122,7 +122,7 @@ func (suite *KeeperTestSuite) coreTest() {
 		return false
 	})
 
-	_, found := quicksilver.ClaimsManagerKeeper.GetLastEpochClaim(ctx, "cosmoshub-4", "quick16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure", cmtypes.ClaimTypeLiquidToken, "osmosis-1")
+	_, found := quicksilver.ClaimsManagerKeeper.GetLastEpochClaim(ctx, "cosmoshub-4", "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure", cmtypes.ClaimTypeLiquidToken, "osmosis-1")
 	suite.Require().True(found)
 
 	quicksilver.EpochsKeeper.AfterEpochEnd(suite.chainA.GetContext(), epochtypes.EpochIdentifierEpoch, 3)
@@ -528,7 +528,7 @@ func (suite *KeeperTestSuite) setupTestClaims() {
 	)
 
 	suite.addClaim(
-		"quick16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+		"black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 		"cosmoshub-4",
 		cmtypes.ClaimTypeLiquidToken,
 		"osmosis-1",

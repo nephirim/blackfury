@@ -6,8 +6,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/keeper"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/quicksilver/x/participationrewards/keeper"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 func (suite *KeeperTestSuite) TestCalcTokenValues() {
@@ -63,7 +63,7 @@ func (suite *KeeperTestSuite) TestCalcTokenValues() {
 					PoolType:    "balancer",
 					PoolData:    json.RawMessage("{\"address\":\"osmo1k3j5wgcj8um2gnu8qxdm0mzzuh6x66p4p7gn6fraf3wnpfcvg9sq2zhx7j\",\"id\":\"952\",\"pool_params\":{\"swap_fee\":\"0.003000000000000000\",\"exit_fee\":\"0.000000000000000000\",\"smooth_weight_change_params\":null},\"future_pool_governor\":\"168h\",\"total_shares\":{\"denom\":\"gamm/pool/952\",\"amount\":\"281109110456689694028077\"},\"pool_assets\":[{\"token\":{\"denom\":\"ibc/635CB83EF1DFE598B10A3E90485306FD0D47D34217A4BE5FD9977FA010A5367D\",\"amount\":\"1036526700301\"},\"weight\":\"1073741824\"},{\"token\":{\"denom\":\"uosmo\",\"amount\":\"162265452817\"},\"weight\":\"1073741824\"}],\"total_weight\":\"2147483648\"}"),
 					Denoms: map[string]types.DenomWithZone{
-						"ibc/635CB83EF1DFE598B10A3E90485306FD0D47D34217A4BE5FD9977FA010A5367D": {Denom: "uqck", ChainID: "quicksilver-2"},
+						"ibc/635CB83EF1DFE598B10A3E90485306FD0D47D34217A4BE5FD9977FA010A5367D": {Denom: "ufury", ChainID: "quicksilver-2"},
 						"uosmo": {Denom: "uosmo", ChainID: "osmosis-1"},
 					},
 					IsIncentivized: false,

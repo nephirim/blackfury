@@ -15,8 +15,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/app/helpers"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/app/helpers"
 )
 
 // SetupSimulation creates the config, db (levelDB), temporary directory and logger for

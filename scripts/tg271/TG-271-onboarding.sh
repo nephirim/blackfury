@@ -119,9 +119,9 @@ echo $RLY_MNEMONIC_1 | $QS1_RUN keys add rly1 --recover --keyring-backend=test
 echo $RLY_MNEMONIC_2 | $GAIA1_RUN keys add rly2 --recover --keyring-backend=test
 
 ## Set denoms
-${SED} 's/stake/uqck/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}/config/genesis.json
-${SED} 's/stake/uqck/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}a/config/genesis.json
-${SED} 's/stake/uqck/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}b/config/genesis.json
+${SED} 's/stake/ufury/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}/config/genesis.json
+${SED} 's/stake/ufury/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}a/config/genesis.json
+${SED} 's/stake/ufury/g' $(pwd)/${CHAIN_DIR}/${CHAINID_0}b/config/genesis.json
 
 ${SED} 's/stake/uatom/g' $(pwd)/${CHAIN_DIR}/${CHAINID_1}/config/genesis.json
 ${SED} 's/stake/uatom/g' $(pwd)/${CHAIN_DIR}/${CHAINID_1}a/config/genesis.json
@@ -154,17 +154,17 @@ DEMO_ADDRESS_7=$($QS3_RUN keys show demowallet7 --keyring-backend test -a)
 VAL_VALOPER_6=$($QS2_RUN keys show val6 --keyring-backend test --bech=val -a)
 VAL_VALOPER_7=$($QS3_RUN keys show val7 --keyring-backend test --bech=val -a)
 
-$QS1_RUN add-genesis-account ${VAL_ADDRESS_1} 100000000000uqck
-$QS1_RUN add-genesis-account ${DEMO_ADDRESS_1} 100000000000uqck
-$QS1_RUN add-genesis-account ${RLY_ADDRESS_1} 100000000000uqck
+$QS1_RUN add-genesis-account ${VAL_ADDRESS_1} 100000000000ufury
+$QS1_RUN add-genesis-account ${DEMO_ADDRESS_1} 100000000000ufury
+$QS1_RUN add-genesis-account ${RLY_ADDRESS_1} 100000000000ufury
 
-$QS1_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000uqck
-$QS1_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000uqck
-$QS1_RUN add-genesis-account ${DEMO_ADDRESS_6} 100000000000uqck
-$QS1_RUN add-genesis-account ${DEMO_ADDRESS_7} 100000000000uqck
+$QS1_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000ufury
+$QS1_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000ufury
+$QS1_RUN add-genesis-account ${DEMO_ADDRESS_6} 100000000000ufury
+$QS1_RUN add-genesis-account ${DEMO_ADDRESS_7} 100000000000ufury
 
-$QS2_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000uqck
-$QS3_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000uqck
+$QS2_RUN add-genesis-account ${VAL_ADDRESS_6} 100000000000ufury
+$QS3_RUN add-genesis-account ${VAL_ADDRESS_7} 100000000000ufury
 
 $GAIA1_RUN add-genesis-account ${VAL_ADDRESS_2} 100000000000uatom
 $GAIA1_RUN add-genesis-account ${VAL_ADDRESS_3} 100000000000uatom
@@ -178,9 +178,9 @@ $GAIA2_RUN add-genesis-account ${VAL_ADDRESS_3} 100000000000uatom
 $GAIA3_RUN add-genesis-account ${VAL_ADDRESS_4} 100000000000uatom
 
 echo "Creating and collecting gentx..."
-$QS1_RUN gentx val1 7000000000uqck --chain-id $CHAINID_0 --keyring-backend test
-$QS2_RUN gentx val6 7000000000uqck --chain-id $CHAINID_0 --keyring-backend test
-$QS3_RUN gentx val7 7000000000uqck --chain-id $CHAINID_0 --keyring-backend test
+$QS1_RUN gentx val1 7000000000ufury --chain-id $CHAINID_0 --keyring-backend test
+$QS2_RUN gentx val6 7000000000ufury --chain-id $CHAINID_0 --keyring-backend test
+$QS3_RUN gentx val7 7000000000ufury --chain-id $CHAINID_0 --keyring-backend test
 
 $GAIA1_RUN gentx val2 7000000000uatom --commission-rate 0.33 --commission-max-rate 0.5 --commission-max-change-rate 0.1 --chain-id $CHAINID_1 --keyring-backend test
 $GAIA2_RUN gentx val3 6000000000uatom --commission-rate 0.23 --commission-max-rate 0.5 --commission-max-change-rate 0.1 --chain-id $CHAINID_1 --keyring-backend test
@@ -268,7 +268,7 @@ cp ./${CHAIN_DIR}/${CHAINID_1}{,b}/config/genesis.json
 jq '.app_state.epochs.epochs = [{"identifier": "epoch","start_time": "0001-01-01T00:00:00Z","duration": "240s","current_epoch": "0","current_epoch_start_time": "0001-01-01T00:00:00Z","epoch_counting_started": false,"current_epoch_start_height": "0"}]' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.interchainstaking.params.deposit_interval = 25' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.mint.params.epoch_identifier = "epoch"' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.app_state.gov.deposit_params.min_deposit = [{"denom": "uqck", "amount": "100"}]' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.gov.deposit_params.min_deposit = [{"denom": "ufury", "amount": "100"}]' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.gov.deposit_params.max_deposit_period = "10s"' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 jq '.app_state.gov.voting_params.voting_period = "10s"' ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json > ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json.new && mv ./${CHAIN_DIR}/${CHAINID_0}/config/genesis.json{.new,}
 
@@ -361,7 +361,7 @@ RLY_ADDRESS_4=$($RLY_RUN keys show lstest-1 testkey)
 ## TG-271 - send to delegate account before we register it!
 $GAIA1_EXEC tx bank send val2 cosmos1j5u9y5gm95f4sudpupu8zv7jqlnh8wzlnn88w7upx5exj4ekr0fsmx3jup 1uatom --chain-id $CHAINID_1 -y --keyring-backend=test -b block
 sleep 3
-$QS1_EXEC tx bank send val1 $RLY_ADDRESS_3 1000uqck --chain-id $CHAINID_0 -y --keyring-backend=test
+$QS1_EXEC tx bank send val1 $RLY_ADDRESS_3 1000ufury --chain-id $CHAINID_0 -y --keyring-backend=test
 $GAIA1_EXEC tx bank send val2 $RLY_ADDRESS_4 1000uatom --chain-id $CHAINID_1 -y --keyring-backend=test
 
 docker-compose $DC up --force-recreate -d relayer
@@ -374,7 +374,7 @@ ICQ_ADDRESS_2=$($ICQ_RUN keys add test --chain lstest-1 | jq .address -r)
 
 sleep 3
 
-$QS1_EXEC tx bank send val1 $ICQ_ADDRESS_1 1000uqck --chain-id $CHAINID_0 -y --keyring-backend=test
+$QS1_EXEC tx bank send val1 $ICQ_ADDRESS_1 1000ufury --chain-id $CHAINID_0 -y --keyring-backend=test
 $GAIA1_EXEC tx bank send val2 $ICQ_ADDRESS_2 1000uatom --chain-id $CHAINID_1 -y --keyring-backend=test
 
 docker-compose $DC up --force-recreate -d icq

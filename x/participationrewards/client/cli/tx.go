@@ -15,8 +15,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	cmtypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 // GetTxCmd returns a root CLI command handler for all x/bank transaction commands.
@@ -101,7 +101,7 @@ Where proposal.json contains:
 	"ibcToken": "27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
 	"localDenom": "uqatom"
   },
-  "deposit": "512000000uqck"
+  "deposit": "512000000ufury"
 }
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {

@@ -10,11 +10,11 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/ingenuity-build/quicksilver/utils"
-	"github.com/ingenuity-build/quicksilver/x/airdrop/types"
-	icqkeeper "github.com/ingenuity-build/quicksilver/x/interchainquery/keeper"
-	icskeeper "github.com/ingenuity-build/quicksilver/x/interchainstaking/keeper"
-	prkeeper "github.com/ingenuity-build/quicksilver/x/participationrewards/keeper"
+	"github.com/nephirim/quicksilver/utils"
+	"github.com/nephirim/quicksilver/x/airdrop/types"
+	icqkeeper "github.com/nephirim/quicksilver/x/interchainquery/keeper"
+	icskeeper "github.com/nephirim/quicksilver/x/interchainstaking/keeper"
+	prkeeper "github.com/nephirim/quicksilver/x/participationrewards/keeper"
 )
 
 type Keeper struct {

@@ -1,8 +1,8 @@
 package keeper_test
 
 import (
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/claimsmanager/types"
 )
 
 var testClaims = []types.Claim{
@@ -32,7 +32,7 @@ var testClaims = []types.Claim{
 	},
 	// zero value claim
 	{
-		UserAddress: "quick16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+		UserAddress: "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 		// ChainID:       suite.chainB.ChainID,
 		Module:        types.ClaimTypeLiquidToken,
 		SourceChainId: "osmosis-1",

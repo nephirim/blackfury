@@ -8,9 +8,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/kv"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/x/mint/simulation"
-	"github.com/ingenuity-build/quicksilver/x/mint/types"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/x/mint/simulation"
+	"github.com/nephirim/quicksilver/x/mint/types"
 )
 
 func TestDecodeStore(t *testing.T) {

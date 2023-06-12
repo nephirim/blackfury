@@ -5,9 +5,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/airdrop/keeper"
-	"github.com/ingenuity-build/quicksilver/x/airdrop/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/airdrop/keeper"
+	"github.com/nephirim/quicksilver/x/airdrop/types"
 )
 
 func (s *KeeperTestSuite) TestHandleRegisterZoneDropProposal() {

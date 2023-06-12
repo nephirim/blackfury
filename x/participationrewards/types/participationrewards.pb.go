@@ -67,7 +67,7 @@ func (ProtocolDataType) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_d4fb4e5bb851c124, []int{0}
 }
 
-// DistributionProportions defines the proportions of minted QCK that is to be
+// DistributionProportions defines the proportions of minted FURY that is to be
 // allocated as participation rewards.
 type DistributionProportions struct {
 	ValidatorSelectionAllocation github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=validator_selection_allocation,json=validatorSelectionAllocation,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"validator_selection_allocation"`

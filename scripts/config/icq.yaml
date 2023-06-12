@@ -8,7 +8,7 @@ chains:
     account-prefix: quick
     keyring-backend: test
     gas-adjustment: 1.5
-    gas-prices: 0.00uqck
+    gas-prices: 0.00ufury
     key-directory: /root/.icq/keys
     debug: false
     timeout: 20s

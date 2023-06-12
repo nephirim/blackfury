@@ -7,8 +7,8 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/stretchr/testify/require"
 
-	utils "github.com/ingenuity-build/quicksilver/utils"
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
+	utils "github.com/nephirim/quicksilver/utils"
+	"github.com/nephirim/quicksilver/utils/addressutils"
 )
 
 const expectedDenom = "denom"

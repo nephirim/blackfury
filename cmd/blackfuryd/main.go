@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	cmdcfg "github.com/ingenuity-build/quicksilver/cmd/config"
+	"github.com/nephirim/quicksilver/app"
+	cmdcfg "github.com/nephirim/quicksilver/cmd/config"
 )
 
 func main() {
@@ -20,11 +20,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	app.DefaultNodeHome = filepath.Join(userHomeDir, ".quicksilverd")
+	app.DefaultNodeHome = filepath.Join(userHomeDir, ".blackfuryd")
 
 	rootCmd, _ := NewRootCmd()
 
-	if err := svrcmd.Execute(rootCmd, "QUICKSILVERD", app.DefaultNodeHome); err != nil {
+	if err := svrcmd.Execute(rootCmd, "BLACKFURYD", app.DefaultNodeHome); err != nil {
 		var exitError *server.ErrorCode
 		if errors.As(err, &exitError) {
 			os.Exit(exitError.Code)

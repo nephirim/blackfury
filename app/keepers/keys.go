@@ -22,14 +22,14 @@ import (
 	ibchost "github.com/cosmos/ibc-go/v5/modules/core/24-host"
 	packetforwardtypes "github.com/strangelove-ventures/packet-forward-middleware/v5/router/types"
 
-	airdroptypes "github.com/ingenuity-build/quicksilver/x/airdrop/types"
-	claimsmanagertypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	epochstypes "github.com/ingenuity-build/quicksilver/x/epochs/types"
-	interchainquerytypes "github.com/ingenuity-build/quicksilver/x/interchainquery/types"
-	interchainstakingtypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
-	minttypes "github.com/ingenuity-build/quicksilver/x/mint/types"
-	participationrewardstypes "github.com/ingenuity-build/quicksilver/x/participationrewards/types"
-	tokenfactorytypes "github.com/ingenuity-build/quicksilver/x/tokenfactory/types"
+	airdroptypes "github.com/nephirim/quicksilver/x/airdrop/types"
+	claimsmanagertypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	epochstypes "github.com/nephirim/quicksilver/x/epochs/types"
+	interchainquerytypes "github.com/nephirim/quicksilver/x/interchainquery/types"
+	interchainstakingtypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	minttypes "github.com/nephirim/quicksilver/x/mint/types"
+	participationrewardstypes "github.com/nephirim/quicksilver/x/participationrewards/types"
+	tokenfactorytypes "github.com/nephirim/quicksilver/x/tokenfactory/types"
 )
 
 // TODO: We need to automate this, by bundling with a module struct...

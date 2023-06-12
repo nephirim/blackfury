@@ -2,7 +2,7 @@ cd proto
 buf generate
 cd ..
 
-cp -r github.com/ingenuity-build/quicksilver/* ./
+cp -r github.com/nephirim/quicksilver/* ./
 rm -rf github.com
 
 swagger-combine ./docs/config.json -o ./docs/swagger.yml

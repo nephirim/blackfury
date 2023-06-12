@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 // helper function for ICA tests.
@@ -30,9 +30,9 @@ func TestNewICAAccountBadAddr(t *testing.T) {
 // TestAccountSetBalanceGood tests that the balance can be set to a valid coin (good denom + non-negative value).
 func TestAccountSetBalanceGood(t *testing.T) {
 	ica := NewICA()
-	err := ica.SetBalance(sdk.NewCoins(sdk.NewCoin("uqck", sdk.NewInt(300))))
+	err := ica.SetBalance(sdk.NewCoins(sdk.NewCoin("ufury", sdk.NewInt(300))))
 	require.NoError(t, err, "setbalance failed")
-	require.True(t, ica.Balance.AmountOf("uqck").Equal(sdk.NewInt(300)))
+	require.True(t, ica.Balance.AmountOf("ufury").Equal(sdk.NewInt(300)))
 }
 
 // tests that the balance panics when set to an invalid denomination.
@@ -44,15 +44,15 @@ func TestAccountSetBalanceBadDenom(t *testing.T) {
 // tests that the balance panics when set to a negative number.
 func TestAccountSetBalanceNegativeAmount(t *testing.T) {
 	ica := NewICA()
-	require.PanicsWithError(t, "negative coin amount: -300", func() { ica.SetBalance(sdk.NewCoins(sdk.NewCoin("uqck", sdk.NewInt(-300)))) })
+	require.PanicsWithError(t, "negative coin amount: -300", func() { ica.SetBalance(sdk.NewCoins(sdk.NewCoin("ufury", sdk.NewInt(-300)))) })
 }
 
 // tests that the balance panics when set to a negative number.
 func TestAccountSetBalanceNonSortedCoins(t *testing.T) {
 	ica := NewICA()
 	nonSortedCoins := sdk.Coins{
-		sdk.NewCoin("uqck", sdk.NewInt(300)),
-		sdk.NewCoin("uqck", sdk.NewInt(200)),
+		sdk.NewCoin("ufury", sdk.NewInt(300)),
+		sdk.NewCoin("ufury", sdk.NewInt(200)),
 	}
 	err := ica.SetBalance(nonSortedCoins)
 	require.NotNil(t, err, "non sorted coins should return an error")

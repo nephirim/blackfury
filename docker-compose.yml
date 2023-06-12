@@ -4,7 +4,7 @@ services:
     image: quicksilverzone/quicksilver:latest
     hostname: quicksilver
     volumes:
-      - ./data/qstest-1:/quicksilver/.quicksilverd
+      - ./data/qstest-1:/quicksilver/.blackfuryd
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,7 +15,7 @@ services:
     image: quicksilverzone/quicksilver:latest
     hostname: quicksilver2
     volumes:
-      - ./data/qstest-1a:/quicksilver/.quicksilverd
+      - ./data/qstest-1a:/quicksilver/.blackfuryd
     build:
       context: .
       dockerfile: Dockerfile
@@ -23,7 +23,7 @@ services:
     image: quicksilverzone/quicksilver:latest
     hostname: quicksilver3
     volumes:
-      - ./data/qstest-1b:/quicksilver/.quicksilverd
+      - ./data/qstest-1b:/quicksilver/.blackfuryd
     build:
       context: .
       dockerfile: Dockerfile

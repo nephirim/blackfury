@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/bech32"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	"github.com/ingenuity-build/quicksilver/utils"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/quicksilver/utils"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 type LiquidTokensModule struct{}

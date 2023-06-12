@@ -8,10 +8,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/internal/multierror"
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	prtypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/internal/multierror"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	prtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func (k *Keeper) getStoreKey(zone *types.Zone, snapshot bool) []byte {

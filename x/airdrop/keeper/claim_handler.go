@@ -8,11 +8,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 
-	osmosistypes "github.com/ingenuity-build/quicksilver/osmosis-types"
-	osmosislockuptypes "github.com/ingenuity-build/quicksilver/osmosis-types/lockup"
-	"github.com/ingenuity-build/quicksilver/x/airdrop/types"
-	cmtypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	icstypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	osmosistypes "github.com/nephirim/quicksilver/osmosis-types"
+	osmosislockuptypes "github.com/nephirim/quicksilver/osmosis-types/lockup"
+	"github.com/nephirim/quicksilver/x/airdrop/types"
+	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 var (
@@ -42,7 +42,7 @@ func (k *Keeper) HandleClaim(ctx sdk.Context, cr types.ClaimRecord, action types
 		return k.handleDeposit(ctx, &cr, action, sdk.MustNewDecFromStr(tier4))
 	case types.ActionDepositT5:
 		return k.handleDeposit(ctx, &cr, action, sdk.MustNewDecFromStr(tier5))
-	case types.ActionStakeQCK:
+	case types.ActionStakeFURY:
 		return k.handleBondedDelegation(ctx, &cr, action)
 	case types.ActionSignalIntent:
 		return k.handleZoneIntent(ctx, &cr, action)
@@ -155,7 +155,7 @@ func (k *Keeper) verifyDeposit(ctx sdk.Context, cr types.ClaimRecord, threshold 
 }
 
 // verifyBondedDelegation indicates if the given address has an active bonded.
-// delegation of QCK on the Quicksilver zone.
+// delegation of FURY on the Quicksilver zone.
 func (k *Keeper) verifyBondedDelegation(ctx sdk.Context, address string) error {
 	addr, err := sdk.AccAddressFromBech32(address)
 	if err != nil {

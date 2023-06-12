@@ -1,5 +1,5 @@
 {
-"deposit": "100uqck",
+"deposit": "100ufury",
 "proposer": "",
 "messages": [{
   "@type": "/cosmos.gov.v1.MsgExecLegacyContent",
@@ -17,7 +17,7 @@
   "return_to_sender": true,
   "decimals": 6
   },
-  "authority": "quick10d07y265gmmuvt4z0w9aw880jnsr700j3xrh0p"
+  "authority": "black10d07y265gmmuvt4z0w9aw880jnsr700j3xrh0p"
 }],
 "metadata": ""
 }

@@ -6,13 +6,13 @@ import (
 	staking "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/tendermint/tendermint/proto/tendermint/crypto"
 
-	minttypes "github.com/ingenuity-build/quicksilver/x/mint/types"
+	minttypes "github.com/nephirim/quicksilver/x/mint/types"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/airdrop/keeper"
-	"github.com/ingenuity-build/quicksilver/x/airdrop/types"
-	cmtypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	icstypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/airdrop/keeper"
+	"github.com/nephirim/quicksilver/x/airdrop/types"
+	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func (s *KeeperTestSuite) Test_msgServer_Claim() {
@@ -238,7 +238,7 @@ func (s *KeeperTestSuite) Test_msgServer_Claim() {
 
 				msg = types.MsgClaim{
 					ChainId: s.chainB.ChainID,
-					Action:  int64(types.ActionStakeQCK),
+					Action:  int64(types.ActionStakeFURY),
 					Address: userAddress,
 					Proofs:  nil,
 				}
@@ -267,7 +267,7 @@ func (s *KeeperTestSuite) Test_msgServer_Claim() {
 
 				msg = types.MsgClaim{
 					ChainId: s.chainB.ChainID,
-					Action:  int64(types.ActionStakeQCK),
+					Action:  int64(types.ActionStakeFURY),
 					Address: userAddress,
 					Proofs:  nil,
 				}

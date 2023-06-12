@@ -4660,7 +4660,7 @@ paths:
                         type: string
                     description: >-
                       DistributionProportions defines the proportions of minted
-                      QCK that is to be
+                      FURY that is to be
 
                       allocated as participation rewards.
                   claims_enabled:

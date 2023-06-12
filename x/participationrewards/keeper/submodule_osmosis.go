@@ -8,9 +8,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/bech32"
 
-	osmosistypes "github.com/ingenuity-build/quicksilver/osmosis-types"
-	osmolockup "github.com/ingenuity-build/quicksilver/osmosis-types/lockup"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	osmosistypes "github.com/nephirim/quicksilver/osmosis-types"
+	osmolockup "github.com/nephirim/quicksilver/osmosis-types/lockup"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 type OsmosisModule struct{}

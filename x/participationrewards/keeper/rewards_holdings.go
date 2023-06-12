@@ -4,11 +4,11 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/utils"
-	airdroptypes "github.com/ingenuity-build/quicksilver/x/airdrop/types"
-	cmtypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	icstypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/quicksilver/utils"
+	airdroptypes "github.com/nephirim/quicksilver/x/airdrop/types"
+	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 func (k Keeper) AllocateHoldingsRewards(ctx sdk.Context) error {

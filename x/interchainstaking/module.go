@@ -17,9 +17,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/client/cli"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/keeper"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/x/interchainstaking/client/cli"
+	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 var (

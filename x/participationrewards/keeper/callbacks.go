@@ -9,9 +9,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	"github.com/ingenuity-build/quicksilver/osmosis-types/gamm"
-	icqtypes "github.com/ingenuity-build/quicksilver/x/interchainquery/types"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/quicksilver/osmosis-types/gamm"
+	icqtypes "github.com/nephirim/quicksilver/x/interchainquery/types"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 // Callback wrapper struct for interchainstaking keeper.

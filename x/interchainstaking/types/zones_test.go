@@ -8,8 +8,8 @@ import (
 
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func TestIsDelegateAddress(t *testing.T) {

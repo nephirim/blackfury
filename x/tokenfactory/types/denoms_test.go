@@ -6,8 +6,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	cmdcfg "github.com/ingenuity-build/quicksilver/cmd/config"
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/types"
+	cmdcfg "github.com/nephirim/quicksilver/cmd/config"
+	"github.com/nephirim/quicksilver/x/tokenfactory/types"
 )
 
 func TestDeconstructDenom(t *testing.T) {
@@ -27,37 +27,37 @@ func TestDeconstructDenom(t *testing.T) {
 		},
 		{
 			desc:             "normal",
-			denom:            "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin",
+			denom:            "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin",
 			expectedSubdenom: "bitcoin",
 		},
 		{
 			desc:             "multiple slashes in subdenom",
-			denom:            "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin/1",
+			denom:            "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin/1",
 			expectedSubdenom: "bitcoin/1",
 		},
 		{
 			desc:             "no subdenom",
-			denom:            "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/",
+			denom:            "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/",
 			expectedSubdenom: "",
 		},
 		{
 			desc:  "incorrect prefix",
-			denom: "ibc/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin",
+			denom: "ibc/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin",
 			err:   types.ErrInvalidDenom,
 		},
 		{
 			desc:             "subdenom of only slashes",
-			denom:            "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/////",
+			denom:            "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/////",
 			expectedSubdenom: "////",
 		},
 		{
 			desc:  "too long name",
-			denom: "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/adsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsf",
+			denom: "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/adsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsf",
 			err:   types.ErrInvalidDenom,
 		},
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
-			expectedCreator := "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf"
+			expectedCreator := "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf"
 			creator, subdenom, err := types.DeconstructDenom(tc.denom)
 			if tc.err != nil {
 				require.ErrorContains(t, err, tc.err.Error())
@@ -79,43 +79,43 @@ func TestGetTokenDenom(t *testing.T) {
 	}{
 		{
 			desc:     "normal",
-			creator:  "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+			creator:  "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 			subdenom: "bitcoin",
 			valid:    true,
 		},
 		{
 			desc:     "multiple slashes in subdenom",
-			creator:  "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+			creator:  "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 			subdenom: "bitcoin/1",
 			valid:    true,
 		},
 		{
 			desc:     "no subdenom",
-			creator:  "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+			creator:  "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 			subdenom: "",
 			valid:    true,
 		},
 		{
 			desc:     "subdenom of only slashes",
-			creator:  "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+			creator:  "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 			subdenom: "/////",
 			valid:    true,
 		},
 		{
 			desc:     "too long name",
-			creator:  "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppfffffffffffffffffffffffffffffffffff",
+			creator:  "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppfffffffffffffffffffffffffffffffffff",
 			subdenom: ".",
 			valid:    false,
 		},
 		{
 			desc:     "subdenom is exactly max length",
-			creator:  "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+			creator:  "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 			subdenom: "bitcoinfsadfsdfeadfsafwefsefsefsdfsdafasefsf",
 			valid:    true,
 		},
 		{
 			desc:     "creator is exactly max length",
-			creator:  "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppfkhanhanchaucascascascas",
+			creator:  "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppfkhanhanchaucascascascas",
 			subdenom: "bitcoin",
 			valid:    true,
 		},

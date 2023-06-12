@@ -3,7 +3,7 @@
 DOCKER_BUILDKIT=1
 COSMOS_BUILD_OPTIONS ?= ""
 PACKAGES_NOSIMULATION=$(shell go list ./... | grep -v '/simulation')
-PACKAGES_SIM=github.com/ingenuity-build/quicksilver/test/simulation
+PACKAGES_SIM=github.com/nephirim/quicksilver/test/simulation
 PACKAGES_E2E=$(shell go list ./... | grep '/e2e')
 VERSION=$(shell git describe --tags | head -n1)
 DOCKER_VERSION ?= $(VERSION)
@@ -11,10 +11,10 @@ TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::'
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
-QS_BINARY = quicksilverd
+QS_BINARY = blackfuryd
 QS_DIR = quicksilver
 BUILDDIR ?= $(CURDIR)/build
-HTTPS_GIT := https://github.com/ingenuity-build/quicksilver.git
+HTTPS_GIT := https://github.com/nephirim/quicksilver.git
 
 DOCKER := $(shell which docker)
 DOCKERCOMPOSE := $(shell which docker-compose)
@@ -141,7 +141,7 @@ build-linux:
 	GOOS=linux GOARCH=amd64 LEDGER_ENABLED=false $(MAKE) build
 
 $(BUILD_TARGETS): check_version go.sum $(BUILDDIR)/
-	go $@ -mod=readonly $(BUILD_FLAGS) $(BUILD_ARGS) ./cmd/quicksilverd
+	go $@ -mod=readonly $(BUILD_FLAGS) $(BUILD_ARGS) ./cmd/blackfuryd
 
 $(BUILDDIR)/:
 	mkdir -p $(BUILDDIR)/
@@ -153,8 +153,8 @@ build-docker-local: build
 	DOCKER_BUILDKIT=1 $(DOCKER) build -f Dockerfile.local . -t quicksilverzone/quicksilver:$(DOCKER_VERSION)
 
 build-docker-release: build-docker
-	$(DOCKER)  run -v /tmp:/tmp quicksilverzone/quicksilver:$(DOCKER_VERSION) cp /usr/local/bin/quicksilverd /tmp/quicksilverd
-	mv /tmp/quicksilverd build/quicksilverd-$(DOCKER_VERSION)-amd64
+	$(DOCKER)  run -v /tmp:/tmp quicksilverzone/quicksilver:$(DOCKER_VERSION) cp /usr/local/bin/blackfuryd /tmp/blackfuryd
+	mv /tmp/blackfuryd build/blackfuryd-$(DOCKER_VERSION)-amd64
 
 push-docker: build-docker
 	$(DOCKERCOMPOSE) push quicksilver
@@ -264,7 +264,7 @@ update-swagger-docs: statik
 .PHONY: update-swagger-docs
 
 godocs:
-	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/ingenuity-build/quicksilver/types"
+	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/nephirim/quicksilver/types"
 	godoc -http=:6060
 
 # Start docs site at localhost:8080
@@ -489,7 +489,7 @@ lint-fix:
 format:
 	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run mvdan.cc/gofumpt -w .
 	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run github.com/client9/misspell/cmd/misspell -w
-	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run golang.org/x/tools/cmd/goimports -w -local github.com/ingenuity-build/quicksilver
+	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run golang.org/x/tools/cmd/goimports -w -local github.com/nephirim/quicksilver
 .PHONY: format
 
 mdlint:

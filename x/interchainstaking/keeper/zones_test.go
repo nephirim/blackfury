@@ -14,9 +14,9 @@ import (
 	dbm "github.com/tendermint/tm-db"
 	"golang.org/x/exp/maps"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func newQuicksilver(t *testing.T) *app.Quicksilver {
@@ -54,7 +54,7 @@ func TestKeeperWithZonesRoundTrip(t *testing.T) {
 	zone = types.Zone{
 		ConnectionId: "conn-test",
 		ChainId:      chainID,
-		LocalDenom:   "uqck",
+		LocalDenom:   "ufury",
 		BaseDenom:    "qck",
 	}
 	kpr.SetZone(ctx, &zone)
@@ -85,7 +85,7 @@ func TestKeeperWithZonesRoundTrip(t *testing.T) {
 				Address: delegationAddr,
 				Balance: sdk.NewCoins(
 					sdk.NewCoin("qck", sdk.NewInt(100)),
-					sdk.NewCoin("uqck", sdk.NewInt(700000)),
+					sdk.NewCoin("ufury", sdk.NewInt(700000)),
 				),
 			},
 			Is_118: true,
@@ -133,7 +133,7 @@ func TestKeeperWithZonesRoundTrip(t *testing.T) {
 		Address: "cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0",
 		Balance: sdk.NewCoins(
 			sdk.NewCoin("qck", sdk.NewInt(800)),
-			sdk.NewCoin("uqck", sdk.NewInt(900000)),
+			sdk.NewCoin("ufury", sdk.NewInt(900000)),
 		),
 	}
 	kpr.SetAddressZoneMapping(ctx, "cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0", perfAcctZone.ChainId)

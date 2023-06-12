@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ingenuity-build/quicksilver/app"
+	"github.com/nephirim/quicksilver/app"
 )
 
 func TestNoStorageWithoutProposal(t *testing.T) {
@@ -85,7 +85,7 @@ type HackatomExampleInitMsg struct {
 }
 
 func TestInstantiateContract(t *testing.T) {
-	coin := sdk.NewCoin("uqck", sdk.NewInt(10000000000))
+	coin := sdk.NewCoin("ufury", sdk.NewInt(10000000000))
 	quicksilverApp, ctx := CreateTestInput(t)
 	funder := RandomAccountAddress()
 	benefit, arb := RandomAccountAddress(), RandomAccountAddress()
@@ -102,7 +102,7 @@ func TestInstantiateContract(t *testing.T) {
 	initMsgBz, err := json.Marshal(initMsg)
 	require.NoError(t, err)
 
-	funds := sdk.NewInt64Coin("uqck", 123456)
+	funds := sdk.NewInt64Coin("ufury", 123456)
 	_, _, err = contractKeeper.Instantiate(ctx, codeID, funder, funder, initMsgBz, "demo contract", sdk.Coins{funds})
 	require.NoError(t, err)
 }

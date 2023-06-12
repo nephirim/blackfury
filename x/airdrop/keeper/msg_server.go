@@ -11,7 +11,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/x/airdrop/types"
+	"github.com/nephirim/quicksilver/x/airdrop/types"
 )
 
 type msgServer struct {

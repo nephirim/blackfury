@@ -4,7 +4,7 @@ import (
 	gocontext "context"
 	"time"
 
-	"github.com/ingenuity-build/quicksilver/x/epochs/types"
+	"github.com/nephirim/quicksilver/x/epochs/types"
 )
 
 func (s *KeeperTestSuite) TestQueryEpochInfos() {

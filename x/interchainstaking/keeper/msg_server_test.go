@@ -7,9 +7,9 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	icskeeper "github.com/ingenuity-build/quicksilver/x/interchainstaking/keeper"
-	icstypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	icskeeper "github.com/nephirim/quicksilver/x/interchainstaking/keeper"
+	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func (suite *KeeperTestSuite) TestRequestRedemption() {

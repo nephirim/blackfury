@@ -146,7 +146,7 @@ func TestQuicksilverJunoIBCTransfer(t *testing.T) {
 	_, err = testutil.PollForAck(ctx, quicksilver, quicksilverHeight, quicksilverHeight+10, transferTx.Packet)
 	require.NoError(t, err)
 
-	// Get the IBC denom for uqck on Juno
+	// Get the IBC denom for ufury on Juno
 	quicksilverTokenDenom := transfertypes.GetPrefixedDenom(quickChannels[0].Counterparty.PortID, quickChannels[0].Counterparty.ChannelID, quicksilver.Config().Denom)
 	quicksilverIBCDenom := transfertypes.ParseDenomTrace(quicksilverTokenDenom).IBCDenom()
 

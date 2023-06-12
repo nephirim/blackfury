@@ -24,10 +24,10 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/client/cli"
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/keeper"
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/simulation"
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/quicksilver/x/tokenfactory/client/cli"
+	"github.com/nephirim/quicksilver/x/tokenfactory/keeper"
+	"github.com/nephirim/quicksilver/x/tokenfactory/simulation"
+	"github.com/nephirim/quicksilver/x/tokenfactory/types"
 )
 
 var (

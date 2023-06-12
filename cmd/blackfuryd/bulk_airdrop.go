@@ -23,7 +23,7 @@ import (
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	"github.com/spf13/cobra"
 
-	"github.com/ingenuity-build/quicksilver/x/airdrop/types"
+	"github.com/nephirim/quicksilver/x/airdrop/types"
 )
 
 // AddZonedropCmd returns add-zonedrop cobra Command.
@@ -224,8 +224,8 @@ func BulkGenesisAirdropCmd(defaultNodeHome string) *cobra.Command {
 				// accounts afterwards.
 				zoneDrop.Allocation += claimRecord.MaxAllocation
 
-				// add base account for airdrop recipient, containing 1uqck
-				balances := banktypes.Balance{Address: claimRecord.Address, Coins: sdk.NewCoins(sdk.NewCoin("uqck", sdk.OneInt()))}
+				// add base account for airdrop recipient, containing 1ufury
+				balances := banktypes.Balance{Address: claimRecord.Address, Coins: sdk.NewCoins(sdk.NewCoin("ufury", sdk.OneInt()))}
 				addr, _ := sdk.AccAddressFromBech32(claimRecord.Address)
 				genAccount := authtypes.NewBaseAccount(addr, nil, 0, 0)
 

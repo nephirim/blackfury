@@ -11,10 +11,10 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v5/testing"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/x/airdrop/types"
-	icstypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
-	minttypes "github.com/ingenuity-build/quicksilver/x/mint/types"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/x/airdrop/types"
+	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	minttypes "github.com/nephirim/quicksilver/x/mint/types"
 )
 
 func init() {

@@ -23,7 +23,7 @@ import (
 	tmjson "github.com/tendermint/tendermint/libs/json"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	"github.com/ingenuity-build/quicksilver/app"
+	"github.com/nephirim/quicksilver/app"
 )
 
 // AppStateFn returns the initial application state using a genesis or the simulation parameters.

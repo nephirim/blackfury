@@ -63,7 +63,7 @@ echo "Tranfer channel created"
 docker-compose up --force-recreate -d hermes
 RLY_ADDRESS_3=$($RLY_RUN keys show qstest-1 testkey)
 RLY_ADDRESS_4=$($RLY_RUN keys show lstest-1 testkey)
-$QS1_EXEC tx bank send val1 $RLY_ADDRESS_3 1000uqck --chain-id $CHAINID_0 -y --keyring-backend=test
+$QS1_EXEC tx bank send val1 $RLY_ADDRESS_3 1000ufury --chain-id $CHAINID_0 -y --keyring-backend=test
 $TZ1_1_EXEC tx bank send val2 $RLY_ADDRESS_4 1000uatom --chain-id $CHAINID_1 -y --keyring-backend=test
 
 docker-compose up --force-recreate -d relayer
@@ -76,7 +76,7 @@ ICQ_ADDRESS_2=$($ICQ_RUN keys add test --chain lstest-1 | jq .address -r)
 
 sleep 3
 
-$QS1_EXEC tx bank send val1 $ICQ_ADDRESS_1 1000uqck --chain-id $CHAINID_0 -y --keyring-backend=test
+$QS1_EXEC tx bank send val1 $ICQ_ADDRESS_1 1000ufury --chain-id $CHAINID_0 -y --keyring-backend=test
 $TZ1_1_EXEC tx bank send val2 $ICQ_ADDRESS_2 1000uatom --chain-id $CHAINID_1 -y --keyring-backend=test
 
 docker-compose up --force-recreate -d icq

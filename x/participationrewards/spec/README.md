@@ -27,7 +27,7 @@ The purpose of the participation rewards module is to reward users for protocol 
 
 Specifically, we want to reward users for:
 
-1. Staking and locking of QCK on the Quicksilver chain;
+1. Staking and locking of FURY on the Quicksilver chain;
 2. Positive validator selection, validators are ranked equally on performance and decentralization;
 3. Holdings of off-chain assets (qAssets);
 
@@ -254,7 +254,7 @@ The proposal details must be supplied via a JSON file.
 
 Example:
 
-`quicksilverd tx gov submit-proposal add-protocol-data <path/to/proposal.json> --from=<key_or_address>`
+`blackfuryd tx gov submit-proposal add-protocol-data <path/to/proposal.json> --from=<key_or_address>`
 
 Where proposal.json contains:
 
@@ -270,7 +270,7 @@ Where proposal.json contains:
 	"ibcToken": "27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
 	"localDenom": "uqatom"
   },
-  "deposit": "512000000uqck"
+  "deposit": "512000000ufury"
 }
 ```
 
@@ -341,7 +341,7 @@ type QueryProtocolDataResponse struct {
 
 ## Keepers
 
-<https://pkg.go.dev/github.com/ingenuity-build/quicksilver/x/participationrewards/keeper>
+<https://pkg.go.dev/github.com/nephirim/quicksilver/x/participationrewards/keeper>
 
 ## Parameters
 
@@ -357,7 +357,7 @@ Description of parameters:
 
 * `validator_selection_allocation` - the percentage of inflation rewards allocated to validator selection rewards;
 * `holdings_allocation` - the percentage of inflation rewards allocated to qAssets hoildings rewards;
-* `lockup_allocation` - the percentage of inflation rewards allocated to staking and locking of QCK;
+* `lockup_allocation` - the percentage of inflation rewards allocated to staking and locking of FURY;
 
 ## Begin Block
 

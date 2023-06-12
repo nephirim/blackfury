@@ -6,11 +6,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 // tests that {} is an invalid string, and that an error is thrown when unmarshalled.
-// see: https://github.com/ingenuity-build/quicksilver/issues/214
+// see: https://github.com/nephirim/quicksilver/issues/214
 func TestUnmarshalProtocolDataRejectsZeroLengthJson(t *testing.T) {
 	_, err := types.UnmarshalProtocolData(types.ProtocolDataTypeOsmosisPool, []byte("{}"))
 	require.Error(t, err)

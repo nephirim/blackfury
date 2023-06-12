@@ -48,8 +48,8 @@ const (
 	ActionDepositT4 Action = 5
 	// Deposit tier 5 (e.g. > 30% of base_value)
 	ActionDepositT5 Action = 6
-	// Active QCK delegation
-	ActionStakeQCK Action = 7
+	// Active FURY delegation
+	ActionStakeFURY Action = 7
 	// Intent is set
 	ActionSignalIntent Action = 8
 	// Cast governance vote on QS
@@ -68,7 +68,7 @@ var Action_name = map[int32]string{
 	4:  "ActionDepositT3",
 	5:  "ActionDepositT4",
 	6:  "ActionDepositT5",
-	7:  "ActionStakeQCK",
+	7:  "ActionStakeFURY",
 	8:  "ActionSignalIntent",
 	9:  "ActionQSGov",
 	10: "ActionGbP",
@@ -83,7 +83,7 @@ var Action_value = map[string]int32{
 	"ActionDepositT3":    4,
 	"ActionDepositT4":    5,
 	"ActionDepositT5":    6,
-	"ActionStakeQCK":     7,
+	"ActionStakeFURY":     7,
 	"ActionSignalIntent": 8,
 	"ActionQSGov":        9,
 	"ActionGbP":          10,

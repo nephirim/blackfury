@@ -403,21 +403,21 @@ type MsgSignalIntent struct {
 Signal validator delegation intent by providing a comma seperated string
 containing a decimal weight and the bech32 validator address.
 
-`quicksilverd signal-intent [chain_id] [delegation_intent]`
+`blackfuryd signal-intent [chain_id] [delegation_intent]`
 
 Example:
 
-`quicksilverd signal-intent cosmoshub-4 0.3cosmosvaloper1xxxxxxxxx,0.3cosmosvaloper1yyyyyyyyy,0.4cosmosvaloper1zzzzzzzzz`
+`blackfuryd signal-intent cosmoshub-4 0.3cosmosvaloper1xxxxxxxxx,0.3cosmosvaloper1yyyyyyyyy,0.4cosmosvaloper1zzzzzzzzz`
 
 ### redeem
 
 Redeem qAssets for native tokens.
 
-`quicksilverd redeem [coins] [destination_address]`
+`blackfuryd redeem [coins] [destination_address]`
 
 Example:
 
-`quicksilverd redeem 2500000uatom cosmos1pgfzn0zhxjjgte7hprwtnqyhrn534lqk437x2w`
+`blackfuryd redeem 2500000uatom cosmos1pgfzn0zhxjjgte7hprwtnqyhrn534lqk437x2w`
 
 ## Proposals
 
@@ -425,7 +425,7 @@ Example:
 
 Submit a zone registration proposal.
 
-`quicksilverd register-zone [proposal-file]`
+`blackfuryd register-zone [proposal-file]`
 
 The proposal must include an initial deposit and the details must be provided
 as a json file, e.g.
@@ -440,7 +440,7 @@ as a json file, e.g.
   "account_prefix": "cosmos",
   "multi_send": true,
   "liquidity_module": false,
-  "deposit": "512000000uqck"
+  "deposit": "512000000ufury"
 }
 ```
 
@@ -448,7 +448,7 @@ as a json file, e.g.
 
 Submit a zone update proposal.
 
-`quicksilverd update-zone [proposal-file]`
+`blackfuryd update-zone [proposal-file]`
 
 The proposal must include a deposit and the details must be provided as a json
 file, e.g.
@@ -464,7 +464,7 @@ file, e.g.
       "value": "true"
     }
   ],
-  "deposit": "512000000uqck"
+  "deposit": "512000000ufury"
 }
 ```
 
@@ -564,7 +564,7 @@ service Query {
 
 Query registered zones.
 
-`quicksilverd query interchainstaking zones`
+`blackfuryd query interchainstaking zones`
 
 Example response:
 
@@ -675,17 +675,17 @@ zones:
 
 Query delegation intent for a given chain.
 
-`quicksilverd query interchainstaking intent [chain_id] [delegator_addr]`
+`blackfuryd query interchainstaking intent [chain_id] [delegator_addr]`
 
 ### deposit-account
 
 Query deposit account address for a given chain.
 
-`quicksilverd query interchainstaking deposit-account [chain_id]`
+`blackfuryd query interchainstaking deposit-account [chain_id]`
 
 ## Keepers
 
-<https://pkg.go.dev/github.com/ingenuity-build/quicksilver/x/interchainstaking/keeper>
+<https://pkg.go.dev/github.com/nephirim/quicksilver/x/interchainstaking/keeper>
 
 ## Parameters
 

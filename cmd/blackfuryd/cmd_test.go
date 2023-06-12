@@ -9,12 +9,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	quicksilverd "github.com/ingenuity-build/quicksilver/cmd/quicksilverd"
+	"github.com/nephirim/quicksilver/app"
+	blackfuryd "github.com/nephirim/quicksilver/cmd/blackfuryd"
 )
 
 func TestInitCmd(t *testing.T) {
-	rootCmd, _ := quicksilverd.NewRootCmd()
+	rootCmd, _ := blackfuryd.NewRootCmd()
 	rootCmd.SetArgs([]string{
 		"init",             // Test the init cmd
 		"quicksilver-test", // Moniker
@@ -22,6 +22,6 @@ func TestInitCmd(t *testing.T) {
 		fmt.Sprintf("--%s=%s", flags.FlagChainID, "quicksilver-1"),
 	})
 
-	err := svrcmd.Execute(rootCmd, "QUICKSILVERD", app.DefaultNodeHome)
+	err := svrcmd.Execute(rootCmd, "BLACKFURYD", app.DefaultNodeHome)
 	require.NoError(t, err)
 }

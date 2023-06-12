@@ -12,7 +12,7 @@ chains:
         account-prefix: quick
         keyring-backend: test
         gas-adjustment: 1.5
-        gas-prices: 0.0uqck
+        gas-prices: 0.0ufury
         debug: true
         timeout: 180s
         output-format: json
@@ -26,7 +26,7 @@ chains:
         account-prefix: cosmos
         keyring-backend: test
         gas-adjustment: 1.5
-        gas-prices: 0.0uqck
+        gas-prices: 0.0ufury
         debug: true
         timeout: 180s
         output-format: json

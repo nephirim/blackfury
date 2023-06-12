@@ -3,7 +3,7 @@
 
 |                                                                                                                                                   |                                                                                                                                                                    |                                                                                                                                                       |                                                                                                                                                      |                                                                                                                | 
 |---------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| [![codecov](https://codecov.io/gh/ingenuity-build/quicksilver/branch/develop/graph/badge.svg)](https://codecov.io/gh/ingenuity-build/quicksilver) | [![Go Report Card](https://goreportcard.com/badge/github.com/ingenuity-build/quicksilver)](https://goreportcard.com/report/github.com/ingenuity-build/quicksilver) | [![license](https://img.shields.io/github/license/ingenuity-build/quicksilver.svg)](https://github.com/ingenuity-build/quicksilver/blob/main/LICENSE) | [![GolangCI](https://golangci.com/badges/github.com/ingenuity-build/quicksilver.svg)](https://golangci.com/r/github.com/ingenuity-build/quicksilver) | [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/quicksilverprotocol) |  
+| [![codecov](https://codecov.io/gh/nephirim/quicksilver/branch/develop/graph/badge.svg)](https://codecov.io/gh/nephirim/quicksilver) | [![Go Report Card](https://goreportcard.com/badge/github.com/nephirim/quicksilver)](https://goreportcard.com/report/github.com/nephirim/quicksilver) | [![license](https://img.shields.io/github/license/nephirim/quicksilver.svg)](https://github.com/nephirim/quicksilver/blob/main/LICENSE) | [![GolangCI](https://golangci.com/badges/github.com/nephirim/quicksilver.svg)](https://golangci.com/r/github.com/nephirim/quicksilver) | [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/quicksilverprotocol) |  
 
 Quicksilver is the Cosmos Liquid Staking Zone.
 
@@ -48,7 +48,7 @@ _NB!! Use a fork of the repository when you plan to create Pull Requests;_
 
 Clone the repository from GitHub and enter the directory:
 
-    git clone https://github.com/ingenuity-build/quicksilver.git
+    git clone https://github.com/nephirim/quicksilver.git
     cd quicksilver
 
 Then run:

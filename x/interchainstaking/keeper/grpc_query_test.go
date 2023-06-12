@@ -7,10 +7,10 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/utils/randomutils"
-	icskeeper "github.com/ingenuity-build/quicksilver/x/interchainstaking/keeper"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/utils/randomutils"
+	icskeeper "github.com/nephirim/quicksilver/x/interchainstaking/keeper"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func (suite *KeeperTestSuite) TestKeeper_Zones() {
@@ -525,7 +525,7 @@ func (suite *KeeperTestSuite) TestKeeper_ZoneWithdrawalRecords() {
 			func() {},
 			&types.QueryWithdrawalRecordsRequest{
 				ChainId:          suite.chainB.ChainID,
-				DelegatorAddress: "quick16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+				DelegatorAddress: "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 			},
 			false,
 			0,
@@ -551,7 +551,7 @@ func (suite *KeeperTestSuite) TestKeeper_ZoneWithdrawalRecords() {
 				icsKeeper.AddWithdrawalRecord(
 					ctx,
 					zone.ChainId,
-					"quick16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+					"black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 					distribution,
 					testAddress,
 					sdk.NewCoins(sdk.NewCoin(zone.BaseDenom, math.NewInt(15000000))),
@@ -563,7 +563,7 @@ func (suite *KeeperTestSuite) TestKeeper_ZoneWithdrawalRecords() {
 			},
 			&types.QueryWithdrawalRecordsRequest{
 				ChainId:          suite.chainB.ChainID,
-				DelegatorAddress: "quick16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+				DelegatorAddress: "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 			},
 			false,
 			1,
@@ -644,7 +644,7 @@ func (suite *KeeperTestSuite) TestKeeper_WithdrawalRecords() {
 				icsKeeper.AddWithdrawalRecord(
 					ctx,
 					zone.ChainId,
-					"quick16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+					"black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 					distribution,
 					testAddress,
 					sdk.NewCoins(sdk.NewCoin(zone.BaseDenom, math.NewInt(15000000))),

@@ -1,4 +1,4 @@
-module github.com/ingenuity-build/quicksilver
+module github.com/nephirim/quicksilver
 
 go 1.20
 

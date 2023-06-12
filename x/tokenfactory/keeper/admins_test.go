@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/quicksilver/x/tokenfactory/types"
 )
 
 func (s *KeeperTestSuite) TestAdminMsgs() {
@@ -295,12 +295,12 @@ func (s *KeeperTestSuite) TestSetDenomMetaData() {
 						Exponent: 0,
 					},
 					{
-						Denom:    "uqck",
+						Denom:    "ufury",
 						Exponent: 6,
 					},
 				},
 				Base:    s.defaultDenom,
-				Display: "uqck",
+				Display: "ufury",
 				Name:    "OSMO",
 				Symbol:  "OSMO",
 			}),
@@ -316,12 +316,12 @@ func (s *KeeperTestSuite) TestSetDenomMetaData() {
 						Exponent: 0,
 					},
 					{
-						Denom:    "uqck",
+						Denom:    "ufury",
 						Exponent: 6,
 					},
 				},
 				Base:    fmt.Sprintf("factory/%s/litecoin", s.TestAccs[0].String()),
-				Display: "uqck",
+				Display: "ufury",
 				Name:    "OSMO",
 				Symbol:  "OSMO",
 			}),
@@ -333,16 +333,16 @@ func (s *KeeperTestSuite) TestSetDenomMetaData() {
 				Description: "yeehaw",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "uqck",
+						Denom:    "ufury",
 						Exponent: 0,
 					},
 					{
-						Denom:    "uqcko",
+						Denom:    "ufuryo",
 						Exponent: 6,
 					},
 				},
-				Base:    "uqck",
-				Display: "uqcko",
+				Base:    "ufury",
+				Display: "ufuryo",
 				Name:    "OSMO",
 				Symbol:  "OSMO",
 			}),
@@ -358,12 +358,12 @@ func (s *KeeperTestSuite) TestSetDenomMetaData() {
 						Exponent: 0,
 					},
 					{
-						Denom:    "uqck",
+						Denom:    "ufury",
 						Exponent: 6,
 					},
 				},
 				Base:    s.defaultDenom,
-				Display: "uqck",
+				Display: "ufury",
 				Name:    "OSMO",
 				Symbol:  "OSMO",
 			}),
@@ -380,7 +380,7 @@ func (s *KeeperTestSuite) TestSetDenomMetaData() {
 					},
 				},
 				Base:    s.defaultDenom,
-				Display: "uqck",
+				Display: "ufury",
 				Name:    "OSMO",
 				Symbol:  "OSMO",
 			}),

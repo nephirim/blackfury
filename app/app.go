@@ -39,10 +39,10 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/ingenuity-build/quicksilver/app/keepers"
-	"github.com/ingenuity-build/quicksilver/docs"
-	airdroptypes "github.com/ingenuity-build/quicksilver/x/airdrop/types"
-	interchainstakingtypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/app/keepers"
+	"github.com/nephirim/quicksilver/docs"
+	airdroptypes "github.com/nephirim/quicksilver/x/airdrop/types"
+	interchainstakingtypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func Init() {
@@ -50,12 +50,12 @@ func Init() {
 	if err != nil {
 		panic(err)
 	}
-	DefaultNodeHome = filepath.Join(userHomeDir, ".quicksilverd")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".blackfuryd")
 }
 
 const (
 	// Name defines the application binary name.
-	Name = "quicksilverd"
+	Name = "blackfuryd"
 )
 
 var (

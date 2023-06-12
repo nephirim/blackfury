@@ -32,9 +32,9 @@ CHAINID_0=qstest-1
 CHAINID_1=lstest-1
 CHAINID_2=lstest-2
 
-QS1_RUN="docker-compose $DC --ansi never run --rm -T quicksilver quicksilverd"
-QS2_RUN="docker-compose $DC --ansi never run --rm -T quicksilver2 quicksilverd"
-QS3_RUN="docker-compose $DC --ansi never run --rm -T quicksilver3 quicksilverd"
+QS1_RUN="docker-compose $DC --ansi never run --rm -T quicksilver blackfuryd"
+QS2_RUN="docker-compose $DC --ansi never run --rm -T quicksilver2 blackfuryd"
+QS3_RUN="docker-compose $DC --ansi never run --rm -T quicksilver3 blackfuryd"
 GAIA1_RUN="docker-compose $DC --ansi never run --rm -T gaia gaiad"
 GAIA2_RUN="docker-compose $DC --ansi never run --rm -T gaia2 gaiad"
 GAIA3_RUN="docker-compose $DC --ansi never run --rm -T gaia3 gaiad"
@@ -49,9 +49,9 @@ TZ2_4_RUN="docker-compose $DC --ansi never run --rm -T testzone2-4 osmosisd"
 RLY_RUN="docker-compose $DC --ansi never run --rm -T relayer rly"
 HERMES_RUN="docker-compose $DC --ansi never run --rm -T hermes hermes"
 
-QS1_EXEC="docker-compose $DC --ansi never exec -T quicksilver quicksilverd"
-QS2_EXEC="docker-compose $DC --ansi never exec -T quicksilver2 quicksilverd"
-QS3_EXEC="docker-compose $DC --ansi never exec -T quicksilver3 quicksilverd"
+QS1_EXEC="docker-compose $DC --ansi never exec -T quicksilver blackfuryd"
+QS2_EXEC="docker-compose $DC --ansi never exec -T quicksilver2 blackfuryd"
+QS3_EXEC="docker-compose $DC --ansi never exec -T quicksilver3 blackfuryd"
 GAIA1_EXEC="docker-compose $DC --ansi never exec -T gaia gaiad"
 GAIA2_EXEC="docker-compose $DC --ansi never exec -T gaia2 gaiad"
 GAIA3_EXEC="docker-compose $DC --ansi never exec -T gaia3 gaiad"

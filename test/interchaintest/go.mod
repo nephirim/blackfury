@@ -1,4 +1,4 @@
-module github.com/ingenuity-build/quicksilver/test/interchaintest
+module github.com/nephirim/quicksilver/test/interchaintest
 
 go 1.20
 
@@ -213,7 +213,7 @@ replace (
 	github.com/CosmWasm/wasmd => github.com/notional-labs/wasmd v0.29.0-sdk46.0.20221114145317-d6e67fd50956
 	github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.22.2 //indirect
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
-	github.com/ingenuity-build => ../../
+	github.com/nephirim => ../../
 	github.com/strangelove-ventures/interchaintest/v5 => github.com/aljo242/interchaintest/v5 v5.0.0-20230509122157-64ddf9ed35c2
 	github.com/tendermint/tendermint => github.com/cometbft/cometbft v0.34.27
 	github.com/vedhavyas/go-subkey => github.com/strangelove-ventures/go-subkey v1.0.7

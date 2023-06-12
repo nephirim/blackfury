@@ -2,7 +2,7 @@
 
 ## Abstract
 
-The purpose of this module is to distribute QCK airdrops to users for engaging in activities related to newly onboarded zones.
+The purpose of this module is to distribute FURY airdrops to users for engaging in activities related to newly onboarded zones.
 
 **Objectives:**
 
@@ -85,8 +85,8 @@ const (
 	ActionDepositT4 Action = 4
 	// Deposit tier 5 (e.g. > 30% of base_value)
 	ActionDepositT5 Action = 5
-	// Active QCK delegation
-	ActionStakeQCK Action = 6
+	// Active FURY delegation
+	ActionStakeFURY Action = 6
 	// Intent is set
 	ActionSignalIntent Action = 7
 	// Cast governance vote on QS
@@ -104,7 +104,7 @@ var Action_name = map[int32]string{
 	3:  "ActionDepositT3",
 	4:  "ActionDepositT4",
 	5:  "ActionDepositT5",
-	6:  "ActionStakeQCK",
+	6:  "ActionStakeFURY",
 	7:  "ActionSignalIntent",
 	8:  "ActionQSGov",
 	9:  "ActionGbP",
@@ -118,7 +118,7 @@ var Action_value = map[string]int32{
 	"ActionDepositT3":    3,
 	"ActionDepositT4":    4,
 	"ActionDepositT5":    5,
-	"ActionStakeQCK":     6,
+	"ActionStakeFURY":     6,
 	"ActionSignalIntent": 7,
 	"ActionQSGov":        8,
 	"ActionGbP":          9,
@@ -256,7 +256,7 @@ Claim airdrop for the given action in the given zone.
 
 Example:
 
-`$ quicksilverd tx airdrop claim cosmoshub-4 ActionDelegateStake`
+`$ blackfuryd tx airdrop claim cosmoshub-4 ActionDelegateStake`
 
 ## Events
 
@@ -426,7 +426,7 @@ type QueryClaimRecordResponse struct {
 
 ## Keepers
 
-<https://pkg.go.dev/github.com/ingenuity-build/quicksilver/x/airdrop/keeper>
+<https://pkg.go.dev/github.com/nephirim/quicksilver/x/airdrop/keeper>
 
 ## Parameters
 

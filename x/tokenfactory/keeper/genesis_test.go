@@ -4,28 +4,28 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/quicksilver/x/tokenfactory/types"
 )
 
 func (s *KeeperTestSuite) TestGenesis() {
 	genesisState := types.GenesisState{
 		FactoryDenoms: []types.GenesisDenom{
 			{
-				Denom: "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin",
+				Denom: "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/bitcoin",
 				AuthorityMetadata: types.DenomAuthorityMetadata{
-					Admin: "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+					Admin: "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 				},
 			},
 			{
-				Denom: "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/diff-admin",
+				Denom: "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/diff-admin",
 				AuthorityMetadata: types.DenomAuthorityMetadata{
-					Admin: "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+					Admin: "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 				},
 			},
 			{
-				Denom: "factory/quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/litecoin",
+				Denom: "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf/litecoin",
 				AuthorityMetadata: types.DenomAuthorityMetadata{
-					Admin: "quick1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
+					Admin: "black1ve2nremzdnu7e55khlrt2282qhh98dh4708ppf",
 				},
 			},
 		},
@@ -46,7 +46,7 @@ func (s *KeeperTestSuite) TestGenesis() {
 	tokenfactoryModuleAccount := app.AccountKeeper.GetAccount(s.Ctx, app.AccountKeeper.GetModuleAddress(types.ModuleName))
 	s.Require().Nil(tokenfactoryModuleAccount)
 
-	app.TokenFactoryKeeper.SetParams(s.Ctx, types.Params{DenomCreationFee: sdk.Coins{sdk.NewInt64Coin("uqck", 100)}})
+	app.TokenFactoryKeeper.SetParams(s.Ctx, types.Params{DenomCreationFee: sdk.Coins{sdk.NewInt64Coin("ufury", 100)}})
 	app.TokenFactoryKeeper.InitGenesis(s.Ctx, genesisState)
 
 	// check that the module account is now initialized

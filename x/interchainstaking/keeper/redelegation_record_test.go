@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"time"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func (suite *KeeperTestSuite) TestRedelegationRecordSetGetIterate() {

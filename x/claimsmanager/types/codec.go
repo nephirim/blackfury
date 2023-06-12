@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/msgservice"
 
-	"github.com/ingenuity-build/quicksilver/osmosis-types/gamm"
-	"github.com/ingenuity-build/quicksilver/osmosis-types/gamm/pool-models/balancer"
-	"github.com/ingenuity-build/quicksilver/osmosis-types/gamm/pool-models/stableswap"
+	"github.com/nephirim/quicksilver/osmosis-types/gamm"
+	"github.com/nephirim/quicksilver/osmosis-types/gamm/pool-models/balancer"
+	"github.com/nephirim/quicksilver/osmosis-types/gamm/pool-models/stableswap"
 )
 
 var (

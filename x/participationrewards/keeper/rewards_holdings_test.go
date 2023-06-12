@@ -4,10 +4,10 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	cmtypes "github.com/ingenuity-build/quicksilver/x/claimsmanager/types"
-	"github.com/ingenuity-build/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/quicksilver/x/participationrewards/types"
 )
 
 func (suite *KeeperTestSuite) TestCalcUserHoldingsAllocations() {

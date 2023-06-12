@@ -17,13 +17,13 @@ This package provides first class support for:
 - Commands
 
 ```sh
-  quicksilverd tx wasm -h
+  blackfuryd tx wasm -h
 ```
 
 - Query
 
 ```sh
-  quicksilverd query wasm -h
+  blackfuryd query wasm -h
 ```
 
 ## Tests

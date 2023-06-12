@@ -9,9 +9,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	"github.com/ingenuity-build/quicksilver/wasmbinding/bindings"
-	tokenfactorykeeper "github.com/ingenuity-build/quicksilver/x/tokenfactory/keeper"
-	tokenfactorytypes "github.com/ingenuity-build/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/quicksilver/wasmbinding/bindings"
+	tokenfactorykeeper "github.com/nephirim/quicksilver/x/tokenfactory/keeper"
+	tokenfactorytypes "github.com/nephirim/quicksilver/x/tokenfactory/types"
 )
 
 // CustomMessageDecorator returns decorator for custom CosmWasm bindings messages.

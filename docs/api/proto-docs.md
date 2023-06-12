@@ -1217,7 +1217,7 @@ Query provides defines the gRPC querier service.
 <a name="quicksilver.participationrewards.v1.DistributionProportions"></a>
 
 ### DistributionProportions
-DistributionProportions defines the proportions of minted QCK that is to be
+DistributionProportions defines the proportions of minted FURY that is to be
 allocated as participation rewards.
 
 

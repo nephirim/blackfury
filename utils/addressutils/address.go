@@ -7,7 +7,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/bech32"
-	"github.com/ingenuity-build/quicksilver/utils/randomutils"
+	"github.com/nephirim/quicksilver/utils/randomutils"
 )
 
 // AddressFromBech32 decodes a bech32 encoded address into a byte-slice, and validates the prefix (hrp).

@@ -3,7 +3,7 @@ package quicksilver.participationrewards.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/ingenuity-build/quicksilver/x/participationrewards/types";
+option go_package = "github.com/nephirim/quicksilver/x/participationrewards/types";
 
 message AddProtocolDataProposal {
   option (gogoproto.equal) = false;

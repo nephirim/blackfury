@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/require"
 	abcitypes "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func TestAttributesToMap(t *testing.T) {

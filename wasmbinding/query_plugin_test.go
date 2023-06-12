@@ -17,9 +17,9 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/wasmbinding"
-	epochtypes "github.com/ingenuity-build/quicksilver/x/epochs/types"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/wasmbinding"
+	epochtypes "github.com/nephirim/quicksilver/x/epochs/types"
 )
 
 type StargateTestSuite struct {

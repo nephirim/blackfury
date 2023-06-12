@@ -8,15 +8,15 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 func TestRoundtripDelegationMarshalToUnmarshal(t *testing.T) {
 	del1 := types.NewDelegation(
 		"cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0",
 		"cosmos1ssrxxe4xsls57ehrkswlkhlkcverf0p0fpgyhzqw0hfdqj92ynxsw29r6e",
-		sdk.NewCoin("uqck", sdk.NewInt(300)),
+		sdk.NewCoin("ufury", sdk.NewInt(300)),
 	)
 
 	wantDelAddr := sdk.AccAddress([]byte{0x84, 0xbf, 0xf8, 0x4c, 0x7d, 0xda, 0xd1, 0x1c, 0xb8, 0xc0, 0x73, 0x86, 0xe9, 0x19, 0x28, 0xc5, 0x67, 0x5c, 0xa4, 0xbc})
@@ -132,7 +132,7 @@ func TestDetermineAllocationsForDelegation(t *testing.T) {
 				{ValoperAddress: val2.String(), Weight: sdk.NewDecWithPrec(63, 2)},
 				{ValoperAddress: val3.String(), Weight: sdk.NewDecWithPrec(7, 2)},
 			},
-			inAmount: sdk.NewCoins(sdk.NewCoin("uqck", sdk.NewInt(50000))),
+			inAmount: sdk.NewCoins(sdk.NewCoin("ufury", sdk.NewInt(50000))),
 			expected: map[string]sdkmath.Int{
 				val1.String(): sdk.ZeroInt(),
 				val2.String(): sdk.NewInt(33182),
@@ -152,7 +152,7 @@ func TestDetermineAllocationsForDelegation(t *testing.T) {
 				{ValoperAddress: val3.String(), Weight: sdk.NewDecWithPrec(15, 2)},
 				{ValoperAddress: val4.String(), Weight: sdk.NewDecWithPrec(10, 2)},
 			},
-			inAmount: sdk.NewCoins(sdk.NewCoin("uqck", sdk.NewInt(20))),
+			inAmount: sdk.NewCoins(sdk.NewCoin("ufury", sdk.NewInt(20))),
 			expected: map[string]sdkmath.Int{
 				val4.String(): sdk.NewInt(11),
 				val3.String(): sdk.ZeroInt(),
@@ -173,7 +173,7 @@ func TestDetermineAllocationsForDelegation(t *testing.T) {
 				{ValoperAddress: val3.String(), Weight: sdk.NewDecWithPrec(15, 2)},
 				{ValoperAddress: val4.String(), Weight: sdk.NewDecWithPrec(10, 2)},
 			},
-			inAmount: sdk.NewCoins(sdk.NewCoin("uqck", sdk.NewInt(50))),
+			inAmount: sdk.NewCoins(sdk.NewCoin("ufury", sdk.NewInt(50))),
 			expected: map[string]sdkmath.Int{
 				val4.String(): sdk.NewInt(20),
 				val2.String(): sdk.NewInt(13),

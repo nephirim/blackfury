@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	BaseCoinUnit = "uqck"
+	BaseCoinUnit = "ufury"
 )
 
 // Parameter store keys.

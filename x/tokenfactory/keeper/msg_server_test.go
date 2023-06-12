@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/ingenuity-build/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/quicksilver/x/tokenfactory/types"
 )
 
 // TestMintDenomMsg tests TypeMsgMint message is emitted on a successful mint.
@@ -26,7 +26,7 @@ func (s *KeeperTestSuite) TestMintDenomMsg() {
 		{
 			desc:          "denom does not exist",
 			amount:        10,
-			mintDenom:     "factory/QCK1t7egva48prqmzl59x5ngv4zx0dtrwewc9m7z44/evmos",
+			mintDenom:     "factory/FURY1t7egva48prqmzl59x5ngv4zx0dtrwewc9m7z44/evmos",
 			admin:         s.TestAccs[0].String(),
 			valid:         false,
 			expectedError: types.ErrDenomDoesNotExist,
@@ -71,7 +71,7 @@ func (s *KeeperTestSuite) TestBurnDenomMsg() {
 	}{
 		{
 			desc:          "denom does not exist",
-			burnDenom:     "factory/quick1vprpg84y4c50fxpf9ngza2y0p0q3k7yrw2q8tf/evmos",
+			burnDenom:     "factory/black1vprpg84y4c50fxpf9ngza2y0p0q3k7yrw2q8tf/evmos",
 			admin:         s.TestAccs[0].String(),
 			valid:         false,
 			expectedError: types.ErrUnauthorized,
@@ -98,7 +98,7 @@ func (s *KeeperTestSuite) TestBurnDenomMsg() {
 
 // TestCreateDenomMsg test TypeMsgCreateDenom message is emitted on a successful denom creation.
 func (s *KeeperTestSuite) TestCreateDenomMsg() {
-	defaultDenomCreationFee := types.Params{DenomCreationFee: sdk.NewCoins(sdk.NewCoin("uqck", sdk.NewInt(50000000)))}
+	defaultDenomCreationFee := types.Params{DenomCreationFee: sdk.NewCoins(sdk.NewCoin("ufury", sdk.NewInt(50000000)))}
 	for _, tc := range []struct {
 		desc                  string
 		denomCreationFee      types.Params
@@ -218,14 +218,14 @@ func (s *KeeperTestSuite) TestSetDenomMetaDataMsg() {
 						Exponent: 0,
 					},
 					{
-						Denom:    "uqck",
+						Denom:    "ufury",
 						Exponent: 6,
 					},
 				},
 				Base:    s.defaultDenom,
-				Display: "uqck",
-				Name:    "QCK",
-				Symbol:  "QCK",
+				Display: "ufury",
+				Name:    "FURY",
+				Symbol:  "FURY",
 			}),
 			expectedPass:          true,
 			expectedMessageEvents: 1,
@@ -240,14 +240,14 @@ func (s *KeeperTestSuite) TestSetDenomMetaDataMsg() {
 						Exponent: 0,
 					},
 					{
-						Denom:    "uqck",
+						Denom:    "ufury",
 						Exponent: 6,
 					},
 				},
 				Base:    fmt.Sprintf("factory/%s/litecoin", s.TestAccs[0].String()),
-				Display: "uqck",
-				Name:    "QCK",
-				Symbol:  "QCK",
+				Display: "ufury",
+				Name:    "FURY",
+				Symbol:  "FURY",
 			}),
 			expectedPass:  false,
 			expectedError: types.ErrUnauthorized,

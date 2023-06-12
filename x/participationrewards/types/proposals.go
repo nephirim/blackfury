@@ -6,7 +6,7 @@ import (
 
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/ingenuity-build/quicksilver/internal/multierror"
+	"github.com/nephirim/quicksilver/internal/multierror"
 )
 
 const (

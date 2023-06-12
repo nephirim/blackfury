@@ -48,7 +48,7 @@ the following formula:
 
 ### Minter
 
-The [`Minter`](]https://github.com/ingenuity-build/quicksilver/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L31) is an abstraction for holding current rewards information.
+The [`Minter`](]https://github.com/nephirim/quicksilver/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L31) is an abstraction for holding current rewards information.
 
 ```go
 type Minter struct {
@@ -58,7 +58,7 @@ type Minter struct {
 
 ### Params
 
-Minting [`Params`](https://github.com/ingenuity-build/quicksilver/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L118) are held in the global params store.
+Minting [`Params`](https://github.com/nephirim/quicksilver/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L118) are held in the global params store.
 
 ### LastReductionEpoch
 
@@ -92,7 +92,7 @@ The minting module contains the following parameters:
 
 | Key                                            | Type         | Example           |
 |------------------------------------------------|--------------|-------------------|
-| mint_denom                                     | string       | "uqck"            |
+| mint_denom                                     | string       | "ufury"            |
 | genesis_epoch_provisions                       | string (dec) | "500000000"       |
 | epoch_identifier                               | string       | "weekly"          |
 | reduction_period_in_epochs                     | int64        | 156               |
@@ -111,7 +111,7 @@ Below are all the network parameters for the `mint` module:
 - **`reduction_period_in_epochs`** - How many epochs must occur before implementing the reduction factor
 - **`reduction_factor`** - What the total token issuance factor will reduce by after the reduction period passes (if set to 66.66%, token issuance will reduce by 1/3)
 - **`distribution_proportions`** - Categories in which the specified proportion of newly released tokens are distributed to
-    - **`staking`** - Proportion of minted funds to incentivize staking QCK
+    - **`staking`** - Proportion of minted funds to incentivize staking FURY
     - **`pool_incentives`** - Proportion of minted funds to incentivize pools on Quicksilver
     - **`participation_rewards`** - Proportion of minted funds to pay those who participate in the Quicksilver protocol
     - **`community_pool`** - Proportion of minted funds to be set aside for the community pool
@@ -119,7 +119,7 @@ Below are all the network parameters for the `mint` module:
 
 ### Notes
 
-1. `mint_denom` defines denom for minting token - uqck
+1. `mint_denom` defines denom for minting token - ufury
 2. `genesis_epoch_provisions` provides minting tokens per epoch at genesis.
 3. `epoch_identifier` defines the epoch identifier to be used for the mint module e.g. "day"
 4. `reduction_period_in_epochs` defines the number of epochs to pass to reduce the mint amount
@@ -158,14 +158,14 @@ query mint params
 List all current min parameters in json format by:
 
 ```bash
-quicksilverd query mint params -o json
+blackfuryd query mint params -o json
 ```
 
 An example of the output:
 
 ```json
 {
-  "mint_denom":"uqck",
+  "mint_denom":"ufury",
   "genesis_epoch_provisions":"1639344.000000000000000000",
   "epoch_identifier":"day",
   "reduction_period_in_epochs":"365",
@@ -196,10 +196,10 @@ query mint epoch-provisions
 List the current epoch provisions:
 
 ```bash
-quicksilverd query mint epoch-provisions
+blackfuryd query mint epoch-provisions
 ```
 
-As of this writing, this number will be equal to the `genesis-epoch-provisions`. Once the `reduction_period_in_epochs` is reached, the `reduction_factor` will be initiated and reduce the amount of QCK minted per epoch.
+As of this writing, this number will be equal to the `genesis-epoch-provisions`. Once the `reduction_period_in_epochs` is reached, the `reduction_factor` will be initiated and reduce the amount of FURY minted per epoch.
 :::
 
 ## Appendix
@@ -231,8 +231,8 @@ The following tables show overall effects on different configurations of the `mi
 <td>Value has to be a positive integer</td> 
 <td>String must be <code>day</code>, <code>week</code>, <code>month</code>, or <code>year</code></td></tr> 
 <tr><td>Current configuration</td> 
-<td><code>uqck</code></td> 
-<td><code>1639344.000</code> (163,9344 QCK)</td> 
+<td><code>ufury</code></td> 
+<td><code>1639344.000</code> (163,9344 FURY)</td> 
 <td><code>day</code></td></tr>
 </tbody></table>
 

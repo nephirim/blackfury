@@ -149,7 +149,7 @@ chains:
     account-prefix: quick
     keyring-backend: test
     gas-adjustment: 1.2
-    gas-prices: 0.01uqck
+    gas-prices: 0.01ufury
     min-gas-amount: 0
     key-directory: %s/.icq/keys
     debug: false

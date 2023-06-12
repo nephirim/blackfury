@@ -15,11 +15,11 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ingenuity-build/quicksilver/app"
-	"github.com/ingenuity-build/quicksilver/utils/addressutils"
-	icqtypes "github.com/ingenuity-build/quicksilver/x/interchainquery/types"
-	"github.com/ingenuity-build/quicksilver/x/interchainstaking/keeper"
-	icstypes "github.com/ingenuity-build/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/quicksilver/utils/addressutils"
+	icqtypes "github.com/nephirim/quicksilver/x/interchainquery/types"
+	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
+	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
 )
 
 // ValSetCallback
@@ -768,7 +768,7 @@ func (suite *KeeperTestSuite) TestAllBalancesCallback() {
 		reqbz, err := quicksilver.AppCodec().Marshal(&queryReq)
 		suite.Require().NoError(err)
 
-		response := banktypes.QueryAllBalancesResponse{Balances: sdk.NewCoins(sdk.NewCoin("uqck", sdk.OneInt()))}
+		response := banktypes.QueryAllBalancesResponse{Balances: sdk.NewCoins(sdk.NewCoin("ufury", sdk.OneInt()))}
 		respbz, err := quicksilver.AppCodec().Marshal(&response)
 		suite.Require().NoError(err)
 
@@ -818,7 +818,7 @@ func (suite *KeeperTestSuite) TestAllBalancesCallbackWithExistingWg() {
 		reqbz, err := quicksilver.AppCodec().Marshal(&queryReq)
 		suite.Require().NoError(err)
 
-		response := banktypes.QueryAllBalancesResponse{Balances: sdk.NewCoins(sdk.NewCoin("uqck", sdk.OneInt()))}
+		response := banktypes.QueryAllBalancesResponse{Balances: sdk.NewCoins(sdk.NewCoin("ufury", sdk.OneInt()))}
 		respbz, err := quicksilver.AppCodec().Marshal(&response)
 		suite.Require().NoError(err)
 
@@ -862,7 +862,7 @@ func (suite *KeeperTestSuite) TestAllBalancesCallbackExistingBalanceNowNil() {
 		ctx := suite.chainA.GetContext()
 
 		zone, _ := quicksilver.InterchainstakingKeeper.GetZone(ctx, suite.chainB.ChainID)
-		zone.DepositAddress.Balance = sdk.NewCoins(sdk.NewCoin("uqck", sdk.OneInt()))
+		zone.DepositAddress.Balance = sdk.NewCoins(sdk.NewCoin("ufury", sdk.OneInt()))
 		quicksilver.InterchainstakingKeeper.SetZone(ctx, &zone)
 
 		queryReq := banktypes.QueryAllBalancesRequest{
@@ -892,7 +892,7 @@ func (suite *KeeperTestSuite) TestAllBalancesCallbackExistingBalanceNowNil() {
 			if queryInfo.ChainId == zone.ChainId &&
 				queryInfo.ConnectionId == zone.ConnectionId &&
 				queryInfo.QueryType == icstypes.BankStoreKey &&
-				bytes.Equal(queryInfo.Request, append(data, []byte("uqck")...)) {
+				bytes.Equal(queryInfo.Request, append(data, []byte("ufury")...)) {
 				found = true
 				return true
 			}
@@ -910,7 +910,7 @@ func (suite *KeeperTestSuite) TestAllBalancesCallbackExistingBalanceNowNil() {
 		ctx := suite.chainA.GetContext()
 
 		zone, _ := quicksilver.InterchainstakingKeeper.GetZone(ctx, suite.chainB.ChainID)
-		zone.WithdrawalAddress.Balance = sdk.NewCoins(sdk.NewCoin("uqck", sdk.OneInt()))
+		zone.WithdrawalAddress.Balance = sdk.NewCoins(sdk.NewCoin("ufury", sdk.OneInt()))
 		quicksilver.InterchainstakingKeeper.SetZone(ctx, &zone)
 
 		queryReq := banktypes.QueryAllBalancesRequest{
@@ -940,7 +940,7 @@ func (suite *KeeperTestSuite) TestAllBalancesCallbackExistingBalanceNowNil() {
 			if queryInfo.ChainId == zone.ChainId &&
 				queryInfo.ConnectionId == zone.ConnectionId &&
 				queryInfo.QueryType == icstypes.BankStoreKey &&
-				bytes.Equal(queryInfo.Request, append(data, []byte("uqck")...)) {
+				bytes.Equal(queryInfo.Request, append(data, []byte("ufury")...)) {
 				found = true
 				return true
 			}
@@ -967,7 +967,7 @@ func (suite *KeeperTestSuite) TestAllBalancesCallbackMulti() {
 		reqbz, err := quicksilver.AppCodec().Marshal(&queryReq)
 		suite.Require().NoError(err)
 
-		response := banktypes.QueryAllBalancesResponse{Balances: sdk.NewCoins(sdk.NewCoin("uqck", sdk.OneInt()), sdk.NewCoin("stake", sdk.OneInt()))}
+		response := banktypes.QueryAllBalancesResponse{Balances: sdk.NewCoins(sdk.NewCoin("ufury", sdk.OneInt()), sdk.NewCoin("stake", sdk.OneInt()))}
 		respbz, err := quicksilver.AppCodec().Marshal(&response)
 		suite.Require().NoError(err)
 
@@ -1118,7 +1118,7 @@ func (suite *KeeperTestSuite) TestAccountBalanceCallbackNil() {
 }
 
 // Ensures that a fuzz vector which resulted in a crash of ValidatorReq.Pagination crashing
-// doesn't creep back up. Please see https://github.com/ingenuity-build/quicksilver-incognito/issues/82
+// doesn't creep back up. Please see https://github.com/nephirim/quicksilver-incognito/issues/82
 func TestValsetCallbackNilValidatorReqPagination(t *testing.T) {
 	suite := new(KeeperTestSuite)
 	suite.SetT(t)
