@@ -157,7 +157,7 @@ func (k msgServer) GovReopenChannel(goCtx context.Context, msg *types.MsgGovReop
 	// remove leading prefix icacontroller- if passed in msg
 	portID := strings.ReplaceAll(msg.PortId, "icacontroller-", "")
 
-	// validate the zone exists, and the format is valid (e.g. quickgaia-1.delegate)
+	// validate the zone exists, and the format is valid (e.g. blackgaia-1.delegate)
 	parts := strings.Split(portID, ".")
 
 	// portId and connectionId format validated in validateBasic, so not duplicated here.

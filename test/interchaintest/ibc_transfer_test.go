@@ -111,13 +111,13 @@ func TestBlackfuryJunoIBCTransfer(t *testing.T) {
 	require.NoError(t, err)
 
 	// Get our Bech32 encoded user addresses
-	quickUser, junoUser := users[0], users[1]
+	blackUser, junoUser := users[0], users[1]
 
-	quickUserAddr := quickUser.FormattedAddress()
+	blackUserAddr := blackUser.FormattedAddress()
 	junoUserAddr := junoUser.FormattedAddress()
 
 	// Get original account balances
-	blackfuryOrigBal, err := blackfury.GetBalance(ctx, quickUserAddr, blackfury.Config().Denom)
+	blackfuryOrigBal, err := blackfury.GetBalance(ctx, blackUserAddr, blackfury.Config().Denom)
 	require.NoError(t, err)
 	require.Equal(t, genesisWalletAmount, blackfuryOrigBal)
 
@@ -133,10 +133,10 @@ func TestBlackfuryJunoIBCTransfer(t *testing.T) {
 		Amount:  transferAmount,
 	}
 
-	quickChannels, err := r.GetChannels(ctx, eRep, blackfury.Config().ChainID)
+	blackChannels, err := r.GetChannels(ctx, eRep, blackfury.Config().ChainID)
 	require.NoError(t, err)
 
-	transferTx, err := blackfury.SendIBCTransfer(ctx, quickChannels[0].ChannelID, quickUserAddr, transfer, ibc.TransferOptions{})
+	transferTx, err := blackfury.SendIBCTransfer(ctx, blackChannels[0].ChannelID, blackUserAddr, transfer, ibc.TransferOptions{})
 	require.NoError(t, err)
 
 	blackfuryHeight, err := blackfury.Height(ctx)
@@ -147,11 +147,11 @@ func TestBlackfuryJunoIBCTransfer(t *testing.T) {
 	require.NoError(t, err)
 
 	// Get the IBC denom for ufury on Juno
-	blackfuryTokenDenom := transfertypes.GetPrefixedDenom(quickChannels[0].Counterparty.PortID, quickChannels[0].Counterparty.ChannelID, blackfury.Config().Denom)
+	blackfuryTokenDenom := transfertypes.GetPrefixedDenom(blackChannels[0].Counterparty.PortID, blackChannels[0].Counterparty.ChannelID, blackfury.Config().Denom)
 	blackfuryIBCDenom := transfertypes.ParseDenomTrace(blackfuryTokenDenom).IBCDenom()
 
 	// Assert that the funds are no longer present in user acc on Juno and are in the user acc on Juno
-	blackfuryUpdateBal, err := blackfury.GetBalance(ctx, quickUserAddr, blackfury.Config().Denom)
+	blackfuryUpdateBal, err := blackfury.GetBalance(ctx, blackUserAddr, blackfury.Config().Denom)
 	require.NoError(t, err)
 	require.Equal(t, blackfuryOrigBal-transferAmount, blackfuryUpdateBal)
 
@@ -161,12 +161,12 @@ func TestBlackfuryJunoIBCTransfer(t *testing.T) {
 
 	// Compose an IBC transfer and send from Blackfury -> Juno
 	transfer = ibc.WalletAmount{
-		Address: quickUserAddr,
+		Address: blackUserAddr,
 		Denom:   blackfuryIBCDenom,
 		Amount:  transferAmount,
 	}
 
-	transferTx, err = juno.SendIBCTransfer(ctx, quickChannels[0].Counterparty.ChannelID, junoUserAddr, transfer, ibc.TransferOptions{})
+	transferTx, err = juno.SendIBCTransfer(ctx, blackChannels[0].Counterparty.ChannelID, junoUserAddr, transfer, ibc.TransferOptions{})
 	require.NoError(t, err)
 
 	junoHeight, err := juno.Height(ctx)
@@ -177,7 +177,7 @@ func TestBlackfuryJunoIBCTransfer(t *testing.T) {
 	require.NoError(t, err)
 
 	// Assert that the funds are now back on Juno and not on Juno
-	blackfuryUpdateBal, err = blackfury.GetBalance(ctx, quickUserAddr, blackfury.Config().Denom)
+	blackfuryUpdateBal, err = blackfury.GetBalance(ctx, blackUserAddr, blackfury.Config().Denom)
 	require.NoError(t, err)
 	require.Equal(t, blackfuryOrigBal, blackfuryUpdateBal)
 

@@ -58,7 +58,7 @@ func SumLocksByDenom(locks []PeriodLock, denom string) sdk.Int {
 	return sum
 }
 
-// quick fix for getting native denom from synthetic denom.
+// black fix for getting native denom from synthetic denom.
 func NativeDenom(denom string) string {
 	if strings.Contains(denom, "/superbonding") {
 		return strings.Split(denom, "/superbonding")[0]

@@ -26,7 +26,7 @@ func TestAddressFromBech32(t *testing.T) {
 		},
 		{
 			"invalid - invalid address",
-			"quick",
+			"black",
 			"",
 			nil,
 			"decoding bech32 failed: invalid bech32 string length 5",
@@ -55,14 +55,14 @@ func TestAddressFromBech32(t *testing.T) {
 		{
 			"invalid - invalid hrp",
 			"cosmos1kv4ez0rgrd679m6da96apnqxkcamh28c098lr8",
-			"quick",
+			"black",
 			nil,
-			"unexpected prefix - got cosmos expected quick",
+			"unexpected prefix - got cosmos expected black",
 		},
 		{
 			"invalid - no prefix",
 			"1kv4ez0rgrd679m6da96apnqxkcamh28c00j09s",
-			"quick",
+			"black",
 			nil,
 			"decoding bech32 failed: invalid separator index 0",
 		},

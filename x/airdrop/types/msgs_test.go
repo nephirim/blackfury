@@ -82,7 +82,7 @@ func TestMsgClaim_ValidateBasic(t *testing.T) {
 			true,
 		},
 		// TODO: add more address checks
-		//   - currently it fails using quick address (no sdk setup done)
+		//   - currently it fails using black address (no sdk setup done)
 		{
 			"invalid_ActionUndefined",
 			fields{

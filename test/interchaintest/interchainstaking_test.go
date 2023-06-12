@@ -109,11 +109,11 @@ func TestInterchainStaking(t *testing.T) {
 	require.NoError(t, err)
 
 	// Get our Bech32 encoded user addresses
-	quickUser, junoUser := users[0], users[1]
+	blackUser, junoUser := users[0], users[1]
 
-	quickUserAddr := quickUser.FormattedAddress()
+	blackUserAddr := blackUser.FormattedAddress()
 	junoUserAddr := junoUser.FormattedAddress()
-	_ = quickUserAddr
+	_ = blackUserAddr
 	_ = junoUserAddr
 
 	runSidecars(t, ctx, blackfury, juno)
@@ -146,7 +146,7 @@ chains:
     chain-id: '%s'
     rpc-addr: '%s'
     grpc-addr: '%s'
-    account-prefix: quick
+    account-prefix: black
     keyring-backend: test
     gas-adjustment: 1.2
     gas-prices: 0.01ufury
@@ -214,7 +214,7 @@ func runXCC(t *testing.T, ctx context.Context, blackfury, juno *cosmos.CosmosCha
 
 	file := fmt.Sprintf(`source_chain: '%s'
 chains:
-  quick-1: '%s'
+  black-1: '%s'
   juno-1: '%s'
 `,
 		blackfury.Config().ChainID,

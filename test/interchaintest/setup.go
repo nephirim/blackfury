@@ -39,7 +39,7 @@ func createConfig() (ibc.ChainConfig, error) {
 			ChainID:             "blackfury-2",
 			Images:              []ibc.DockerImage{BlackfuryImage},
 			Bin:                 "blackfuryd",
-			Bech32Prefix:        "quick",
+			Bech32Prefix:        "black",
 			Denom:               "ufury",
 			GasPrices:           "0.0ufury",
 			GasAdjustment:       1.1,

@@ -5,7 +5,7 @@ chains:
     chain-id: qstest-1
     rpc-addr: http://blackfury:26657
     grpc-addr: http://blackfury:9090
-    account-prefix: quick
+    account-prefix: black
     keyring-backend: test
     gas-adjustment: 1.5
     gas-prices: 0.00ufury

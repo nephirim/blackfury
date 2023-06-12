@@ -42,7 +42,7 @@ import (
 )
 
 const (
-	EnvPrefix = "QUICK"
+	EnvPrefix = "BLACK"
 )
 
 type appCreator struct {
