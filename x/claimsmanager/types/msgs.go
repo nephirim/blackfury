@@ -1,6 +1,6 @@
 package types
 
-import "github.com/nephirim/quicksilver/internal/multierror"
+import "github.com/nephirim/blackfury/internal/multierror"
 
 // ValidateBasic performs stateless validation for Proof.
 func (p *Proof) ValidateBasic() error {

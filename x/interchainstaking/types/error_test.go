@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/nephirim/quicksilver/internal/multierror"
+	"github.com/nephirim/blackfury/internal/multierror"
 )
 
 func TestErrorsDeterminism(t *testing.T) {

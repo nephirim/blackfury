@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	epochstypes "github.com/nephirim/quicksilver/x/epochs/types"
+	epochstypes "github.com/nephirim/blackfury/x/epochs/types"
 )
 
 func (k *Keeper) BeforeEpochStart(_ sdk.Context, _ string, _ int64) error {

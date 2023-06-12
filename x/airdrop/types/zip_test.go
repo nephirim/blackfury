@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/x/airdrop/types"
+	"github.com/nephirim/blackfury/x/airdrop/types"
 )
 
 // TODO test

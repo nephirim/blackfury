@@ -341,7 +341,7 @@ type QueryProtocolDataResponse struct {
 
 ## Keepers
 
-<https://pkg.go.dev/github.com/nephirim/quicksilver/x/participationrewards/keeper>
+<https://pkg.go.dev/github.com/nephirim/blackfury/x/participationrewards/keeper>
 
 ## Parameters
 

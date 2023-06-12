@@ -16,7 +16,7 @@ done
 cd ..
 
 # move proto files to the right places
-cp -r github.com/nephirim/quicksilver/* ./
+cp -r github.com/nephirim/blackfury/* ./
 rm -rf github.com
 
 go mod tidy -compat=1.20

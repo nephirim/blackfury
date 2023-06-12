@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/x/mint/client/cli"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/x/mint/client/cli"
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	clitestutil "github.com/cosmos/cosmos-sdk/testutil/cli"

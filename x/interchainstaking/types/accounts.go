@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/blackfury/utils/addressutils"
 )
 
 func NewICAAccount(addr, portID string) (*ICAAccount, error) {

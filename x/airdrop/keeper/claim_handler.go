@@ -8,11 +8,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 
-	osmosistypes "github.com/nephirim/quicksilver/osmosis-types"
-	osmosislockuptypes "github.com/nephirim/quicksilver/osmosis-types/lockup"
-	"github.com/nephirim/quicksilver/x/airdrop/types"
-	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	osmosistypes "github.com/nephirim/blackfury/osmosis-types"
+	osmosislockuptypes "github.com/nephirim/blackfury/osmosis-types/lockup"
+	"github.com/nephirim/blackfury/x/airdrop/types"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 var (

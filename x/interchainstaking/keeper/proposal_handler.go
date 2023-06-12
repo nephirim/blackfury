@@ -13,7 +13,7 @@ import (
 	ibcexported "github.com/cosmos/ibc-go/v5/modules/core/exported"
 	tmclienttypes "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
 
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 // HandleRegisterZoneProposal is a handler for executing a passed community spend proposal.

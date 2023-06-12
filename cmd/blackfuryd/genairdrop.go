@@ -15,7 +15,7 @@ import (
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	"github.com/spf13/cobra"
 
-	"github.com/nephirim/quicksilver/x/airdrop/types"
+	"github.com/nephirim/blackfury/x/airdrop/types"
 )
 
 // AddGenesisAirdropCmd returns add-genesis-airdrop cobra Command.

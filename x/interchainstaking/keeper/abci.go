@@ -10,7 +10,7 @@ import (
 	stakingTypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	tmtypes "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
 
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 const blockInterval = 30

@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 func TestParseMsgMemo(t *testing.T) {

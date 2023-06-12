@@ -7,10 +7,10 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	"github.com/nephirim/quicksilver/utils/randomutils"
-	icskeeper "github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	"github.com/nephirim/blackfury/utils/randomutils"
+	icskeeper "github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 func (suite *KeeperTestSuite) TestKeeper_Zones() {

@@ -4,7 +4,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/nephirim/quicksilver/x/interchainquery/keeper"
+	"github.com/nephirim/blackfury/x/interchainquery/keeper"
 )
 
 func (s *KeeperTestSuite) TestEndBlocker() {

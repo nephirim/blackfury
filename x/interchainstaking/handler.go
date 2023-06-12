@@ -6,8 +6,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 func NewProposalHandler(k keeper.Keeper) govv1beta1.Handler {

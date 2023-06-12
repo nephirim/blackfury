@@ -15,8 +15,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 // GetTxCmd returns a root CLI command handler for all x/bank transaction commands.

@@ -16,10 +16,10 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/nephirim/quicksilver/x/mint/client/cli"
-	"github.com/nephirim/quicksilver/x/mint/keeper"
-	"github.com/nephirim/quicksilver/x/mint/simulation"
-	"github.com/nephirim/quicksilver/x/mint/types"
+	"github.com/nephirim/blackfury/x/mint/client/cli"
+	"github.com/nephirim/blackfury/x/mint/keeper"
+	"github.com/nephirim/blackfury/x/mint/simulation"
+	"github.com/nephirim/blackfury/x/mint/types"
 )
 
 var (

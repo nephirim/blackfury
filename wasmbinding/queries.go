@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/wasmbinding/bindings"
-	tokenfactorykeeper "github.com/nephirim/quicksilver/x/tokenfactory/keeper"
+	"github.com/nephirim/blackfury/wasmbinding/bindings"
+	tokenfactorykeeper "github.com/nephirim/blackfury/x/tokenfactory/keeper"
 )
 
 type QueryPlugin struct {

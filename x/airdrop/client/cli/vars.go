@@ -1,6 +1,6 @@
 package cli
 
-import "github.com/nephirim/quicksilver/x/airdrop/types"
+import "github.com/nephirim/blackfury/x/airdrop/types"
 
 var (
 	exampleChainID = "cosmoshub-4"

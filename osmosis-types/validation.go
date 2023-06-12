@@ -7,9 +7,9 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	osmosislockuptypes "github.com/nephirim/quicksilver/osmosis-types/lockup"
-	"github.com/nephirim/quicksilver/utils"
-	participationrewardstypes "github.com/nephirim/quicksilver/x/participationrewards/types"
+	osmosislockuptypes "github.com/nephirim/blackfury/osmosis-types/lockup"
+	"github.com/nephirim/blackfury/utils"
+	participationrewardstypes "github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 type ParticipationRewardsKeeper interface {

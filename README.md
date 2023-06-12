@@ -3,7 +3,7 @@
 
 |                                                                                                                                                   |                                                                                                                                                                    |                                                                                                                                                       |                                                                                                                                                      |                                                                                                                | 
 |---------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| [![codecov](https://codecov.io/gh/nephirim/quicksilver/branch/develop/graph/badge.svg)](https://codecov.io/gh/nephirim/quicksilver) | [![Go Report Card](https://goreportcard.com/badge/github.com/nephirim/quicksilver)](https://goreportcard.com/report/github.com/nephirim/quicksilver) | [![license](https://img.shields.io/github/license/nephirim/quicksilver.svg)](https://github.com/nephirim/quicksilver/blob/main/LICENSE) | [![GolangCI](https://golangci.com/badges/github.com/nephirim/quicksilver.svg)](https://golangci.com/r/github.com/nephirim/quicksilver) | [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/quicksilverprotocol) |  
+| [![codecov](https://codecov.io/gh/nephirim/blackfury/branch/develop/graph/badge.svg)](https://codecov.io/gh/nephirim/blackfury) | [![Go Report Card](https://goreportcard.com/badge/github.com/nephirim/blackfury)](https://goreportcard.com/report/github.com/nephirim/blackfury) | [![license](https://img.shields.io/github/license/nephirim/blackfury.svg)](https://github.com/nephirim/blackfury/blob/main/LICENSE) | [![GolangCI](https://golangci.com/badges/github.com/nephirim/blackfury.svg)](https://golangci.com/r/github.com/nephirim/blackfury) | [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/quicksilverprotocol) |  
 
 Quicksilver is the Cosmos Liquid Staking Zone.
 
@@ -48,7 +48,7 @@ _NB!! Use a fork of the repository when you plan to create Pull Requests;_
 
 Clone the repository from GitHub and enter the directory:
 
-    git clone https://github.com/nephirim/quicksilver.git
+    git clone https://github.com/nephirim/blackfury.git
     cd quicksilver
 
 Then run:

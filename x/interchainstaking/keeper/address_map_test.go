@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	"github.com/nephirim/quicksilver/utils/randomutils"
+	"github.com/nephirim/blackfury/utils/randomutils"
 )
 
 const (

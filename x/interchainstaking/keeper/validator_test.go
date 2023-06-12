@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 func (suite *KeeperTestSuite) TestStoreGetDeleteValidator() {

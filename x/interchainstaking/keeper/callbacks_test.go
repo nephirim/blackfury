@@ -15,11 +15,11 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	icqtypes "github.com/nephirim/quicksilver/x/interchainquery/types"
-	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	icqtypes "github.com/nephirim/blackfury/x/interchainquery/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 // ValSetCallback
@@ -1118,7 +1118,7 @@ func (suite *KeeperTestSuite) TestAccountBalanceCallbackNil() {
 }
 
 // Ensures that a fuzz vector which resulted in a crash of ValidatorReq.Pagination crashing
-// doesn't creep back up. Please see https://github.com/nephirim/quicksilver-incognito/issues/82
+// doesn't creep back up. Please see https://github.com/nephirim/blackfury-incognito/issues/82
 func TestValsetCallbackNilValidatorReqPagination(t *testing.T) {
 	suite := new(KeeperTestSuite)
 	suite.SetT(t)

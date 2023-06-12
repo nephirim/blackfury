@@ -4,7 +4,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	ibctmtypes "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
 
-	"github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/claimsmanager/types"
 )
 
 // GetSelfConsensusState returns consensus state stored every epoch.

@@ -10,7 +10,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 
-	"github.com/nephirim/quicksilver/internal/multierror"
+	"github.com/nephirim/blackfury/internal/multierror"
 )
 
 // airdrop message types.

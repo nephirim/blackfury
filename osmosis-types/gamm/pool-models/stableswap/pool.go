@@ -9,9 +9,9 @@ import (
 	sdkioerrors "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/osmosis-types/gamm"
-	"github.com/nephirim/quicksilver/osmosis-types/gamm/pool-models/internal/cfmm_common"
-	"github.com/nephirim/quicksilver/utils/addressutils"
+	"github.com/nephirim/blackfury/osmosis-types/gamm"
+	"github.com/nephirim/blackfury/osmosis-types/gamm/pool-models/internal/cfmm_common"
+	"github.com/nephirim/blackfury/utils/addressutils"
 )
 
 var _ gamm.PoolI = &Pool{}

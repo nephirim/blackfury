@@ -9,10 +9,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	"github.com/nephirim/quicksilver/osmosis-types/gamm"
-	icqkeeper "github.com/nephirim/quicksilver/x/interchainquery/keeper"
-	"github.com/nephirim/quicksilver/x/participationrewards/keeper"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/osmosis-types/gamm"
+	icqkeeper "github.com/nephirim/blackfury/x/interchainquery/keeper"
+	"github.com/nephirim/blackfury/x/participationrewards/keeper"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func (suite *KeeperTestSuite) executeOsmosisPoolUpdateCallback() {

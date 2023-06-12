@@ -10,10 +10,10 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	"github.com/nephirim/quicksilver/app/keepers"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
-	prtypes "github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/app/keepers"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
+	prtypes "github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func Upgrades() []Upgrade {

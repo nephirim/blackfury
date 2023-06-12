@@ -426,7 +426,7 @@ type QueryClaimRecordResponse struct {
 
 ## Keepers
 
-<https://pkg.go.dev/github.com/nephirim/quicksilver/x/airdrop/keeper>
+<https://pkg.go.dev/github.com/nephirim/blackfury/x/airdrop/keeper>
 
 ## Parameters
 

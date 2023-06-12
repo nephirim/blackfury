@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 // Submodule defines the interface for for tracking off-chain qAssets with

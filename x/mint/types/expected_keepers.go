@@ -1,7 +1,7 @@
 package types // noalias
 
 import (
-	epochstypes "github.com/nephirim/quicksilver/x/epochs/types"
+	epochstypes "github.com/nephirim/blackfury/x/epochs/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/types"

@@ -1,4 +1,4 @@
-module github.com/nephirim/quicksilver
+module github.com/nephirim/blackfury
 
 go 1.20
 

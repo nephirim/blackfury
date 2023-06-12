@@ -12,7 +12,7 @@ import (
 	tmclienttypes "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
 	"github.com/tendermint/tendermint/proto/tendermint/crypto"
 
-	claimsmanagerkeeper "github.com/nephirim/quicksilver/x/claimsmanager/keeper"
+	claimsmanagerkeeper "github.com/nephirim/blackfury/x/claimsmanager/keeper"
 )
 
 type ProofOpsFn func(ctx sdk.Context, ibcKeeper *ibckeeper.Keeper, connectionID, chainID string, height int64, module string, key []byte, data []byte, proofOps *crypto.ProofOps) error

@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/bech32"
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 
-	"github.com/nephirim/quicksilver/internal/multierror"
+	"github.com/nephirim/blackfury/internal/multierror"
 )
 
 // interchainstaking message types.

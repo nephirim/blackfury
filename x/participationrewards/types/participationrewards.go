@@ -7,8 +7,8 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/internal/multierror"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/internal/multierror"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 const (

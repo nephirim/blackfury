@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/blackfury/app"
 
 	"github.com/tendermint/tendermint/crypto"
 	"github.com/tendermint/tendermint/crypto/ed25519"

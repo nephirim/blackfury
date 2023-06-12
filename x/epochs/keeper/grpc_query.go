@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/nephirim/quicksilver/x/epochs/types"
+	"github.com/nephirim/blackfury/x/epochs/types"
 )
 
 var _ types.QueryServer = &Keeper{}

@@ -39,10 +39,10 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/nephirim/quicksilver/app/keepers"
-	"github.com/nephirim/quicksilver/docs"
-	airdroptypes "github.com/nephirim/quicksilver/x/airdrop/types"
-	interchainstakingtypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/app/keepers"
+	"github.com/nephirim/blackfury/docs"
+	airdroptypes "github.com/nephirim/blackfury/x/airdrop/types"
+	interchainstakingtypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 func Init() {

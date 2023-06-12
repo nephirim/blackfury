@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/proto/tendermint/crypto"
 
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func TestMsgSubmitClaim_ValidateBasic(t *testing.T) {

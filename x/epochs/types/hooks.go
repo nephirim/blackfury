@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/osmosis-types/osmoutils"
+	"github.com/nephirim/blackfury/osmosis-types/osmoutils"
 )
 
 type EpochHooks interface {

@@ -11,14 +11,14 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	config "github.com/nephirim/quicksilver/cmd/config"
-	osmosistypes "github.com/nephirim/quicksilver/osmosis-types"
-	"github.com/nephirim/quicksilver/utils"
-	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
-	epochskeeper "github.com/nephirim/quicksilver/x/epochs/keeper"
-	icqkeeper "github.com/nephirim/quicksilver/x/interchainquery/keeper"
-	icskeeper "github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	config "github.com/nephirim/blackfury/cmd/config"
+	osmosistypes "github.com/nephirim/blackfury/osmosis-types"
+	"github.com/nephirim/blackfury/utils"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	epochskeeper "github.com/nephirim/blackfury/x/epochs/keeper"
+	icqkeeper "github.com/nephirim/blackfury/x/interchainquery/keeper"
+	icskeeper "github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 // UserAllocation is an internal keeper struct to track transient state for

@@ -16,9 +16,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/nephirim/quicksilver/x/claimsmanager/client/cli"
-	"github.com/nephirim/quicksilver/x/claimsmanager/keeper"
-	"github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/claimsmanager/client/cli"
+	"github.com/nephirim/blackfury/x/claimsmanager/keeper"
+	"github.com/nephirim/blackfury/x/claimsmanager/types"
 )
 
 var (

@@ -9,10 +9,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	"github.com/nephirim/quicksilver/x/interchainquery/keeper"
-	"github.com/nephirim/quicksilver/x/interchainquery/types"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	"github.com/nephirim/blackfury/x/interchainquery/keeper"
+	"github.com/nephirim/blackfury/x/interchainquery/types"
 )
 
 var (

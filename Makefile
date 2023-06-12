@@ -3,7 +3,7 @@
 DOCKER_BUILDKIT=1
 COSMOS_BUILD_OPTIONS ?= ""
 PACKAGES_NOSIMULATION=$(shell go list ./... | grep -v '/simulation')
-PACKAGES_SIM=github.com/nephirim/quicksilver/test/simulation
+PACKAGES_SIM=github.com/nephirim/blackfury/test/simulation
 PACKAGES_E2E=$(shell go list ./... | grep '/e2e')
 VERSION=$(shell git describe --tags | head -n1)
 DOCKER_VERSION ?= $(VERSION)
@@ -14,7 +14,7 @@ BINDIR ?= $(GOPATH)/bin
 QS_BINARY = blackfuryd
 QS_DIR = quicksilver
 BUILDDIR ?= $(CURDIR)/build
-HTTPS_GIT := https://github.com/nephirim/quicksilver.git
+HTTPS_GIT := https://github.com/nephirim/blackfury.git
 
 DOCKER := $(shell which docker)
 DOCKERCOMPOSE := $(shell which docker-compose)
@@ -264,7 +264,7 @@ update-swagger-docs: statik
 .PHONY: update-swagger-docs
 
 godocs:
-	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/nephirim/quicksilver/types"
+	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/nephirim/blackfury/types"
 	godoc -http=:6060
 
 # Start docs site at localhost:8080
@@ -489,7 +489,7 @@ lint-fix:
 format:
 	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run mvdan.cc/gofumpt -w .
 	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run github.com/client9/misspell/cmd/misspell -w
-	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run golang.org/x/tools/cmd/goimports -w -local github.com/nephirim/quicksilver
+	@find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "./client/docs/statik/statik.go" -not -name '*.pb.go' -not -name '*.gw.go' | xargs go run golang.org/x/tools/cmd/goimports -w -local github.com/nephirim/blackfury
 .PHONY: format
 
 mdlint:

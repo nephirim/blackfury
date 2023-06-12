@@ -6,8 +6,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	cmdcfg "github.com/nephirim/quicksilver/cmd/config"
-	"github.com/nephirim/quicksilver/x/tokenfactory/types"
+	cmdcfg "github.com/nephirim/blackfury/cmd/config"
+	"github.com/nephirim/blackfury/x/tokenfactory/types"
 )
 
 func TestDeconstructDenom(t *testing.T) {

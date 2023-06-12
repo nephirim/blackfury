@@ -16,10 +16,10 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/nephirim/quicksilver/x/epochs/client/cli"
-	"github.com/nephirim/quicksilver/x/epochs/keeper"
-	"github.com/nephirim/quicksilver/x/epochs/simulation"
-	"github.com/nephirim/quicksilver/x/epochs/types"
+	"github.com/nephirim/blackfury/x/epochs/client/cli"
+	"github.com/nephirim/blackfury/x/epochs/keeper"
+	"github.com/nephirim/blackfury/x/epochs/simulation"
+	"github.com/nephirim/blackfury/x/epochs/types"
 )
 
 var (

@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/x/airdrop/types"
+	"github.com/nephirim/blackfury/x/airdrop/types"
 )
 
 const (

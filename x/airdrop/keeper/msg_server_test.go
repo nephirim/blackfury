@@ -6,13 +6,13 @@ import (
 	staking "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/tendermint/tendermint/proto/tendermint/crypto"
 
-	minttypes "github.com/nephirim/quicksilver/x/mint/types"
+	minttypes "github.com/nephirim/blackfury/x/mint/types"
 
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	"github.com/nephirim/quicksilver/x/airdrop/keeper"
-	"github.com/nephirim/quicksilver/x/airdrop/types"
-	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	"github.com/nephirim/blackfury/x/airdrop/keeper"
+	"github.com/nephirim/blackfury/x/airdrop/types"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 func (s *KeeperTestSuite) Test_msgServer_Claim() {

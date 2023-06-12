@@ -3,7 +3,7 @@ package types
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/internal/multierror"
+	"github.com/nephirim/blackfury/internal/multierror"
 )
 
 // ValidateBasic performs stateless validation of a Claim.

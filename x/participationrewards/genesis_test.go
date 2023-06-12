@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/require"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	simapp "github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/x/participationrewards"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	simapp "github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/x/participationrewards"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func TestParticipationRewardsExportGenesis(t *testing.T) {

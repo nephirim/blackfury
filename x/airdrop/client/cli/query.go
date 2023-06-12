@@ -12,7 +12,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/nephirim/quicksilver/x/airdrop/types"
+	"github.com/nephirim/blackfury/x/airdrop/types"
 )
 
 // GetQueryCmd returns the cli query commands for the airdrop module.

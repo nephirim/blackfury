@@ -11,12 +11,12 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v5/testing"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/nephirim/quicksilver/app/upgrades"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	icskeeper "github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
-	prtypes "github.com/nephirim/quicksilver/x/participationrewards/types"
-	tokenfactorytypes "github.com/nephirim/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/blackfury/app/upgrades"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	icskeeper "github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
+	prtypes "github.com/nephirim/blackfury/x/participationrewards/types"
+	tokenfactorytypes "github.com/nephirim/blackfury/x/tokenfactory/types"
 )
 
 func init() {

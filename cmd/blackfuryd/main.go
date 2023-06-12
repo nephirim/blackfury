@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"github.com/nephirim/quicksilver/app"
-	cmdcfg "github.com/nephirim/quicksilver/cmd/config"
+	"github.com/nephirim/blackfury/app"
+	cmdcfg "github.com/nephirim/blackfury/cmd/config"
 )
 
 func main() {

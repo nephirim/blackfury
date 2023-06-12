@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/blackfury/app"
 )
 
 func TestNoStorageWithoutProposal(t *testing.T) {

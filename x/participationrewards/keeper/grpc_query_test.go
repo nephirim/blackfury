@@ -4,7 +4,7 @@ import (
 	encoding_json "encoding/json"
 	"fmt"
 
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func (suite *KeeperTestSuite) TestKeeper_Params() {

@@ -4,8 +4,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/grpc/tmservice"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	epochstypes "github.com/nephirim/quicksilver/x/epochs/types"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	epochstypes "github.com/nephirim/blackfury/x/epochs/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func (k *Keeper) BeforeEpochStart(_ sdk.Context, _ string, _ int64) error {

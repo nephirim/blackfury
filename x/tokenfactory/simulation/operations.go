@@ -11,10 +11,10 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/nephirim/quicksilver/osmosis-types/osmoutils"
-	"github.com/nephirim/quicksilver/test/simulation/simtypes"
-	"github.com/nephirim/quicksilver/x/tokenfactory/keeper"
-	"github.com/nephirim/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/blackfury/osmosis-types/osmoutils"
+	"github.com/nephirim/blackfury/test/simulation/simtypes"
+	"github.com/nephirim/blackfury/x/tokenfactory/keeper"
+	"github.com/nephirim/blackfury/x/tokenfactory/types"
 )
 
 const (

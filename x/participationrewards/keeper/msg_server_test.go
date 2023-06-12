@@ -11,13 +11,13 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/nephirim/quicksilver/app"
-	osmolockup "github.com/nephirim/quicksilver/osmosis-types/lockup"
-	"github.com/nephirim/quicksilver/utils"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
-	"github.com/nephirim/quicksilver/x/participationrewards/keeper"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/app"
+	osmolockup "github.com/nephirim/blackfury/osmosis-types/lockup"
+	"github.com/nephirim/blackfury/utils"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/participationrewards/keeper"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func (suite *KeeperTestSuite) Test_msgServer_SubmitClaim() {

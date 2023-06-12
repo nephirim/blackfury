@@ -17,9 +17,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/nephirim/quicksilver/x/airdrop/client/cli"
-	"github.com/nephirim/quicksilver/x/airdrop/keeper"
-	"github.com/nephirim/quicksilver/x/airdrop/types"
+	"github.com/nephirim/blackfury/x/airdrop/client/cli"
+	"github.com/nephirim/blackfury/x/airdrop/keeper"
+	"github.com/nephirim/blackfury/x/airdrop/types"
 )
 
 var (

@@ -1,8 +1,8 @@
 package keeper_test
 
 import (
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	"github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	"github.com/nephirim/blackfury/x/claimsmanager/types"
 )
 
 var testClaims = []types.Claim{

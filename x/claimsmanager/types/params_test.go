@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/claimsmanager/types"
 )
 
 func TestParams_Validate(t *testing.T) {

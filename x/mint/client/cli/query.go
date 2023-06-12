@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
-	"github.com/nephirim/quicksilver/x/mint/types"
+	"github.com/nephirim/blackfury/x/mint/types"
 )
 
 // GetQueryCmd returns the cli query commands for the minting module.

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/claimsmanager/types"
 )
 
 type msgServer struct {

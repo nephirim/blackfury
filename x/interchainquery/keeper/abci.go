@@ -7,7 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/x/interchainquery/types"
+	"github.com/nephirim/blackfury/x/interchainquery/types"
 )
 
 const (

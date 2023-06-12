@@ -36,9 +36,9 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/nephirim/quicksilver/app"
-	quicksilverconfig "github.com/nephirim/quicksilver/cmd/config"
-	servercfg "github.com/nephirim/quicksilver/server/config"
+	"github.com/nephirim/blackfury/app"
+	quicksilverconfig "github.com/nephirim/blackfury/cmd/config"
+	servercfg "github.com/nephirim/blackfury/server/config"
 )
 
 const (

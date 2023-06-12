@@ -152,7 +152,7 @@ type QueryRequestsResponse struct {
 
 ## Keepers
 
-<https://pkg.go.dev/github.com/nephirim/quicksilver/x/interchainquery/keeper>
+<https://pkg.go.dev/github.com/nephirim/blackfury/x/interchainquery/keeper>
 
 ## Parameters
 

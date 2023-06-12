@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/nephirim/quicksilver/internal/multierror"
+	"github.com/nephirim/blackfury/internal/multierror"
 )
 
 func NewGenesisState(params Params) *GenesisState {

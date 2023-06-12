@@ -1,8 +1,8 @@
 package participationrewards
 
 import (
-	"github.com/nephirim/quicksilver/x/participationrewards/keeper"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/x/participationrewards/keeper"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

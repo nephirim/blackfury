@@ -4,9 +4,9 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 var (

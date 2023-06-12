@@ -7,7 +7,7 @@ import (
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 	packetforwardtypes "github.com/strangelove-ventures/packet-forward-middleware/v5/router/types"
 
-	"github.com/nephirim/quicksilver/app/upgrades"
+	"github.com/nephirim/blackfury/app/upgrades"
 )
 
 func (app *Quicksilver) setUpgradeHandlers() {

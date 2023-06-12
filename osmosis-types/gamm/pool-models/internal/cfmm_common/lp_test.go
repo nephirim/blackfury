@@ -8,10 +8,10 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	gammtypes "github.com/nephirim/quicksilver/osmosis-types/gamm"
-	"github.com/nephirim/quicksilver/osmosis-types/gamm/pool-models/balancer"
-	"github.com/nephirim/quicksilver/osmosis-types/gamm/pool-models/internal/cfmm_common"
-	"github.com/nephirim/quicksilver/osmosis-types/gamm/pool-models/stableswap"
+	gammtypes "github.com/nephirim/blackfury/osmosis-types/gamm"
+	"github.com/nephirim/blackfury/osmosis-types/gamm/pool-models/balancer"
+	"github.com/nephirim/blackfury/osmosis-types/gamm/pool-models/internal/cfmm_common"
+	"github.com/nephirim/blackfury/osmosis-types/gamm/pool-models/stableswap"
 )
 
 // a helper function used to multiply coins

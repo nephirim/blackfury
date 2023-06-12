@@ -4,7 +4,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/claimsmanager/types"
 )
 
 func (k Keeper) NewClaim(address, chainID string, module types.ClaimType, srcChainID string, amount uint64) types.Claim {

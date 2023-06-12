@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/utils/randomutils"
+	"github.com/nephirim/blackfury/utils/randomutils"
 )
 
 func TestGenerateRandomHash(t *testing.T) {

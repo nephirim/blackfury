@@ -3,15 +3,15 @@ package keeper
 import (
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/nephirim/quicksilver/x/mint/types"
+	"github.com/nephirim/blackfury/x/mint/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	airdroptypes "github.com/nephirim/quicksilver/x/airdrop/types"
-	participationrewards "github.com/nephirim/quicksilver/x/participationrewards/types"
+	airdroptypes "github.com/nephirim/blackfury/x/airdrop/types"
+	participationrewards "github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 // Keeper of the mint store.

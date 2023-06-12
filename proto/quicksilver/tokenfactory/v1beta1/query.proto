@@ -6,7 +6,7 @@ import "google/api/annotations.proto";
 import "quicksilver/tokenfactory/v1beta1/authorityMetadata.proto";
 import "quicksilver/tokenfactory/v1beta1/params.proto";
 
-option go_package = "github.com/nephirim/quicksilver/x/tokenfactory/types";
+option go_package = "github.com/nephirim/blackfury/x/tokenfactory/types";
 
 // Query defines the gRPC querier service.
 service Query {

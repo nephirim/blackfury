@@ -17,9 +17,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/nephirim/quicksilver/x/interchainstaking/client/cli"
-	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/client/cli"
+	"github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 var (

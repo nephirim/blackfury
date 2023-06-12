@@ -48,7 +48,7 @@ the following formula:
 
 ### Minter
 
-The [`Minter`](]https://github.com/nephirim/quicksilver/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L31) is an abstraction for holding current rewards information.
+The [`Minter`](]https://github.com/nephirim/blackfury/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L31) is an abstraction for holding current rewards information.
 
 ```go
 type Minter struct {
@@ -58,7 +58,7 @@ type Minter struct {
 
 ### Params
 
-Minting [`Params`](https://github.com/nephirim/quicksilver/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L118) are held in the global params store.
+Minting [`Params`](https://github.com/nephirim/blackfury/blob/b95f0dce1df0769068b2962868b97fdc6151752d/x/mint/types/mint.pb.go#L118) are held in the global params store.
 
 ### LastReductionEpoch
 

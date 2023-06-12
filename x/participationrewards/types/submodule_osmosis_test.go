@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 func TestOsmosisParamsProtocolData_ValidateBasic(t *testing.T) {

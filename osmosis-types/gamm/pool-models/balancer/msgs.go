@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/nephirim/quicksilver/osmosis-types/gamm"
+	"github.com/nephirim/blackfury/osmosis-types/gamm"
 )
 
 const (

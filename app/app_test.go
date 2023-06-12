@@ -18,7 +18,7 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/nephirim/quicksilver/app"
+	"github.com/nephirim/blackfury/app"
 )
 
 func TestQuicksilverExport(t *testing.T) {

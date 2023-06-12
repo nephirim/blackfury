@@ -12,9 +12,9 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/x/interchainstaking/client/cli"
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/x/interchainstaking/client/cli"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 type IntegrationTestSuite struct {

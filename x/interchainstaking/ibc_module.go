@@ -8,14 +8,14 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
 
-	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
+	"github.com/nephirim/blackfury/x/interchainstaking/keeper"
 
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 	porttypes "github.com/cosmos/ibc-go/v5/modules/core/05-port/types"
 	host "github.com/cosmos/ibc-go/v5/modules/core/24-host"
 	ibcexported "github.com/cosmos/ibc-go/v5/modules/core/exported"
 
-	"github.com/nephirim/quicksilver/utils"
+	"github.com/nephirim/blackfury/utils"
 )
 
 var _ porttypes.IBCModule = IBCModule{}

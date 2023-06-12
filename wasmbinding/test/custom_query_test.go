@@ -15,8 +15,8 @@ import (
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/wasmbinding/bindings"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/wasmbinding/bindings"
 )
 
 // we must pay this many uosmo for every pool we create.

@@ -11,10 +11,10 @@ import (
 	"github.com/tendermint/tendermint/crypto/ed25519"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/nephirim/quicksilver/app"
-	cmdcfg "github.com/nephirim/quicksilver/cmd/config"
-	"github.com/nephirim/quicksilver/x/tokenfactory/keeper"
-	"github.com/nephirim/quicksilver/x/tokenfactory/types"
+	"github.com/nephirim/blackfury/app"
+	cmdcfg "github.com/nephirim/blackfury/cmd/config"
+	"github.com/nephirim/blackfury/x/tokenfactory/keeper"
+	"github.com/nephirim/blackfury/x/tokenfactory/types"
 )
 
 var (

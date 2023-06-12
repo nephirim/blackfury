@@ -3,8 +3,8 @@ package airdrop
 import (
 	"fmt"
 
-	"github.com/nephirim/quicksilver/x/airdrop/keeper"
-	"github.com/nephirim/quicksilver/x/airdrop/types"
+	"github.com/nephirim/blackfury/x/airdrop/keeper"
+	"github.com/nephirim/blackfury/x/airdrop/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

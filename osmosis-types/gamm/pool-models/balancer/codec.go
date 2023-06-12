@@ -7,7 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/msgservice"
 	proto "github.com/gogo/protobuf/proto"
 
-	"github.com/nephirim/quicksilver/osmosis-types/gamm"
+	"github.com/nephirim/blackfury/osmosis-types/gamm"
 )
 
 // RegisterLegacyAminoCodec registers the necessary x/gamm interfaces and concrete types

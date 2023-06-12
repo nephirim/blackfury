@@ -16,8 +16,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/test/simulation"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/test/simulation"
 )
 
 func init() {

@@ -1,8 +1,8 @@
 package mint
 
 import (
-	"github.com/nephirim/quicksilver/x/mint/keeper"
-	"github.com/nephirim/quicksilver/x/mint/types"
+	"github.com/nephirim/blackfury/x/mint/keeper"
+	"github.com/nephirim/blackfury/x/mint/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

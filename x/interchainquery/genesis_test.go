@@ -8,10 +8,10 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v5/testing"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/x/interchainquery"
-	"github.com/nephirim/quicksilver/x/interchainquery/keeper"
-	"github.com/nephirim/quicksilver/x/interchainquery/types"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/x/interchainquery"
+	"github.com/nephirim/blackfury/x/interchainquery/keeper"
+	"github.com/nephirim/blackfury/x/interchainquery/types"
 )
 
 func init() {

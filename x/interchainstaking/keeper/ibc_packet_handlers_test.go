@@ -18,10 +18,10 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	icskeeper "github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	icskeeper "github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 func TestHandleMsgTransferGood(t *testing.T) {

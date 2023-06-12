@@ -1,4 +1,4 @@
-module github.com/nephirim/quicksilver/test/interchaintest
+module github.com/nephirim/blackfury/test/interchaintest
 
 go 1.20
 

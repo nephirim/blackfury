@@ -3,8 +3,8 @@ package interchainstaking
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	"github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	"github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 // InitGenesis initializes the interchainstaking module's state from a provided genesis

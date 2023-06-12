@@ -6,8 +6,8 @@ import (
 	sdkioerrors "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/nephirim/quicksilver/osmosis-types/gamm"
-	"github.com/nephirim/quicksilver/osmosis-types/osmoutils"
+	"github.com/nephirim/blackfury/osmosis-types/gamm"
+	"github.com/nephirim/blackfury/osmosis-types/osmoutils"
 )
 
 const errMsgFormatSharesLargerThanMax = "%s resulted shares is larger than the max amount of %s"

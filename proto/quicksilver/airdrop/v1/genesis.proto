@@ -5,7 +5,7 @@ import "gogoproto/gogo.proto";
 import "quicksilver/airdrop/v1/airdrop.proto";
 import "quicksilver/airdrop/v1/params.proto";
 
-option go_package = "github.com/nephirim/quicksilver/x/airdrop/types";
+option go_package = "github.com/nephirim/blackfury/x/airdrop/types";
 
 // GenesisState defines the airdrop module's genesis state.
 message GenesisState {

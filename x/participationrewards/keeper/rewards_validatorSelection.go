@@ -7,8 +7,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 // AllocateValidatorSelectionRewards utilizes IBC to query the performance

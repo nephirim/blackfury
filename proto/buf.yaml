@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/nephirim/quicksilver
+name: buf.build/nephirim/blackfury
 deps:
   - buf.build/cosmos/cosmos-sdk:8cb30a2c4de74dc9bd8d260b1e75e176
   - buf.build/johnletey/ibc:v5.2.0

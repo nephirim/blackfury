@@ -8,10 +8,10 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	icqtypes "github.com/nephirim/quicksilver/x/interchainquery/types"
-	"github.com/nephirim/quicksilver/x/interchainstaking/keeper"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	icqtypes "github.com/nephirim/blackfury/x/interchainquery/types"
+	"github.com/nephirim/blackfury/x/interchainstaking/keeper"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
 )
 
 type FuzzingTestSuite struct {
@@ -64,7 +64,7 @@ func FuzzZones(f *testing.F) {
 		switch str := string(reqBz); str {
 		// Manually skipping over known and reported vectors
 		// as we know they cause crashes.
-		case "\n\t\n\x01000 0(0", "\n\t\n\x03000 0(0": // https://github.com/nephirim/quicksilver-incognito/issues/88
+		case "\n\t\n\x01000 0(0", "\n\t\n\x03000 0(0": // https://github.com/nephirim/blackfury-incognito/issues/88
 			return
 		case "\n\t\n\x01K\x10\x0000(0", "\n\t\n\x030D0 0(0", "\n\t\n\x0301000(0":
 			return

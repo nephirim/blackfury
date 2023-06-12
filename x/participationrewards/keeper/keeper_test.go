@@ -17,13 +17,13 @@ import (
 	tmclienttypes "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
 	ibctesting "github.com/cosmos/ibc-go/v5/testing"
 
-	"github.com/nephirim/quicksilver/app"
-	"github.com/nephirim/quicksilver/utils/addressutils"
-	cmtypes "github.com/nephirim/quicksilver/x/claimsmanager/types"
-	epochtypes "github.com/nephirim/quicksilver/x/epochs/types"
-	ics "github.com/nephirim/quicksilver/x/interchainstaking"
-	icstypes "github.com/nephirim/quicksilver/x/interchainstaking/types"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	epochtypes "github.com/nephirim/blackfury/x/epochs/types"
+	ics "github.com/nephirim/blackfury/x/interchainstaking"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 var testAddress = addressutils.GenerateAddressForTestWithPrefix("cosmos")

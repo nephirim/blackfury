@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"context"
 
-	"github.com/nephirim/quicksilver/x/claimsmanager/types"
+	"github.com/nephirim/blackfury/x/claimsmanager/types"
 )
 
 func (s *KeeperTestSuite) TestKeeper_Queries() {

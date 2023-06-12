@@ -16,9 +16,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/nephirim/quicksilver/x/participationrewards/client/cli"
-	"github.com/nephirim/quicksilver/x/participationrewards/keeper"
-	"github.com/nephirim/quicksilver/x/participationrewards/types"
+	"github.com/nephirim/blackfury/x/participationrewards/client/cli"
+	"github.com/nephirim/blackfury/x/participationrewards/keeper"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
 )
 
 var (
