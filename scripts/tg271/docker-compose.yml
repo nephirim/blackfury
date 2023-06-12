@@ -1,0 +1,87 @@
+version: '3.8'
+services:
+  blackfury:
+    image: blackfuryzone/blackfury:v1.0.0-10-gddbec29
+    hostname: blackfury
+    volumes:
+      - ./data/qstest-1:/blackfury/.blackfuryd
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 26657:26657
+      - 1317:1317
+  blackfury2:
+    image: blackfuryzone/blackfury:v1.0.0-10-gddbec29
+    hostname: blackfury2
+    volumes:
+      - ./data/qstest-1a:/blackfury/.blackfuryd
+    build:
+      context: .
+      dockerfile: Dockerfile
+  blackfury3:
+    image: blackfuryzone/blackfury:v1.0.0-10-gddbec29
+    hostname: blackfury3
+    volumes:
+      - ./data/qstest-1b:/blackfury/.blackfuryd
+    build:
+      context: .
+      dockerfile: Dockerfile
+  gaia:
+    image: blackfuryzone/gaia:v7.1.0-alpine
+    hostname: gaia
+    volumes:
+      - ./data/gaia-1:/gaia/.gaia
+    command:
+      - gaiad
+      - start
+    ports:
+    - 27657:26657
+    - 23137:1317
+  gaia2:
+    image: blackfuryzone/gaia:v7.1.0-alpine
+    hostname: gaia
+    volumes:
+      - ./data/gaia-1a:/gaia/.gaia
+    command:
+      - gaiad
+      - start
+  gaia3:
+    image: blackfuryzone/gaia:v7.1.0-alpine
+    hostname: gaia
+    volumes:
+      - ./data/gaia-1b:/gaia/.gaia
+    command:
+      - gaiad
+      - start
+  
+  hermes:
+    image: blackfuryzone/hermes:v1.2.0
+    hostname: hermes
+    volumes:
+      - ./data/hermes:/hermes/.hermes
+    command:
+      - hermes
+      - start
+    restart: always
+  icq:
+    image: blackfuryzone/interchain-queries:v0.7.7
+    volumes:
+      - ./data/icq:/icq/.icq
+    command:
+      - interchain-queries
+      - run
+    restart: always
+  relayer:
+    image: blackfuryzone/relayer:v2.1.1
+    volumes:
+      - ./data/rly:/rly/.relayer
+    command:
+      - rly
+      - start
+      - demo
+      #- -p
+      #- events
+      #- -b
+      #- "100"
+    restart: always

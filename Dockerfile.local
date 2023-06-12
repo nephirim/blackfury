@@ -1,0 +1,7 @@
+FROM ubuntu:jammy
+
+COPY ./build/blackfuryd /bin/blackfuryd
+
+RUN adduser --system --home /blackfury --disabled-password --disabled-login blackfury --uid 1000
+USER blackfury
+CMD ["blackfuryd", "start"]

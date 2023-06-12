@@ -1,0 +1,548 @@
+package keeper_test
+
+import (
+	"fmt"
+	"testing"
+	"time"
+
+	testsuite "github.com/stretchr/testify/suite"
+
+	"cosmossdk.io/math"
+
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	icatypes "github.com/cosmos/ibc-go/v5/modules/apps/27-interchain-accounts/types"
+	clienttypes "github.com/cosmos/ibc-go/v5/modules/core/02-client/types"
+	channeltypes "github.com/cosmos/ibc-go/v5/modules/core/04-channel/types"
+	host "github.com/cosmos/ibc-go/v5/modules/core/24-host"
+	tmclienttypes "github.com/cosmos/ibc-go/v5/modules/light-clients/07-tendermint/types"
+	ibctesting "github.com/cosmos/ibc-go/v5/testing"
+
+	"github.com/nephirim/blackfury/app"
+	"github.com/nephirim/blackfury/utils/addressutils"
+	cmtypes "github.com/nephirim/blackfury/x/claimsmanager/types"
+	epochtypes "github.com/nephirim/blackfury/x/epochs/types"
+	ics "github.com/nephirim/blackfury/x/interchainstaking"
+	icstypes "github.com/nephirim/blackfury/x/interchainstaking/types"
+	"github.com/nephirim/blackfury/x/participationrewards/types"
+)
+
+var testAddress = addressutils.GenerateAddressForTestWithPrefix("cosmos")
+
+func init() {
+	ibctesting.DefaultTestingAppInit = app.SetupTestingApp
+}
+
+// TestKeeperTestSuite runs all the tests within this package.
+func TestKeeperTestSuite(t *testing.T) {
+	testsuite.Run(t, new(KeeperTestSuite))
+}
+
+func newBlackfuryPath(chainA, chainB *ibctesting.TestChain) *ibctesting.Path {
+	path := ibctesting.NewPath(chainA, chainB)
+	path.EndpointA.ChannelConfig.PortID = ibctesting.TransferPort
+	path.EndpointB.ChannelConfig.PortID = ibctesting.TransferPort
+
+	return path
+}
+
+type KeeperTestSuite struct {
+	testsuite.Suite
+
+	coordinator *ibctesting.Coordinator
+
+	// testing chains used for convenience and readability
+	chainA *ibctesting.TestChain
+	chainB *ibctesting.TestChain
+
+	path *ibctesting.Path
+}
+
+func (suite *KeeperTestSuite) GetBlackfuryApp(chain *ibctesting.TestChain) *app.Blackfury {
+	blackfury, ok := chain.App.(*app.Blackfury)
+	if !ok {
+		panic("not blackfury app")
+	}
+
+	return blackfury
+}
+
+// SetupTest creates a coordinator with 2 test chains.
+func (suite *KeeperTestSuite) SetupTest() {
+	suite.coordinator = ibctesting.NewCoordinator(suite.T(), 2)         // initializes 2 test chains
+	suite.chainA = suite.coordinator.GetChain(ibctesting.GetChainID(1)) // convenience and readability
+	suite.chainB = suite.coordinator.GetChain(ibctesting.GetChainID(2)) // convenience and readability
+
+	suite.path = newBlackfuryPath(suite.chainA, suite.chainB)
+	suite.coordinator.SetupConnections(suite.path)
+
+	suite.coordinator.CurrentTime = time.Now().UTC()
+	suite.coordinator.UpdateTime()
+
+	suite.coreTest()
+}
+
+func (suite *KeeperTestSuite) coreTest() {
+	blackfury := suite.GetBlackfuryApp(suite.chainA)
+
+	suite.setupTestZones()
+
+	// test ProtocolData
+	akpd := blackfury.ParticipationRewardsKeeper.AllKeyedProtocolDatas(suite.chainA.GetContext())
+	// initially we expect one - the 'local' chain
+	suite.Require().Equal(1, len(akpd))
+
+	suite.setupTestProtocolData()
+
+	akpd = blackfury.ParticipationRewardsKeeper.AllKeyedProtocolDatas(suite.chainA.GetContext())
+	// added 6 in setupTestProtocolData
+	suite.Require().Equal(7, len(akpd))
+
+	// advance the chains
+	suite.coordinator.CommitNBlocks(suite.chainA, 1)
+	suite.coordinator.CommitNBlocks(suite.chainB, 1)
+
+	// callback test
+	suite.executeSetEpochBlockCallback()
+	suite.executeOsmosisPoolUpdateCallback()
+
+	suite.setupTestDeposits()
+	suite.setupTestIntents()
+
+	blackfury.EpochsKeeper.AfterEpochEnd(suite.chainA.GetContext(), epochtypes.EpochIdentifierEpoch, 1)
+
+	suite.setupTestClaims()
+
+	blackfury.EpochsKeeper.AfterEpochEnd(suite.chainA.GetContext(), epochtypes.EpochIdentifierEpoch, 2)
+	// Epoch boundary
+	ctx := suite.chainA.GetContext()
+
+	blackfury.InterchainstakingKeeper.IterateZones(ctx, func(index int64, zone *icstypes.Zone) (stop bool) {
+		suite.Require().NoError(blackfury.BankKeeper.MintCoins(ctx, "mint", sdk.NewCoins(sdk.NewCoin(blackfury.StakingKeeper.BondDenom(ctx), sdk.NewIntFromUint64(zone.HoldingsAllocation)))))
+		suite.Require().NoError(blackfury.BankKeeper.SendCoinsFromModuleToModule(ctx, "mint", types.ModuleName, sdk.NewCoins(sdk.NewCoin(blackfury.StakingKeeper.BondDenom(ctx), sdk.NewIntFromUint64(zone.HoldingsAllocation)))))
+		return false
+	})
+
+	_, found := blackfury.ClaimsManagerKeeper.GetLastEpochClaim(ctx, "cosmoshub-4", "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure", cmtypes.ClaimTypeLiquidToken, "osmosis-1")
+	suite.Require().True(found)
+
+	blackfury.EpochsKeeper.AfterEpochEnd(suite.chainA.GetContext(), epochtypes.EpochIdentifierEpoch, 3)
+
+	// zone for remote chain
+	zone, found := blackfury.InterchainstakingKeeper.GetZone(ctx, suite.chainB.ChainID)
+	suite.Require().True(found)
+
+	valRewards := make(map[string]sdk.Dec)
+	for _, val := range blackfury.InterchainstakingKeeper.GetValidators(suite.chainA.GetContext(), suite.chainB.ChainID) {
+		valRewards[val.ValoperAddress] = sdk.NewDec(100000000)
+	}
+
+	suite.executeValidatorSelectionRewardsCallback(zone.PerformanceAddress.Address, valRewards)
+}
+
+func (suite *KeeperTestSuite) setupTestZones() {
+	blackfury := suite.GetBlackfuryApp(suite.chainA)
+
+	// test zone
+	testzone := icstypes.Zone{
+		ConnectionId:     suite.path.EndpointA.ConnectionID,
+		ChainId:          suite.chainB.ChainID,
+		AccountPrefix:    "cosmos",
+		LocalDenom:       "uqatom",
+		BaseDenom:        "uatom",
+		ReturnToSender:   false,
+		LiquidityModule:  true,
+		DepositsEnabled:  true,
+		UnbondingEnabled: false,
+		Is_118:           true,
+	}
+	selftestzone := icstypes.Zone{
+		ConnectionId:     suite.path.EndpointB.ConnectionID,
+		ChainId:          suite.chainA.ChainID,
+		AccountPrefix:    "osmo",
+		LocalDenom:       "uqosmo",
+		BaseDenom:        "uosmo",
+		ReturnToSender:   false,
+		LiquidityModule:  true,
+		DepositsEnabled:  true,
+		UnbondingEnabled: false,
+		Is_118:           true,
+	}
+
+	blackfury.InterchainstakingKeeper.SetZone(suite.chainA.GetContext(), &selftestzone)
+	blackfury.InterchainstakingKeeper.SetZone(suite.chainA.GetContext(), &testzone)
+
+	blackfury.IBCKeeper.ClientKeeper.SetClientState(suite.chainA.GetContext(), "07-tendermint-0", &tmclienttypes.ClientState{ChainId: suite.chainB.ChainID, TrustingPeriod: time.Hour, LatestHeight: clienttypes.Height{RevisionNumber: 1, RevisionHeight: 100}})
+
+	blackfury.IBCKeeper.ClientKeeper.SetClientConsensusState(suite.chainA.GetContext(), "07-tendermint-0", clienttypes.Height{RevisionNumber: 1, RevisionHeight: 100}, &tmclienttypes.ConsensusState{Timestamp: suite.chainA.GetContext().BlockTime()})
+	suite.Require().NoError(suite.setupChannelForICA(suite.chainB.ChainID, suite.path.EndpointA.ConnectionID, "performance", testzone.AccountPrefix))
+
+	vals := suite.GetBlackfuryApp(suite.chainB).StakingKeeper.GetBondedValidatorsByPower(suite.chainB.GetContext())
+	zone, found := blackfury.InterchainstakingKeeper.GetZone(suite.chainA.GetContext(), suite.chainB.ChainID)
+	suite.Require().True(found)
+
+	for i := range vals {
+		suite.Require().NoError(blackfury.InterchainstakingKeeper.SetValidatorForZone(suite.chainA.GetContext(), &zone, app.DefaultConfig().Codec.MustMarshal(&vals[i])))
+	}
+
+	// self zone
+	performanceAddressOsmo := addressutils.GenerateAddressForTestWithPrefix("osmo")
+	performanceAccountOsmo, err := icstypes.NewICAAccount(performanceAddressOsmo, "self")
+	suite.Require().NoError(err)
+	performanceAccountOsmo.WithdrawalAddress = addressutils.GenerateAddressForTestWithPrefix("osmo")
+
+	zoneSelf := icstypes.Zone{
+		ConnectionId:       "connection-77004",
+		ChainId:            "testchain1",
+		AccountPrefix:      "osmo",
+		LocalDenom:         "uqosmo",
+		BaseDenom:          "uosmo",
+		ReturnToSender:     false,
+		UnbondingEnabled:   false,
+		LiquidityModule:    true,
+		DepositsEnabled:    true,
+		Is_118:             true,
+		Decimals:           6,
+		PerformanceAddress: performanceAccountOsmo,
+		Validators: []*icstypes.Validator{
+			{
+				ValoperAddress:  "osmovaloper1clpqr4nrk4khgkxj78fcwwh6dl3uw4ep88n0y4",
+				CommissionRate:  sdk.MustNewDecFromStr("0.1"),
+				DelegatorShares: sdk.NewDec(200032604739),
+				VotingPower:     math.NewInt(200032604739),
+				Score:           sdk.ZeroDec(),
+			},
+			{
+				ValoperAddress:  "osmovaloper1hjct6q7npsspsg3dgvzk3sdf89spmlpf6t4agt",
+				CommissionRate:  sdk.MustNewDecFromStr("0.1"),
+				DelegatorShares: sdk.NewDec(200032604734),
+				VotingPower:     math.NewInt(200032604734),
+				Score:           sdk.ZeroDec(),
+			},
+			{
+				ValoperAddress:  "osmovaloper15urq2dtp9qce4fyc85m6upwm9xul3049wh9czc",
+				CommissionRate:  sdk.MustNewDecFromStr("0.1"),
+				DelegatorShares: sdk.NewDec(200032604738),
+				VotingPower:     math.NewInt(200032604738),
+				Score:           sdk.ZeroDec(),
+			},
+		},
+	}
+	blackfury.InterchainstakingKeeper.SetZone(suite.chainA.GetContext(), &zoneSelf)
+
+	// cosmos zone
+	performanceAddressCosmos := addressutils.GenerateAddressForTestWithPrefix("cosmos")
+	performanceAccountCosmos, err := icstypes.NewICAAccount(performanceAddressCosmos, "cosmoshub-4.performance")
+	suite.Require().NoError(err)
+	performanceAccountCosmos.WithdrawalAddress = addressutils.GenerateAddressForTestWithPrefix("cosmos")
+
+	zoneCosmos := icstypes.Zone{
+		ConnectionId:       "connection-77001",
+		ChainId:            "cosmoshub-4",
+		AccountPrefix:      "cosmos",
+		LocalDenom:         "uqatom",
+		BaseDenom:          "uatom",
+		ReturnToSender:     false,
+		LiquidityModule:    true,
+		PerformanceAddress: performanceAccountCosmos,
+		Is_118:             true,
+	}
+	blackfury.InterchainstakingKeeper.SetZone(suite.chainA.GetContext(), &zoneCosmos)
+	cosmosVals := []icstypes.Validator{
+		{
+			ValoperAddress:  "cosmosvaloper1759teakrsvnx7rnur8ezc4qaq8669nhtgukm0x",
+			CommissionRate:  sdk.MustNewDecFromStr("0.1"),
+			DelegatorShares: sdk.NewDec(200032604739),
+			VotingPower:     math.NewInt(200032604739),
+			Score:           sdk.ZeroDec(),
+		},
+		{
+			ValoperAddress:  "cosmosvaloper1jtjjyxtqk0fj85ud9cxk368gr8cjdsftvdt5jl",
+			CommissionRate:  sdk.MustNewDecFromStr("0.1"),
+			DelegatorShares: sdk.NewDec(200032604734),
+			VotingPower:     math.NewInt(200032604734),
+			Score:           sdk.ZeroDec(),
+		},
+		{
+			ValoperAddress:  "cosmosvaloper1q86m0zq0p52h4puw5pg5xgc3c5e2mq52y6mth0",
+			CommissionRate:  sdk.MustNewDecFromStr("0.1"),
+			DelegatorShares: sdk.NewDec(200032604738),
+			VotingPower:     math.NewInt(200032604738),
+			Score:           sdk.ZeroDec(),
+		},
+	}
+	for _, cosmosVal := range cosmosVals {
+		blackfury.InterchainstakingKeeper.SetValidator(suite.chainA.GetContext(), zoneCosmos.ChainId, cosmosVal)
+	}
+
+	// osmosis zone
+	zoneOsmosis := icstypes.Zone{
+		ConnectionId:    "connection-77002",
+		ChainId:         "osmosis-1",
+		AccountPrefix:   "osmo",
+		LocalDenom:      "uqosmo",
+		BaseDenom:       "uosmo",
+		ReturnToSender:  false,
+		LiquidityModule: true,
+		PerformanceAddress: &icstypes.ICAAccount{
+			Address:           addressutils.GenerateAddressForTestWithPrefix("osmo"),
+			PortName:          "cosmoshub-4.performance",
+			WithdrawalAddress: addressutils.GenerateAddressForTestWithPrefix("osmo"),
+		},
+		Is_118: true,
+	}
+	blackfury.InterchainstakingKeeper.SetZone(suite.chainA.GetContext(), &zoneOsmosis)
+}
+
+func (suite *KeeperTestSuite) setupChannelForICA(chainID, connectionID, accountSuffix, remotePrefix string) error {
+	suite.T().Helper()
+	blackfury := suite.GetBlackfuryApp(suite.chainA)
+
+	ibcModule := ics.NewIBCModule(blackfury.InterchainstakingKeeper)
+	portID, err := icatypes.NewControllerPortID(chainID + "." + accountSuffix)
+	if err != nil {
+		return err
+	}
+
+	blackfury.InterchainstakingKeeper.SetConnectionForPort(suite.chainA.GetContext(), connectionID, portID)
+
+	channelID := blackfury.IBCKeeper.ChannelKeeper.GenerateChannelIdentifier(suite.chainA.GetContext())
+	blackfury.IBCKeeper.ChannelKeeper.SetChannel(suite.chainA.GetContext(), portID, channelID, channeltypes.Channel{State: channeltypes.OPEN, Ordering: channeltypes.ORDERED, Counterparty: channeltypes.Counterparty{PortId: icatypes.PortID, ChannelId: channelID}, ConnectionHops: []string{connectionID}})
+
+	blackfury.IBCKeeper.ChannelKeeper.SetNextSequenceSend(suite.chainA.GetContext(), portID, channelID, 1)
+	blackfury.ICAControllerKeeper.SetActiveChannelID(suite.chainA.GetContext(), connectionID, portID, channelID)
+	key, err := blackfury.InterchainstakingKeeper.ScopedKeeper().NewCapability(
+		suite.chainA.GetContext(),
+		host.ChannelCapabilityPath(portID, channelID),
+	)
+	if err != nil {
+		return err
+	}
+	err = blackfury.GetScopedIBCKeeper().ClaimCapability(
+		suite.chainA.GetContext(),
+		key,
+		host.ChannelCapabilityPath(portID, channelID),
+	)
+	if err != nil {
+		return err
+	}
+
+	key, err = blackfury.InterchainstakingKeeper.ScopedKeeper().NewCapability(
+		suite.chainA.GetContext(),
+		host.PortPath(portID),
+	)
+	if err != nil {
+		return err
+	}
+	err = blackfury.GetScopedIBCKeeper().ClaimCapability(
+		suite.chainA.GetContext(),
+		key,
+		host.PortPath(portID),
+	)
+	if err != nil {
+		return err
+	}
+
+	addr := addressutils.GenerateAddressForTestWithPrefix(remotePrefix)
+	blackfury.ICAControllerKeeper.SetInterchainAccountAddress(suite.chainA.GetContext(), connectionID, portID, addr)
+	return ibcModule.OnChanOpenAck(suite.chainA.GetContext(), portID, channelID, "", "")
+}
+
+func (suite *KeeperTestSuite) setupTestProtocolData() {
+	// connection type for ibc testsuite chainB
+	suite.addProtocolData(
+		types.ProtocolDataTypeConnection,
+		[]byte(fmt.Sprintf("{\"connectionid\": %q,\"chainid\": %q,\"lastepoch\": %d}", suite.path.EndpointB.ConnectionID, suite.chainB.ChainID, 0)),
+	)
+	// osmosis params
+	suite.addProtocolData(
+		types.ProtocolDataTypeOsmosisParams,
+		[]byte(fmt.Sprintf("{\"ChainID\": %q, \"BaseDenom\": %q, \"BaseChain\": %q}", "osmosis-1", "uosmo", "osmosis-1")),
+	)
+	// osmosis test chain
+	suite.addProtocolData(
+		types.ProtocolDataTypeConnection,
+		[]byte(fmt.Sprintf("{\"connectionid\": %q,\"chainid\": %q,\"lastepoch\": %d}", "connection-77002", "osmosis-1", 0)),
+	)
+	// osmosis test pool
+	suite.addProtocolData(
+		types.ProtocolDataTypeOsmosisPool,
+		[]byte(fmt.Sprintf(
+			"{\"poolid\":%d,\"poolname\":%q,\"pooltype\":\"balancer\",\"denoms\":{%q:{\"chainid\": %q, \"denom\":%q}, %q:{\"chainid\": %q, \"denom\":%q}}}",
+			1,
+			"atom/osmo",
+			"ibc/3020922B7576FC75BBE057A0290A9AEEFF489BB1113E6E365CE472D4BFB7FFA3",
+			"cosmoshub-4",
+			"uatom",
+			"ibc/15E9C5CF5969080539DB395FA7D9C0868265217EFC528433671AAF9B1912D159",
+			"osmosis-1",
+			"uosmo",
+		)),
+	)
+
+	// atom (cosmoshub) on osmosis
+	suite.addProtocolData(
+		types.ProtocolDataTypeLiquidToken,
+		[]byte(fmt.Sprintf(
+			"{\"chainid\":%q,\"registeredzonechainid\":%q,\"ibcdenom\":%q,\"qassetdenom\":%q}",
+			"osmosis-1",
+			"cosmoshub-4",
+			"ibc/3020922B7576FC75BBE057A0290A9AEEFF489BB1113E6E365CE472D4BFB7FFA3",
+			"uqatom",
+		)),
+	)
+	// atom (cosmoshub) on local chain
+	suite.addProtocolData(types.ProtocolDataTypeLiquidToken,
+		[]byte(fmt.Sprintf(
+			"{\"chainid\":%q,\"registeredzonechainid\":%q,\"ibcdenom\":%q,\"qassetdenom\":%q}",
+			"testchain1",
+			"cosmoshub-4",
+			"ibc/3020922B7576FC75BBE057A0290A9AEEFF489BB1113E6E365CE472D4BFB7FFA3",
+			"uqatom",
+		)),
+	)
+}
+
+func (suite *KeeperTestSuite) addProtocolData(dataType types.ProtocolDataType, data []byte) {
+	suite.T().Helper()
+
+	pd := types.ProtocolData{
+		Type: types.ProtocolDataType_name[int32(dataType)],
+		Data: data,
+	}
+
+	upd, err := types.UnmarshalProtocolData(dataType, pd.Data)
+	if err != nil {
+		panic(err)
+	}
+
+	suite.GetBlackfuryApp(suite.chainA).ParticipationRewardsKeeper.SetProtocolData(suite.chainA.GetContext(), upd.GenerateKey(), &pd)
+}
+
+func (suite *KeeperTestSuite) setupTestDeposits() {
+	blackfury := suite.GetBlackfuryApp(suite.chainA)
+
+	// add deposit to chainB zone
+	zone, found := blackfury.InterchainstakingKeeper.GetZone(suite.chainA.GetContext(), suite.chainB.ChainID)
+	suite.Require().True(found)
+
+	suite.addReceipt(
+		&zone,
+		testAddress,
+		"testTxHash03",
+		sdk.NewCoins(sdk.NewCoin("uatom", math.NewInt(150000000))),
+	)
+
+	// add deposit to cosmos zone
+	zone, found = blackfury.InterchainstakingKeeper.GetZone(suite.chainA.GetContext(), "cosmoshub-4")
+	suite.Require().True(found)
+
+	suite.addReceipt(
+		&zone,
+		testAddress,
+		"testTxHash01",
+		sdk.NewCoins(sdk.NewCoin("uatom", math.NewInt(120000000))),
+	)
+
+	// add deposit to osmosis zone
+	zone, found = blackfury.InterchainstakingKeeper.GetZone(suite.chainA.GetContext(), "osmosis-1")
+	suite.Require().True(found)
+
+	suite.addReceipt(
+		&zone,
+		testAddress,
+		"testTxHash02",
+		sdk.NewCoins(sdk.NewCoin("uosmo", math.NewInt(100000000))),
+	)
+}
+
+func (suite *KeeperTestSuite) addReceipt(zone *icstypes.Zone, sender, hash string, coins sdk.Coins) {
+	t := time.Now().Add(-time.Hour)
+	t2 := time.Now().Add(-5 * time.Minute)
+	receipt := icstypes.Receipt{
+		ChainId:   zone.ChainId,
+		Sender:    sender,
+		Txhash:    hash,
+		Amount:    coins,
+		FirstSeen: &t,
+		Completed: &t2,
+	}
+
+	suite.GetBlackfuryApp(suite.chainA).InterchainstakingKeeper.SetReceipt(suite.chainA.GetContext(), receipt)
+
+	delegationAddress := addressutils.GenerateAddressForTestWithPrefix("cosmos")
+	validatorAddress := addressutils.GenerateAddressForTestWithPrefix("cosmos")
+	delegation := icstypes.Delegation{
+		DelegationAddress: delegationAddress,
+		ValidatorAddress:  validatorAddress,
+		Amount:            coins[0],
+		Height:            1,
+		RedelegationEnd:   101,
+	}
+	suite.GetBlackfuryApp(suite.chainA).InterchainstakingKeeper.SetDelegation(suite.chainA.GetContext(), zone, delegation)
+}
+
+func (suite *KeeperTestSuite) setupTestIntents() {
+	blackfury := suite.GetBlackfuryApp(suite.chainA)
+
+	// chainB
+	zone, found := blackfury.InterchainstakingKeeper.GetZone(suite.chainA.GetContext(), suite.chainB.ChainID)
+	suite.Require().True(found)
+	vals := blackfury.InterchainstakingKeeper.GetValidators(suite.chainA.GetContext(), suite.chainB.ChainID)
+
+	suite.addIntent(
+		testAddress,
+		zone,
+		icstypes.ValidatorIntents{
+			{
+				ValoperAddress: vals[0].ValoperAddress,
+				Weight:         sdk.MustNewDecFromStr("0.3"),
+			},
+			{
+				ValoperAddress: vals[1].ValoperAddress,
+				Weight:         sdk.MustNewDecFromStr("0.4"),
+			},
+			{
+				ValoperAddress: vals[2].ValoperAddress,
+				Weight:         sdk.MustNewDecFromStr("0.3"),
+			},
+		},
+	)
+}
+
+func (suite *KeeperTestSuite) addIntent(address string, zone icstypes.Zone, intents icstypes.ValidatorIntents) {
+	intent := icstypes.DelegatorIntent{
+		Delegator: address,
+		Intents:   intents,
+	}
+	suite.GetBlackfuryApp(suite.chainA).InterchainstakingKeeper.SetDelegatorIntent(suite.chainA.GetContext(), &zone, intent, false)
+}
+
+func (suite *KeeperTestSuite) setupTestClaims() {
+	// add some claims
+	suite.addClaim(
+		testAddress,
+		"cosmoshub-4",
+		cmtypes.ClaimTypeLiquidToken,
+		"osmosis-1",
+		40000000,
+	)
+
+	suite.addClaim(
+		"black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+		"cosmoshub-4",
+		cmtypes.ClaimTypeLiquidToken,
+		"osmosis-1",
+		1000,
+	)
+}
+
+func (suite *KeeperTestSuite) addClaim(address, chainID string, claimType cmtypes.ClaimType, sourceChainID string, amount uint64) {
+	claim := cmtypes.Claim{
+		UserAddress:   address,
+		ChainId:       chainID,
+		Module:        claimType,
+		SourceChainId: sourceChainID,
+		Amount:        amount,
+	}
+	suite.GetBlackfuryApp(suite.chainA).ClaimsManagerKeeper.SetClaim(suite.chainA.GetContext(), &claim)
+}

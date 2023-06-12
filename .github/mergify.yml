@@ -1,0 +1,31 @@
+queue_rules:
+  - name: default
+    conditions:
+      - "#approved-reviews-by>1"
+
+pull_request_rules:
+  - name: frontport patches to develop branch
+    conditions:
+      - base=main
+      - label=frontport/develop
+    actions:
+      backport:
+        branches:
+          - develop
+  - name: backport patches to main branch
+    conditions:
+      - base=develop
+      - label=backport/main
+    actions:
+      backport:
+        branches:
+          - main
+  - name: port patches to unstable branch
+    conditions:
+      - base=develop
+      - label=port/unstable
+    actions:
+      backport:
+        branches:
+          - unstable
+

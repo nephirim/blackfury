@@ -1,0 +1,13 @@
+syntax = "proto3";
+package blackfury.participationrewards.v1;
+
+import "gogoproto/gogo.proto";
+import "blackfury/participationrewards/v1/participationrewards.proto";
+
+option go_package = "github.com/nephirim/blackfury/x/participationrewards/types";
+
+// GenesisState defines the participationrewards module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  repeated KeyedProtocolData protocol_data = 2;
+}
