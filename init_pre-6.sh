@@ -31,7 +31,7 @@ MONIKER3"orion"
 MONIKER4="ares"
 MONIKER5="jinx"
 MONIKER6="atreus"
-KEYRING="os"
+KEYRING="test"
 KEYALGO="secp256k1"
 LOGLEVEL="info"
 # to trace evm
