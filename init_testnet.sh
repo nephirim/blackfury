@@ -98,11 +98,11 @@ blackfuryd add-genesis-account fury1526zhyrd8fzdvzayct9yfnspsdp9uuqhjagyg7 55453
 blackfuryd add-genesis-account fury1rq048x4ducr9nqze48g55x0q57e8lthx9yj46y 136714050000ufury  				
 blackfuryd add-genesis-account fury1t2rkh00d000qzlyj2l2l8z5hy34a3e733fh8zw 235714050000ufury    				
 blackfuryd add-genesis-account fury1czemphdmk0j9vn6gspj454p24rs5jz4gfdyvcy 136714050000ufury    		
-blackfuryd add-genesis-account fury1hcgqp24ps3n09pk4ugu7tscj72q25r8rp808xg 117386775000ufury    				
+blackfuryd add-genesis-account fury1hcgqp24ps3n09pk4ugu7tscj72q25r8rp808xg 183386775000ufury    				
 blackfuryd add-genesis-account fury1gyvgpngr3saypgdud0etzj74q56vy97spup8up 113142150000ufury  			
 blackfuryd add-genesis-account fury15wcg9d228whk85zf4rde7nypn09htc2gjp2k85 77738677500ufury       				
 blackfuryd add-genesis-account fury10le9zwrp6x9t6xcg4ws2j8rsvggvktaj6jlah2 117386775000ufury    				
-blackfuryd add-genesis-account fury1w33lkcauxeyrq8nn3f6h9cgncxuxdrzmyqke5s 235714050000ufury    				
+blackfuryd add-genesis-account fury1w33lkcauxeyrq8nn3f6h9cgncxuxdrzmyqke5s 1060714050000ufury    				
 blackfuryd add-genesis-account fury129kdy7qdk5r4qgrenqdd6ftjjuvcc3hqxtuxey 235714050000ufury    				
 blackfuryd add-genesis-account fury1vum9yv6gtd54kpgdhd37p5z097ngphlfced867 235714050000ufury    				
 blackfuryd add-genesis-account fury136qxshkaf78ucuff4kdc8srw73k2x0adxdx295 447386775000ufury    				
@@ -110,15 +110,12 @@ blackfuryd add-genesis-account fury1xeve8vkkltsd9uzaqya78ywtspyc35hr6lleay 94285
 blackfuryd add-genesis-account fury1lldkcxprlhqknnal3w0wp2fe0mlhyzdcrfd9wg 1178571075000ufury    				
 blackfuryd add-genesis-account fury1tz80tk5295jafft5njnvvxgnvcf63y3v57rpqd 471428925000ufury    				
 blackfuryd add-genesis-account fury1jhpwxpadlx8ax429ljm5rrqm2pse4sgf2rrkv8 424285125000ufury    				
-blackfuryd add-genesis-account fury1es9fu48yxwd9jdweaykjaf0fr7usw3x0gr6l3r 165000000000ufury    				
+blackfuryd add-genesis-account fury1es9fu48yxwd9jdweaykjaf0fr7usw3x0gr6l3r 330000000000ufury    				
 blackfuryd add-genesis-account fury1as8j8qhexvsc3sy0gxrfajuuggwar45cpxy0lu 99000000000ufury    				
 blackfuryd add-genesis-account fury158343p7g7qlw76ph5dzvtvk5tztegz3g24p8ns 132000000000ufury    				    			  				
 blackfuryd add-genesis-account fury1wknw5glel2jekejuehn4auvfs7dhqf6zl2ud2h 66000000000ufury    				
-blackfuryd add-genesis-account fury14z8wsgf807e3hxuny5laaxtn0ytvcj9qs5jq87 330000000000ufury    								
-blackfuryd add-genesis-account fury1hcgqp24ps3n09pk4ugu7tscj72q25r8rp808xg 66000000000ufury    				  								
-blackfuryd add-genesis-account fury10le9zwrp6x9t6xcg4ws2j8rsvggvktaj6jlah2 165000000000ufury    				
+blackfuryd add-genesis-account fury14z8wsgf807e3hxuny5laaxtn0ytvcj9qs5jq87 330000000000ufury   					
 blackfuryd add-genesis-account fury1ssfpxgkzt4yj0unmzx0cmrx6mhm5kl0gu5ltqe 495000000000ufury    				
-blackfuryd add-genesis-account fury1w33lkcauxeyrq8nn3f6h9cgncxuxdrzmyqke5s 825000000000ufury    				
 blackfuryd add-genesis-account fury1clwgp88d7aq2nhk5mmwk2w82t67n3fgk9aczuv 154286250000ufury    				
 blackfuryd add-genesis-account fury17w74x9vrqq4a338ssh9y9r4m9s3f6zefgphm2l 214286250000ufury    				
 blackfuryd add-genesis-account fury1kah8qvju0h5g0nslsfhvznrsw0jrhnry2zm2hs 428571750000ufury    				
@@ -156,7 +153,7 @@ blackfuryd add-genesis-account fury1mhv5w6up9ltlwe7ekgfpjhd0upn4f7umdqwsmc 96428
 echo $KEYRING
 echo $KEY1
 # Sign genesis transaction
-blackfuryd gentx $KEY1 100000000000ufury --keyring-backend $KEYRING --chain-id $CHAINID
+blackfuryd gentx $KEY1 100000000000stake --keyring-backend $KEYRING --chain-id $CHAINID
 
 
 # Collect genesis tx
