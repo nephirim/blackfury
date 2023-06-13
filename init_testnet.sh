@@ -318,7 +318,7 @@ blackfuryd add-genesis-account fury1w4v0tjfpfqrncl3mh8ezmceyjfjnnukzkau37d 11022
 echo $KEYRING
 echo $KEY1
 # Sign genesis transaction
-blackfuryd gentx $KEY1 100000000000stake --keyring-backend $KEYRING --chain-id $CHAINID
+blackfuryd gentx samael 100000000000ufury --keyring-backend $KEYRING --chain-id $CHAINID
 
 
 # Collect genesis tx
