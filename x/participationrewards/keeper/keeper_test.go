@@ -122,7 +122,7 @@ func (suite *KeeperTestSuite) coreTest() {
 		return false
 	})
 
-	_, found := blackfury.ClaimsManagerKeeper.GetLastEpochClaim(ctx, "cosmoshub-4", "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure", cmtypes.ClaimTypeLiquidToken, "osmosis-1")
+	_, found := blackfury.ClaimsManagerKeeper.GetLastEpochClaim(ctx, "cosmoshub-4", "fury16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure", cmtypes.ClaimTypeLiquidToken, "osmosis-1")
 	suite.Require().True(found)
 
 	blackfury.EpochsKeeper.AfterEpochEnd(suite.chainA.GetContext(), epochtypes.EpochIdentifierEpoch, 3)
@@ -528,7 +528,7 @@ func (suite *KeeperTestSuite) setupTestClaims() {
 	)
 
 	suite.addClaim(
-		"black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+		"fury16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 		"cosmoshub-4",
 		cmtypes.ClaimTypeLiquidToken,
 		"osmosis-1",

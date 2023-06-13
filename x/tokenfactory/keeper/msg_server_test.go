@@ -71,7 +71,7 @@ func (s *KeeperTestSuite) TestBurnDenomMsg() {
 	}{
 		{
 			desc:          "denom does not exist",
-			burnDenom:     "factory/black1vprpg84y4c50fxpf9ngza2y0p0q3k7yrw2q8tf/evmos",
+			burnDenom:     "factory/fury1vprpg84y4c50fxpf9ngza2y0p0q3k7yrw2q8tf/evmos",
 			admin:         s.TestAccs[0].String(),
 			valid:         false,
 			expectedError: types.ErrUnauthorized,

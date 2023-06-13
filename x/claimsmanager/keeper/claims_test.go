@@ -32,7 +32,7 @@ var testClaims = []types.Claim{
 	},
 	// zero value claim
 	{
-		UserAddress: "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+		UserAddress: "fury16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 		// ChainID:       suite.chainB.ChainID,
 		Module:        types.ClaimTypeLiquidToken,
 		SourceChainId: "osmosis-1",

@@ -11,21 +11,21 @@ func (s *KeeperTestSuite) TestGenesis() {
 	genesisState := types.GenesisState{
 		FactoryDenoms: []types.GenesisDenom{
 			{
-				Denom: "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj/bitcoin",
+				Denom: "factory/fury1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj/bitcoin",
 				AuthorityMetadata: types.DenomAuthorityMetadata{
-					Admin: "black1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj",
+					Admin: "fury1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj",
 				},
 			},
 			{
-				Denom: "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj/diff-admin",
+				Denom: "factory/fury1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj/diff-admin",
 				AuthorityMetadata: types.DenomAuthorityMetadata{
-					Admin: "black1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj",
+					Admin: "fury1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj",
 				},
 			},
 			{
-				Denom: "factory/black1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj/litecoin",
+				Denom: "factory/fury1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj/litecoin",
 				AuthorityMetadata: types.DenomAuthorityMetadata{
-					Admin: "black1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj",
+					Admin: "fury1ve2nremzdnu7e55khlrt2282qhh98dh4ssnxaj",
 				},
 			},
 		},

@@ -525,7 +525,7 @@ func (suite *KeeperTestSuite) TestKeeper_ZoneWithdrawalRecords() {
 			func() {},
 			&types.QueryWithdrawalRecordsRequest{
 				ChainId:          suite.chainB.ChainID,
-				DelegatorAddress: "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+				DelegatorAddress: "fury16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 			},
 			false,
 			0,
@@ -551,7 +551,7 @@ func (suite *KeeperTestSuite) TestKeeper_ZoneWithdrawalRecords() {
 				icsKeeper.AddWithdrawalRecord(
 					ctx,
 					zone.ChainId,
-					"black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+					"fury16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 					distribution,
 					testAddress,
 					sdk.NewCoins(sdk.NewCoin(zone.BaseDenom, math.NewInt(15000000))),
@@ -563,7 +563,7 @@ func (suite *KeeperTestSuite) TestKeeper_ZoneWithdrawalRecords() {
 			},
 			&types.QueryWithdrawalRecordsRequest{
 				ChainId:          suite.chainB.ChainID,
-				DelegatorAddress: "black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+				DelegatorAddress: "fury16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 			},
 			false,
 			1,
@@ -644,7 +644,7 @@ func (suite *KeeperTestSuite) TestKeeper_WithdrawalRecords() {
 				icsKeeper.AddWithdrawalRecord(
 					ctx,
 					zone.ChainId,
-					"black16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
+					"fury16pxh2v4hr28h2gkntgfk8qgh47pfmjfhzgeure",
 					distribution,
 					testAddress,
 					sdk.NewCoins(sdk.NewCoin(zone.BaseDenom, math.NewInt(15000000))),
