@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   blackfury:
-    image: blackfuryzone/blackfury:v1.0.0-10-gddbec29
+    image: fanfury/blackfury:v1.0.0-10-gddbec29
     hostname: blackfury
     volumes:
       - ./data/qstest-1:/blackfury/.blackfuryd
@@ -12,7 +12,7 @@ services:
       - 26657:26657
       - 1317:1317
   blackfury2:
-    image: blackfuryzone/blackfury:v1.0.0-10-gddbec29
+    image: fanfury/blackfury:v1.0.0-10-gddbec29
     hostname: blackfury2
     volumes:
       - ./data/qstest-1a:/blackfury/.blackfuryd
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
   blackfury3:
-    image: blackfuryzone/blackfury:v1.0.0-10-gddbec29
+    image: fanfury/blackfury:v1.0.0-10-gddbec29
     hostname: blackfury3
     volumes:
       - ./data/qstest-1b:/blackfury/.blackfuryd

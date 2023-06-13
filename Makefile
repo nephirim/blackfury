@@ -147,7 +147,7 @@ $(BUILDDIR)/:
 	mkdir -p $(BUILDDIR)/
 
 build-docker:
-	DOCKER_BUILDKIT=1 $(DOCKER) build . -f Dockerfile -t fanfury/blackfury:$(DOCKER_VERSION) -t fanfury/blackfury:latest
+	DOCKER_BUILDKIT=1 $(DOCKER) build . -f Dockerfile -t fanfury/blackfury:latest -t fanfury/blackfury:latest
 
 build-docker-local: build
 	DOCKER_BUILDKIT=1 $(DOCKER) build -f Dockerfile.local . -t fanfury/blackfury:$(DOCKER_VERSION)
@@ -381,8 +381,8 @@ ictest-deps:
 	@$(DOCKER) image pull blackfuryzone/interchain-queries:e2e
 
 ictest-build-push: ictest-setup
-	@$(DOCKER) tag blackfury:local  blackfuryzone/blackfury-e2e:latest
-	@$(DOCKER) push blackfuryzone/blackfury-e2e:latest
+	@$(DOCKER) tag blackfury:local  fanfury/blackfury-e2e:latest
+	@$(DOCKER) push fanfury/blackfury-e2e:latest
 
 .PHONY: ictest-basic ictest-upgrade ictest-ibc ictest-all ictest-deps ictest-build ictest-build-push
 

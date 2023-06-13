@@ -49,7 +49,7 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            blackfuryzone/blackfury-e2e:latest
+            fanfury/blackfury-e2e:latest
 
   test-blackfury-basic:
     runs-on: ubuntu-latest

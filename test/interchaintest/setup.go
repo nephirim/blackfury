@@ -5,8 +5,8 @@ import (
 )
 
 var (
-	BlackfuryE2ERepo = "blackfuryzone/blackfury-e2e"
-	BlackfuryMainRepo  = "blackfuryzone/blackfury"
+	BlackfuryE2ERepo = "fanfury/blackfury-e2e"
+	BlackfuryMainRepo  = "fanfury/blackfury"
 
 	repo, version = GetDockerImageInfo()
 

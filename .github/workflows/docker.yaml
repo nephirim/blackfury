@@ -38,5 +38,5 @@ jobs:
 
       - name: build and push container
         run: |
-          DOCKER_BUILDKIT=1 /usr/bin/docker build . -f Dockerfile -t blackfuryzone/blackfury:latest
-          /usr/bin/docker push blackfuryzone/blackfury:latest
+          DOCKER_BUILDKIT=1 /usr/bin/docker build . -f Dockerfile -t fanfury/blackfury:latest
+          /usr/bin/docker push fanfury/blackfury:latest

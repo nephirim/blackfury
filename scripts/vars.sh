@@ -20,7 +20,7 @@ else
     TIME="$(date --date '-2 minutes' +%Y-%m-%dT%H:%M:00Z -u)"
 fi
 
-QS_IMAGE=blackfuryzone/blackfury
+QS_IMAGE=fanfury/blackfury
 QS_VERSION=latest
 TZ_IMAGE=blackfuryzone/testzone
 TZ_VERSION=latest
