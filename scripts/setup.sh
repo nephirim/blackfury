@@ -7,111 +7,111 @@ source ${SCRIPT_DIR}/vars.sh
 docker-compose down
 
 echo "Removing previous data..."
-rm -rf ./${HOME}/$CHAINID_0 &> /dev/null
-rm -rf ./${HOME}/${CHAINID_0}a &> /dev/null
-rm -rf ./${HOME}/${CHAINID_0}b &> /dev/null
+rm -rf ${HOME}/$CHAINID_0 &> /dev/null
+rm -rf ${HOME}/${CHAINID_0}a &> /dev/null
+rm -rf ${HOME}/${CHAINID_0}b &> /dev/null
 
-rm -rf ./${HOME}/$CHAINID_1 &> /dev/null
-rm -rf ./${HOME}/${CHAINID_1}a &> /dev/null
-rm -rf ./${HOME}/${CHAINID_1}b &> /dev/null
-rm -rf ./${HOME}/${CHAINID_1}c &> /dev/null
+rm -rf ${HOME}/$CHAINID_1 &> /dev/null
+rm -rf ${HOME}/${CHAINID_1}a &> /dev/null
+rm -rf ${HOME}/${CHAINID_1}b &> /dev/null
+rm -rf ${HOME}/${CHAINID_1}c &> /dev/null
 
-rm -rf ./${HOME}/$CHAINID_2 &> /dev/null
-rm -rf ./${HOME}/${CHAINID_2}a &> /dev/null
-rm -rf ./${HOME}/${CHAINID_2}b &> /dev/null
-rm -rf ./${HOME}/${CHAINID_2}c &> /dev/null
+rm -rf ${HOME}/$CHAINID_2 &> /dev/null
+rm -rf ${HOME}/${CHAINID_2}a &> /dev/null
+rm -rf ${HOME}/${CHAINID_2}b &> /dev/null
+rm -rf ${HOME}/${CHAINID_2}c &> /dev/null
 
-rm -rf ./${HOME}/hermes &> /dev/null
-rm -rf ./${HOME}/icq &> /dev/null
-rm -rf ./${HOME}/icq2 &> /dev/null
+rm -rf ${HOME}/hermes &> /dev/null
+rm -rf ${HOME}/icq &> /dev/null
+rm -rf ${HOME}/icq2 &> /dev/null
 
 # Add directories for both chains, exit if an error occurs
 #chain_0
-if ! sudo mkdir -p ./${HOME}/$CHAINID_0 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/$CHAINID_0 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! sudo mkdir -p ./${HOME}/${CHAINID_0}a 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/${CHAINID_0}a 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! sudo mkdir -p ./${HOME}/${CHAINID_0}b 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/${CHAINID_0}b 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
 #chain_1
-if ! sudo mkdir -p ./${HOME}/$CHAINID_1 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/$CHAINID_1 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! sudo mkdir -p ./${HOME}/${CHAINID_1}a 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/${CHAINID_1}a 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! sudo mkdir -p ./${HOME}/${CHAINID_1}b 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/${CHAINID_1}b 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! sudo mkdir -p ./${HOME}/${CHAINID_1}c 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/${CHAINID_1}c 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
     #chain_2
-    if ! sudo mkdir -p ./${HOME}/$CHAINID_2 2>/dev/null; then
+    if ! sudo mkdir -p ${HOME}/$CHAINID_2 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 
-    if ! sudo mkdir -p ./${HOME}/${CHAINID_2}a 2>/dev/null; then
+    if ! sudo mkdir -p ${HOME}/${CHAINID_2}a 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 
-    if ! sudo mkdir -p ./${HOME}/${CHAINID_2}b 2>/dev/null; then
+    if ! sudo mkdir -p ${HOME}/${CHAINID_2}b 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 
-    if ! sudo mkdir -p ./${HOME}/${CHAINID_2}c 2>/dev/null; then
+    if ! sudo mkdir -p ${HOME}/${CHAINID_2}c 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 fi
 
 #relayers
-if ! sudo mkdir -p ./${HOME}/hermes 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/hermes 2>/dev/null; then
     echo "Failed to create hermes folder. Aborting..."
     exit 1
 fi
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
-    cp ./scripts/config/hermes-2.toml ./${HOME}/hermes/config.toml
+    cp ./scripts/config/hermes-2.toml ${HOME}/hermes/config.toml
 else
-    cp ./scripts/config/hermes.toml ./${HOME}/hermes/config.toml
+    cp ./scripts/config/hermes.toml ${HOME}/hermes/config.toml
 fi
 
-if ! sudo mkdir -p ./${HOME}/icq 2>/dev/null; then
+if ! sudo mkdir -p ${HOME}/icq 2>/dev/null; then
     echo "Failed to create icq folder. Aborting..."
     exit 1
 fi
 
-cp ./scripts/config/icq.yaml ./${HOME}/icq/config.yaml
+cp ./scripts/config/icq.yaml ${HOME}/icq/config.yaml
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
-    if ! sudo mkdir -p ./${HOME}/icq2 2>/dev/null; then
+    if ! sudo mkdir -p ${HOME}/icq2 2>/dev/null; then
         echo "Failed to create icq2 folder. Aborting..."
         exit 1
     fi
 
-    cp ./scripts/config/icq2.yaml ./${HOME}/icq2/config.yaml
+    cp ./scripts/config/icq2.yaml ${HOME}/icq2/config.yaml
 fi
 
 echo "Initializing $CHAINID_0..."
@@ -314,21 +314,21 @@ if [ "$IS_MULTI_ZONE_TEST" = true ]; then
     $TZ2_4_RUN gentx val11 4000000000uosmo --commission-rate 0.03 --commission-max-rate 0.5 --commission-max-change-rate 0.1 --chain-id $CHAINID_2 --keyring-backend test
 fi
 
-cp ./${HOME}/${CHAINID_0}a/config/gentx/*.json ./${HOME}/${CHAINID_0}/config/gentx/
-cp ./${HOME}/${CHAINID_0}b/config/gentx/*.json ./${HOME}/${CHAINID_0}/config/gentx/
+cp ${HOME}/${CHAINID_0}a/config/gentx/*.json ${HOME}/${CHAINID_0}/config/gentx/
+cp ${HOME}/${CHAINID_0}b/config/gentx/*.json ${HOME}/${CHAINID_0}/config/gentx/
 
 $QS1_RUN collect-gentxs
 
-cp ./${HOME}/${CHAINID_1}a/config/gentx/*.json ./${HOME}/${CHAINID_1}/config/gentx/
-cp ./${HOME}/${CHAINID_1}b/config/gentx/*.json ./${HOME}/${CHAINID_1}/config/gentx/
-cp ./${HOME}/${CHAINID_1}c/config/gentx/*.json ./${HOME}/${CHAINID_1}/config/gentx/
+cp ${HOME}/${CHAINID_1}a/config/gentx/*.json ${HOME}/${CHAINID_1}/config/gentx/
+cp ${HOME}/${CHAINID_1}b/config/gentx/*.json ${HOME}/${CHAINID_1}/config/gentx/
+cp ${HOME}/${CHAINID_1}c/config/gentx/*.json ${HOME}/${CHAINID_1}/config/gentx/
 
 $TZ1_1_RUN collect-gentxs
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
-    cp ./${HOME}/${CHAINID_2}a/config/gentx/*.json ./${HOME}/${CHAINID_2}/config/gentx/
-    cp ./${HOME}/${CHAINID_2}b/config/gentx/*.json ./${HOME}/${CHAINID_2}/config/gentx/
-    cp ./${HOME}/${CHAINID_2}c/config/gentx/*.json ./${HOME}/${CHAINID_2}/config/gentx/
+    cp ${HOME}/${CHAINID_2}a/config/gentx/*.json ${HOME}/${CHAINID_2}/config/gentx/
+    cp ${HOME}/${CHAINID_2}b/config/gentx/*.json ${HOME}/${CHAINID_2}/config/gentx/
+    cp ${HOME}/${CHAINID_2}c/config/gentx/*.json ${HOME}/${CHAINID_2}/config/gentx/
 
     $TZ2_1_RUN collect-gentxs
 fi
@@ -406,8 +406,8 @@ ${SED} -e "s/persistent_peers = \"\"/persistent_peers = \"$node1,$node2,$node3\"
 ${SED} -e 's/enable = false/enable = true/g' ${HOME}/${CHAINID_1}c/config/app.toml
 ${SED} -e 's/swagger = false/swagger = true/g' ${HOME}/${CHAINID_1}c/config/app.toml
 
-jq '.consensus_params.block.time_iota_ms = "200"'  ./${HOME}/${CHAINID_0}/config/genesis.json > ./${HOME}/${CHAINID_0}/config/genesis.json.new && mv ./${HOME}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.consensus_params.block.time_iota_ms = "200"'  ./${HOME}/${CHAINID_1}/config/genesis.json > ./${HOME}/${CHAINID_1}/config/genesis.json.new && mv ./${HOME}/${CHAINID_1}/config/genesis.json{.new,}
+jq '.consensus_params.block.time_iota_ms = "200"'  ${HOME}/${CHAINID_0}/config/genesis.json > ${HOME}/${CHAINID_0}/config/genesis.json.new && mv ${HOME}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.consensus_params.block.time_iota_ms = "200"'  ${HOME}/${CHAINID_1}/config/genesis.json > ${HOME}/${CHAINID_1}/config/genesis.json.new && mv ${HOME}/${CHAINID_1}/config/genesis.json{.new,}
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
     ${SED} -e 's#"tcp://127.0.0.1:26657"#"tcp://0.0.0.0:26657"#g' ${HOME}/${CHAINID_2}/config/config.toml
@@ -446,44 +446,44 @@ if [ "$IS_MULTI_ZONE_TEST" = true ]; then
     ${SED} -e 's/enable = false/enable = true/g' ${HOME}/${CHAINID_2}c/config/app.toml
     ${SED} -e 's/swagger = false/swagger = true/g' ${HOME}/${CHAINID_2}c/config/app.toml
 
-    jq '.consensus_params.block.time_iota_ms = "200"'  ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.consensus_params.block.time_iota_ms = "200"'  ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
 fi
 
 ## add the message types ICA should allow
-jq '.app_state.interchainaccounts.host_genesis_state.params.allow_messages = ["/cosmos.bank.v1beta1.MsgSend", "/cosmos.bank.v1beta1.MsgMultiSend", "/cosmos.staking.v1beta1.MsgDelegate", "/cosmos.staking.v1beta1.MsgRedeemTokensforShares", "/cosmos.staking.v1beta1.MsgTokenizeShares", "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward", "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress", "/ibc.applications.transfer.v1.MsgTransfer", "/cosmos.staking.v1beta1.MsgUndelegate"]' ./${HOME}/${CHAINID_1}/config/genesis.json > ./${HOME}/${CHAINID_1}/config/genesis.json.new && mv ./${HOME}/${CHAINID_1}/config/genesis.json{.new,}
-jq '.app.state.mint.minter.inflation = "2.530000000000000000"' ./${HOME}/${CHAINID_1}/config/genesis.json > ./${HOME}/${CHAINID_1}/config/genesis.json.new && mv ./${HOME}/${CHAINID_1}/config/genesis.json{.new,}
-jq '.app.state.mint.params.max_inflation = "2.530000000000000000"' ./${HOME}/${CHAINID_1}/config/genesis.json > ./${HOME}/${CHAINID_1}/config/genesis.json.new && mv ./${HOME}/${CHAINID_1}/config/genesis.json{.new,}
-jq '.app_state.staking.params.unbonding_time = "300s"' ./${HOME}/${CHAINID_1}/config/genesis.json > ./${HOME}/${CHAINID_1}/config/genesis.json.new && mv ./${HOME}/${CHAINID_1}/config/genesis.json{.new,}
-cp ./${HOME}/${CHAINID_1}{,a}/config/genesis.json
-cp ./${HOME}/${CHAINID_1}{,b}/config/genesis.json
-cp ./${HOME}/${CHAINID_1}{,c}/config/genesis.json
+jq '.app_state.interchainaccounts.host_genesis_state.params.allow_messages = ["/cosmos.bank.v1beta1.MsgSend", "/cosmos.bank.v1beta1.MsgMultiSend", "/cosmos.staking.v1beta1.MsgDelegate", "/cosmos.staking.v1beta1.MsgRedeemTokensforShares", "/cosmos.staking.v1beta1.MsgTokenizeShares", "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward", "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress", "/ibc.applications.transfer.v1.MsgTransfer", "/cosmos.staking.v1beta1.MsgUndelegate"]' ${HOME}/${CHAINID_1}/config/genesis.json > ${HOME}/${CHAINID_1}/config/genesis.json.new && mv ${HOME}/${CHAINID_1}/config/genesis.json{.new,}
+jq '.app.state.mint.minter.inflation = "2.530000000000000000"' ${HOME}/${CHAINID_1}/config/genesis.json > ${HOME}/${CHAINID_1}/config/genesis.json.new && mv ${HOME}/${CHAINID_1}/config/genesis.json{.new,}
+jq '.app.state.mint.params.max_inflation = "2.530000000000000000"' ${HOME}/${CHAINID_1}/config/genesis.json > ${HOME}/${CHAINID_1}/config/genesis.json.new && mv ${HOME}/${CHAINID_1}/config/genesis.json{.new,}
+jq '.app_state.staking.params.unbonding_time = "300s"' ${HOME}/${CHAINID_1}/config/genesis.json > ${HOME}/${CHAINID_1}/config/genesis.json.new && mv ${HOME}/${CHAINID_1}/config/genesis.json{.new,}
+cp ${HOME}/${CHAINID_1}{,a}/config/genesis.json
+cp ${HOME}/${CHAINID_1}{,b}/config/genesis.json
+cp ${HOME}/${CHAINID_1}{,c}/config/genesis.json
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
-    jq '.app_state.interchainaccounts.host_genesis_state.params.allow_messages = ["/cosmos.bank.v1beta1.MsgSend", "/cosmos.bank.v1beta1.MsgMultiSend", "/cosmos.staking.v1beta1.MsgDelegate", "/cosmos.staking.v1beta1.MsgRedeemTokensforShares", "/cosmos.staking.v1beta1.MsgTokenizeShares", "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward", "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress", "/ibc.applications.transfer.v1.MsgTransfer", "/cosmos.staking.v1beta1.MsgUndelegate"]' ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
-    jq '.app_state.interchainaccounts.host_genesis_state.params.host_enabled = true' ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
-    jq '.app_state.interchainaccounts.host_genesis_state.port = "icahost"' ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
-    jq '.app.state.mint.minter.inflation = "2.530000000000000000"' ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
-    jq '.app.state.mint.params.max_inflation = "2.530000000000000000"' ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
-    cp ./${HOME}/${CHAINID_2}{,a}/config/genesis.json
-    cp ./${HOME}/${CHAINID_2}{,b}/config/genesis.json
-    cp ./${HOME}/${CHAINID_2}{,c}/config/genesis.json
+    jq '.app_state.interchainaccounts.host_genesis_state.params.allow_messages = ["/cosmos.bank.v1beta1.MsgSend", "/cosmos.bank.v1beta1.MsgMultiSend", "/cosmos.staking.v1beta1.MsgDelegate", "/cosmos.staking.v1beta1.MsgRedeemTokensforShares", "/cosmos.staking.v1beta1.MsgTokenizeShares", "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward", "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress", "/ibc.applications.transfer.v1.MsgTransfer", "/cosmos.staking.v1beta1.MsgUndelegate"]' ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.app_state.interchainaccounts.host_genesis_state.params.host_enabled = true' ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.app_state.interchainaccounts.host_genesis_state.port = "icahost"' ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.app.state.mint.minter.inflation = "2.530000000000000000"' ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.app.state.mint.params.max_inflation = "2.530000000000000000"' ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    cp ${HOME}/${CHAINID_2}{,a}/config/genesis.json
+    cp ${HOME}/${CHAINID_2}{,b}/config/genesis.json
+    cp ${HOME}/${CHAINID_2}{,c}/config/genesis.json
 
-    jq '.epochs.epochs[0].duration = "180s"'  ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
-    jq '.epochs.epochs[1].duration = "20s"'  ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
-    jq '.epochs.epochs[2].duration = "300s"'  ./${HOME}/${CHAINID_2}/config/genesis.json > ./${HOME}/${CHAINID_2}/config/genesis.json.new && mv ./${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.epochs.epochs[0].duration = "180s"'  ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.epochs.epochs[1].duration = "20s"'  ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
+    jq '.epochs.epochs[2].duration = "300s"'  ${HOME}/${CHAINID_2}/config/genesis.json > ${HOME}/${CHAINID_2}/config/genesis.json.new && mv ${HOME}/${CHAINID_2}/config/genesis.json{.new,}
 
 fi
 
 ## set the 'epoch' epoch to 5m interval
-jq '.app_state.epochs.epochs = [{"identifier": "epoch","start_time": "0001-01-01T00:00:00Z","duration": "240s","current_epoch": "0","current_epoch_start_time": "0001-01-01T00:00:00Z","epoch_counting_started": false,"current_epoch_start_height": "0"}]' ./${HOME}/${CHAINID_0}/config/genesis.json > ./${HOME}/${CHAINID_0}/config/genesis.json.new && mv ./${HOME}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.app_state.interchainstaking.params.deposit_interval = 25' ./${HOME}/${CHAINID_0}/config/genesis.json > ./${HOME}/${CHAINID_0}/config/genesis.json.new && mv ./${HOME}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.app_state.mint.params.epoch_identifier = "epoch"' ./${HOME}/${CHAINID_0}/config/genesis.json > ./${HOME}/${CHAINID_0}/config/genesis.json.new && mv ./${HOME}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.app_state.gov.deposit_params.min_deposit = [{"denom": "ufury", "amount": "100"}]' ./${HOME}/${CHAINID_0}/config/genesis.json > ./${HOME}/${CHAINID_0}/config/genesis.json.new && mv ./${HOME}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.app_state.gov.deposit_params.max_deposit_period = "10s"' ./${HOME}/${CHAINID_0}/config/genesis.json > ./${HOME}/${CHAINID_0}/config/genesis.json.new && mv ./${HOME}/${CHAINID_0}/config/genesis.json{.new,}
-jq '.app_state.gov.voting_params.voting_period = "10s"' ./${HOME}/${CHAINID_0}/config/genesis.json > ./${HOME}/${CHAINID_0}/config/genesis.json.new && mv ./${HOME}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.epochs.epochs = [{"identifier": "epoch","start_time": "0001-01-01T00:00:00Z","duration": "240s","current_epoch": "0","current_epoch_start_time": "0001-01-01T00:00:00Z","epoch_counting_started": false,"current_epoch_start_height": "0"}]' ${HOME}/${CHAINID_0}/config/genesis.json > ${HOME}/${CHAINID_0}/config/genesis.json.new && mv ${HOME}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.interchainstaking.params.deposit_interval = 25' ${HOME}/${CHAINID_0}/config/genesis.json > ${HOME}/${CHAINID_0}/config/genesis.json.new && mv ${HOME}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.mint.params.epoch_identifier = "epoch"' ${HOME}/${CHAINID_0}/config/genesis.json > ${HOME}/${CHAINID_0}/config/genesis.json.new && mv ${HOME}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.gov.deposit_params.min_deposit = [{"denom": "ufury", "amount": "100"}]' ${HOME}/${CHAINID_0}/config/genesis.json > ${HOME}/${CHAINID_0}/config/genesis.json.new && mv ${HOME}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.gov.deposit_params.max_deposit_period = "10s"' ${HOME}/${CHAINID_0}/config/genesis.json > ${HOME}/${CHAINID_0}/config/genesis.json.new && mv ${HOME}/${CHAINID_0}/config/genesis.json{.new,}
+jq '.app_state.gov.voting_params.voting_period = "10s"' ${HOME}/${CHAINID_0}/config/genesis.json > ${HOME}/${CHAINID_0}/config/genesis.json.new && mv ${HOME}/${CHAINID_0}/config/genesis.json{.new,}
 
-cp ./${HOME}/${CHAINID_0}{,a}/config/genesis.json
-cp ./${HOME}/${CHAINID_0}{,b}/config/genesis.json
+cp ${HOME}/${CHAINID_0}{,a}/config/genesis.json
+cp ${HOME}/${CHAINID_0}{,b}/config/genesis.json
 
 rm -rf ${HOME}/backup
 sudo mkdir ${HOME}/backup
