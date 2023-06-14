@@ -45,6 +45,41 @@
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury1g9p0jqxacyy8hyfz0vmskv0jwectfl27wamm9t",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury18fzv4fzhn8y4grfwd0jzpuan5g63lv08gkeqae",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury17g4zln8qv4pwg66wq2ydrwddrw94furqfvp5r4",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury1se7940uhwflslp2h2c7tm48kwemlulxcyue8k5",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury17u5nxangepc3gn7mneyh545evy9eycwh773ys7",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
           "address": "fury1ncseg5l2ed4s9wrxmahrvqy9wpzsmfx87f4ryn",
           "pub_key": null,
           "account_number": "0",
@@ -2219,6 +2254,51 @@
         },
         {
           "address": "fury134jwxqnxhxyjvq9na5efcgqwmvwmzeqngrvmsc",
+          "coins": [
+            {
+              "denom": "ufury",
+              "amount": "2000000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury1g9p0jqxacyy8hyfz0vmskv0jwectfl27wamm9t",
+          "coins": [
+            {
+              "denom": "ufury",
+              "amount": "2000000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury18fzv4fzhn8y4grfwd0jzpuan5g63lv08gkeqae",
+          "coins": [
+            {
+              "denom": "ufury",
+              "amount": "2000000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury17g4zln8qv4pwg66wq2ydrwddrw94furqfvp5r4",
+          "coins": [
+            {
+              "denom": "ufury",
+              "amount": "2000000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury1se7940uhwflslp2h2c7tm48kwemlulxcyue8k5",
+          "coins": [
+            {
+              "denom": "ufury",
+              "amount": "2000000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury17u5nxangepc3gn7mneyh545evy9eycwh773ys7",
           "coins": [
             {
               "denom": "ufury",

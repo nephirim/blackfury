@@ -1345,6 +1345,15 @@
           ]
         },
         {
+          "address": "fury17u5nxangepc3gn7mneyh545evy9eycwh773ys7",
+          "coins": [
+            {
+              "denom": "ufury",
+              "amount": "2000000000000"
+            }
+          ]
+        },
+        {
           "address": "fury1q84cgldq5wf3am3tfuz2lzzx2azala64urfdca",
           "coins": [
             {
