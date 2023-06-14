@@ -27,67 +27,67 @@ rm -rf ./${CHAIN_DIR}/icq2 &> /dev/null
 
 # Add directories for both chains, exit if an error occurs
 #chain_0
-if ! mkdir -p ./${CHAIN_DIR}/$CHAINID_0 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/$CHAINID_0 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_0}a 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_0}a 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_0}b 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_0}b 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
 #chain_1
-if ! mkdir -p ./${CHAIN_DIR}/$CHAINID_1 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/$CHAINID_1 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_1}a 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_1}a 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_1}b 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_1}b 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
-if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_1}c 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_1}c 2>/dev/null; then
     echo "Failed to create chain folder. Aborting..."
     exit 1
 fi
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
     #chain_2
-    if ! mkdir -p ./${CHAIN_DIR}/$CHAINID_2 2>/dev/null; then
+    if ! sudo mkdir -p ./${CHAIN_DIR}/$CHAINID_2 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 
-    if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_2}a 2>/dev/null; then
+    if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_2}a 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 
-    if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_2}b 2>/dev/null; then
+    if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_2}b 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 
-    if ! mkdir -p ./${CHAIN_DIR}/${CHAINID_2}c 2>/dev/null; then
+    if ! sudo mkdir -p ./${CHAIN_DIR}/${CHAINID_2}c 2>/dev/null; then
         echo "Failed to create chain folder. Aborting..."
         exit 1
     fi
 fi
 
 #relayers
-if ! mkdir -p ./${CHAIN_DIR}/hermes 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/hermes 2>/dev/null; then
     echo "Failed to create hermes folder. Aborting..."
     exit 1
 fi
@@ -98,7 +98,7 @@ else
     cp ./scripts/config/hermes.toml ./${CHAIN_DIR}/hermes/config.toml
 fi
 
-if ! mkdir -p ./${CHAIN_DIR}/icq 2>/dev/null; then
+if ! sudo mkdir -p ./${CHAIN_DIR}/icq 2>/dev/null; then
     echo "Failed to create icq folder. Aborting..."
     exit 1
 fi
@@ -106,7 +106,7 @@ fi
 cp ./scripts/config/icq.yaml ./${CHAIN_DIR}/icq/config.yaml
 
 if [ "$IS_MULTI_ZONE_TEST" = true ]; then
-    if ! mkdir -p ./${CHAIN_DIR}/icq2 2>/dev/null; then
+    if ! sudo mkdir -p ./${CHAIN_DIR}/icq2 2>/dev/null; then
         echo "Failed to create icq2 folder. Aborting..."
         exit 1
     fi
@@ -486,7 +486,7 @@ cp ./${CHAIN_DIR}/${CHAINID_0}{,a}/config/genesis.json
 cp ./${CHAIN_DIR}/${CHAINID_0}{,b}/config/genesis.json
 
 rm -rf ${CHAIN_DIR}/backup
-mkdir ${CHAIN_DIR}/backup
+sudo mkdir ${CHAIN_DIR}/backup
 cp -fr ${CHAIN_DIR}/${CHAINID_0} ${CHAIN_DIR}/backup/${CHAINID_0}
 cp -fr ${CHAIN_DIR}/${CHAINID_0}a ${CHAIN_DIR}/backup/${CHAINID_0}a
 cp -fr ${CHAIN_DIR}/${CHAINID_0}b ${CHAIN_DIR}/backup/${CHAINID_0}b
