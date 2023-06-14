@@ -38,7 +38,7 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "fury1yz60c5tw5xy2yn539dcqn0ut5wh2fswyhmkfmc",
+          "address": "fury1husuh69pdhymyacwjr65vqpa9razcqqg7rc22j",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -52,7 +52,7 @@
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "fury1husuh69pdhymyacwjr65vqpa9razcqqg7rc22j",
+          "address": "fury1yz60c5tw5xy2yn539dcqn0ut5wh2fswyhmkfmc",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
