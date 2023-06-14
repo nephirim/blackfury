@@ -22,12 +22,12 @@ fi
 
 QS_IMAGE=fanfury/blackfury
 QS_VERSION=latest
-TZ_IMAGE=blackfuryzone/testzone
+TZ_IMAGE=fanfury/blackfury:latest
 TZ_VERSION=latest
-RLY_IMAGE=blackfuryzone/relayer
+RLY_IMAGE=fanfury/blackfury:relayer
 RLY_VERSION=v2.1.1
 
-CHAIN_DIR=data
+CHAIN_DIR=/home/adrian/.blackfuryd
 CHAINID_0=qstest-1
 CHAINID_1=lstest-1
 CHAINID_2=lstest-2

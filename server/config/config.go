@@ -50,7 +50,7 @@ func AppConfig(denom string) (customAppTemplate string, customAppConfig interfac
 	//
 	// By default, we set the min gas prices to 0.
 	if denom != "" {
-		srvCfg.MinGasPrices = "0" + denom
+		srvCfg.MinGasPrices = "0.00002" + denom
 	}
 
 	customAppConfig = Config{
