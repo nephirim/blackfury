@@ -45,6 +45,41 @@
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury1tzejwf9xtrj0j0ueursaxr3n2jf96nkkxgws3g",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury1husuh69pdhymyacwjr65vqpa9razcqqg7rc22j",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury1f67alv45s5mpjgyzcmc7eflalmcag7782daxcw",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury1rd3jxn9tnjtec28zrkmn6ygv9wzlr8ue9xjk8z",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "fury13azrkmqt7l8c2jfpndle26wgd0jg0gm02d2rpt",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
           "address": "fury1jl2zcz32npjgs88vd60xv5qan5rtzh4xvrsy9m",
           "pub_key": null,
           "account_number": "0",
@@ -1500,6 +1535,75 @@
             {
               "denom": "stake",
               "amount": "100000000000000000000000000"
+            },
+            {
+              "denom": "ufury",
+              "amount": "200000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury1tzejwf9xtrj0j0ueursaxr3n2jf96nkkxgws3g",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000000000000000"
+            },
+            {
+              "denom": "ufury",
+              "amount": "200000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury1husuh69pdhymyacwjr65vqpa9razcqqg7rc22j",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000000000000000"
+            },
+            {
+              "denom": "ufury",
+              "amount": "200000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury1f67alv45s5mpjgyzcmc7eflalmcag7782daxcw",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000000000000000"
+            },
+            {
+              "denom": "ufury",
+              "amount": "200000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury1rd3jxn9tnjtec28zrkmn6ygv9wzlr8ue9xjk8z",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000000000000000"
+            },
+            {
+              "denom": "ufury",
+              "amount": "200000000000"
+            }
+          ]
+        },
+        {
+          "address": "fury13azrkmqt7l8c2jfpndle26wgd0jg0gm02d2rpt",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000000000000000"
+            },
+            {
+              "denom": "ufury",
+              "amount": "200000000000"
             }
           ]
         },
